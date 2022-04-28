@@ -4,6 +4,7 @@
   "description": "Information about my kdrama matching feature",
   "main": "server.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "test": "Kdrama",
     "precompress": "{{ executes BEFORE the `compress` script }}",
     "compress": "{{ run command to compress files }}",
