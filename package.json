@@ -10,6 +10,11 @@
     "postcompress": "{{ executes AFTER `compress` script }}"
   },
 
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaonanpols21/block-tech-v2.git"
+  },
+
   "keywords": [
     "kdrama"
   ],
