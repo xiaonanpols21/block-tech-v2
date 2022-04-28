@@ -32,7 +32,23 @@ const kdramas = [
 ];
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  let doc = '<!doctype html>';
+  doc += '<title>Kdramas</title>';
+  doc += '<h1>Kdrmas</h1>';
+
+  kdramas.forEach(kdrama => {
+    doc += "<section>";
+    doc += `<h2>${kdrama.name}<h2>`;
+    doc += `<h3>${kdrama.year}<h2>`;
+    doc += "<h3>Categories:</h3>";
+    doc += "<ul>";
+    kdrama.categories.forEach(category => {
+      doc += `<li>${category}</li>`;
+    });
+    doc += "</ul>";
+    doc += "</section>";
+  });
+  res.send(doc);
 })
 
 app.get('/test', (req, res) => {
