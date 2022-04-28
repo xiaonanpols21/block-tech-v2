@@ -10,22 +10,21 @@
     "compress": "{{ run command to compress files }}",
     "postcompress": "{{ executes AFTER `compress` script }}"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xiaonanpols21/block-tech-v2.git"
   },
-
   "keywords": [
     "kdrama"
   ],
-
   "author": "Xiao Nan Pols",
   "license": "MIT",
   "dependencies": {
+    "array-back": "^6.2.2",
     "camelcase": "^6.3.0",
     "express": "^4.17.3",
     "lodash": "^4.17.21",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "slug": "^5.3.0"
   }
 }
