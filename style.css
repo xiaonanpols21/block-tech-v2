@@ -1,0 +1,218 @@
+/* Basic */
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-stack: 'Poppins', sans-serif;
+
+    --purple: #5f5ccf;
+    --grey: #9ba9b4;
+    --pink: #e850aa;
+    --white: #ffffff;
+    --bg-color: #1a1a1a;
+
+    --purple-active: #3b4161;
+
+    --gradient-black-transparent: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(255,255,255,0) 50%);
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-color);
+    color: var(--white);
+}
+
+a {
+    text-decoration: none;
+}
+
+    /* Index.html */
+/* Header */
+header {
+    position: relative;
+    height: 25em; /*400px*/
+    padding: 1.25em 1.875em; /*20px 30px*/
+    border-radius: 0em 0em 3.125em 3.125em; /*50px*/
+    background-image: var(--gradient-black-transparent), url('img/101.gif');
+    /* Bron: https://aminoapps.com/c/k-drama/page/blog/the-hymn-of-death-17-review/j0Wh_KuVGPaM4W31Z1MDK8mLWW48dw2 */
+    background-size: cover;
+    background-position: center;
+    /* Bron: https://webdevetc.com/blog/how-to-add-a-gradient-overlay-to-a-background-image-using-just-css-and-html/ */
+}
+
+header div {
+    position: absolute;
+    bottom: 1.25em;
+    left: 1.875em;
+    right: 1.875em;
+}
+
+header h2, .main-index h1 {
+    font-size: 1.625em; /*26px*/
+    line-height: 1.9375em; /*31px*/
+}
+
+header p {
+    font-size: 0.875em; /*14px*/
+    line-height: 1.4375em; /*23px*/
+}
+
+/* Main */
+.main-index {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+    padding: 1.25em;
+    margin: 3.125em 0em; /*50px*/
+}
+
+.main-index h1 {
+    font-size: 1.625em; /*26px*/
+    line-height: 1.5625em; /*25px*/
+}
+
+.main-index p {
+    font-size: 1.125em; /*18x*/
+    line-height: 1.875em; /*30px*/
+}
+
+.main-index a {
+    display: block;
+    padding: 1.5625em  1.875em; /*25px 30px*/
+    border-radius: 1.25em;
+    background-color: var(--purple);
+    border: 1px solid transparent;
+    text-align: center;
+    font-size: 1.125em; /*18x*/
+    line-height: 1.875em; /*30px*/
+    color: var(--white);
+    font-weight: bold;
+    transition: .4s;
+}
+
+.main-index a:hover {
+    border: 1px solid var(--purple);
+    background: transparent;
+}
+
+/* Als ik active boven focus doe, doet hij focus voor active state */
+.main-index a:focus {
+    background-color: var(--pink);
+}
+
+.main-index a:active {
+    background-color: var(--purple-active);
+    border: 1px solid var(--purple-active);
+}
+
+.main-index img {
+    height: 6.25em; /*100px*/
+}
+
+    /* form.html */
+body img {
+    display: flex;
+    margin: 1.25em auto auto auto;
+    height: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+    padding: 1.25em;
+}
+
+/* Responsive */
+/* Bron: https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    /* Index.html */
+    .main-index {
+        width: 31.25em; /*500px*/
+        margin: 3.125em auto;
+    }
+
+    header {
+        padding: 3.125em;
+    }
+
+    header div {
+        bottom: 3.125em;
+        left: 3.125em;
+        right: 3.125em;
+    }
+
+    /* Fonts style */
+    header h2 {
+        font-size: 3.125em; /*50px*/
+        line-height: 1.25em;
+    }
+
+    header p {
+        font-size: 1.125em; /*18x*/
+        line-height: 1.875em; /*30px*/
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {  }
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+    .body-index img {
+        display: none;
+    }
+}
+@media (min-width: 992px) {
+    .body-index {
+        display: grid;
+        grid-template-columns: 28.125em 1fr; /*450px*/
+        gap: 3.125em;
+        padding: 3.125em;
+        height: 100vh;
+    }
+
+    header {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        border-radius: 2.5em; /*40px*/
+        height: 100%;
+    }
+
+    .main-index {
+        position: relative;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin: auto;
+        width: 100%;
+    }
+
+    .main-index a {
+        width: fit-content;
+    }
+
+    /* Fonts style */
+    .main-index h1 {
+        font-size: 2.625em; /*42px*/
+    }
+
+    .main-index p {
+        font-size: 1.25em;
+        line-height: 2.0625em; /*33px*/
+    }
+
+    .body-index img {
+        position: absolute;
+        height: 6.25em; /*100px*/
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  }
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {  }
