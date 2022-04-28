@@ -39,17 +39,37 @@ app.get('/', (req, res) => {
   kdramas.forEach(kdrama => {
     doc += "<section>";
     doc += `<h2>${kdrama.name}<h2>`;
-    doc += `<h3>${kdrama.year}<h2>`;
+    doc += `<h3>${kdrama.year}<h3>`;
     doc += "<h3>Categories:</h3>";
     doc += "<ul>";
     kdrama.categories.forEach(category => {
       doc += `<li>${category}</li>`;
     });
     doc += "</ul>";
+    doc += `<a href="/kdrama/${kdrama.id}/${kdrama.slug}">More info</a>`;
     doc += "</section>";
   });
   res.send(doc);
 })
+
+app.get('/kdrama/:id/:slug', (req, res) => {
+  console.log(req.params.id)
+  const kdrama = kdramas.find(element => element.id == req.params.id)
+  console.log(kdrama)
+
+  let doc = '<!doctype html>';
+  doc += `<title>Kdrama detail for ${kdrama.name}</title>`;
+  doc += `<h1>${kdrama.name}<h1>`;
+  doc += `<h2>${kdrama.year}<h2>`;
+  doc += "<h2>Categories:</h2>";
+  doc += "<ul>";
+  kdrama.categories.forEach(category => {
+    doc += `<li>${category}</li>`;
+  });
+  doc += "</ul>";
+  doc += `<p>${kdrama.storyline}</p>`;
+  res.send(doc);
+});
 
 app.get('/test', (req, res) => {
   res.send('Dit is test!')
