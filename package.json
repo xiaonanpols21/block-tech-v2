@@ -1,0 +1,23 @@
+{
+  "name": "blok-teck-package",
+  "version": "1.0.0",
+  "description": "Information about my kdrama matching feature",
+  "main": "server.js",
+  "scripts": {
+    "test": "Kdrama",
+    "precompress": "{{ executes BEFORE the `compress` script }}",
+    "compress": "{{ run command to compress files }}",
+    "postcompress": "{{ executes AFTER `compress` script }}"
+  },
+  "keywords": [
+    "kdrama"
+  ],
+  "author": "Xiao Nan Pols",
+  "license": "MIT",
+  "dependencies": {
+    "camelcase": "^6.3.0",
+    "express": "^4.17.3",
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.15"
+  }
+}
