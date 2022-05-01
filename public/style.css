@@ -170,7 +170,7 @@ form {
 @media (min-width: 992px) {
     .body-index {
         display: grid;
-        grid-template-columns: 28.125em 1fr; /*450px*/
+        grid-template-columns: 31.25em 1fr; /*500px*/
         gap: 3.125em;
         padding: 3.125em;
         height: 100vh;

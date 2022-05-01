@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chingu: Find your K-drama Seoulmate</title>
+
+    <!-- Google font: https://fonts.google.com/specimen/Poppins?query=popp -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="img/logo.svg" alt="logo">
+    <%- include('../partials/title'); %>
+    <form action="results.html">
+        <label for="img">Select image:</label>
+        <input type="file" id="img" name="img" accept="image/*">
+        <!-- Bron: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_accept -->
+
+        <label for="name">First Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name..">
+
+        <!-- Location API? -->
+
+        <label for="genre">Favorite genre?</label>
+        <select id="genre" name="genre">
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+        </select>
+
+        <!-- Top 3 kdramas -->
+        
+        <!-- Favorite people -->
+    </form>
+</body>
+</html>

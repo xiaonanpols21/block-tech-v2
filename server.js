@@ -54,7 +54,12 @@ app.get('/', (req, res) => {
   res.send(doc);
   */
 
-  res.render('pages/index', {data : {userQuery: req.params.userQuery}});
+  res.render('pages/index');
+})
+
+app.get('/form', (req, res) => {
+  //res.render('partials/title');
+  res.render('pages/form')
 })
 
 app.get('/kdrama/:id/:slug', (req, res) => {
