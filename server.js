@@ -8,6 +8,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.static('public'));
+app.set('view engine', 'ejs');
 
 // All data comes fron: https://mydramalist.com/
 const categories = ["romance", "historical", "music", "action", "adventure", "melodrama", "idoldrama", "comedy", "friendship", "business"];
@@ -32,6 +33,7 @@ const kdramas = [
 ];
 
 app.get('/', (req, res) => {
+  /*
   let doc = '<!doctype html>';
   doc += '<title>Kdramas</title>';
   doc += '<h1>Kdrmas</h1>';
@@ -50,6 +52,9 @@ app.get('/', (req, res) => {
     doc += "</section>";
   });
   res.send(doc);
+  */
+
+  res.render('pages/index', {data : {userQuery: req.params.userQuery}});
 })
 
 app.get('/kdrama/:id/:slug', (req, res) => {
