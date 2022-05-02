@@ -90,6 +90,7 @@ header p {
     font-family: var(--font-stack);
     display: block;
     padding: 1.5625em  1.875em; /*25px 30px*/
+    width: 100%;
     border-radius: 1.25em;
     background-color: var(--purple);
     border: 1px solid transparent;
@@ -125,7 +126,14 @@ header p {
 form {
     display: flex;
     flex-direction: column;
+    gap: 1.875em; /*30px*/
     padding: 1.25em;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    border: none;
 }
 
 input[type="file"] {
@@ -134,6 +142,7 @@ input[type="file"] {
 
 label[for="img"] {
     position: relative;
+    margin-bottom: 6.25em;
 }
 
 label[for="img"]:after {
@@ -148,10 +157,6 @@ label[for="img"]:after {
     cursor: pointer;
 }
 /* Bron: https://stackoverflow.com/questions/572768/styling-an-input-type-file-button */
-
-label:nth-of-type(2) {
-    margin-top: calc(6.25em + 1.875em); /*100px 30px*/
-}
 
 input[type="text"], select {
     font-family: var(--font-stack);
@@ -172,17 +177,13 @@ select {
 }
 
 label {
-    margin-bottom: 0.625em;
+    margin-bottom: 0.625em; /*10px*/
     font-size: 1.125em;
     font-weight: 600;
 }
 
-input, select {
-    margin-bottom: 1.875em; /*30px*/
-}
-
 input[type="submit"] {
-    margin-top: 2.5em; /*40px*/
+    margin-top: 1.25em;
 }
 
 /* Responsive */
@@ -249,7 +250,7 @@ input[type="submit"] {
         width: 100%;
     }
 
-    .main-index a {
+    .main-index a, input[type="submit"]{
         width: fit-content;
     }
 
@@ -267,6 +268,11 @@ input[type="submit"] {
         position: absolute;
         height: 6.25em; /*100px*/
     }
+
+    label {
+        font-size: 1.25em;
+    }
+
 }
 
 @media (min-width: 1200px) {
@@ -274,34 +280,33 @@ input[type="submit"] {
         padding: 3.125em 9.375em; /*50px 150px*/
     }
 
-    /* Form.html */
+    /* Form.html */ 
     form {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0px 50px;
+        grid-template-columns: 21.875em 1fr; /*350px*/
+        gap: 1.875em 6.25em;
+        width: 100%;
         margin: 0px;
         padding: 0px;
-        width: 100%;
     }
 
-    label, input, select {
+    fieldset {
         grid-column-start: 1;
         grid-column-end: 2;
     }
 
-    label:nth-of-type(5), label:last-of-type, input[type="submit"] {
+    fieldset:nth-of-type(4) {
         grid-column-start: 2;
-        grid-column-end: 3;
-    }
-
-    label:nth-of-type(5) {
+        grid-column-start: 3;
         grid-row-start: 2;
         grid-row-end: 3;
     }
 
-    label:last-of-type {
-        grid-row-start: 4;
-        grid-row-end: 5;
+    fieldset:last-of-type {
+        grid-column-start: 2;
+        grid-column-start: 3;
+        grid-row-start: 3;
+        grid-row-end: 4;
     }
 
     /* Partials */

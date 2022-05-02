@@ -22,32 +22,39 @@
         <!-- Bron: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_accept -->
 
         <fieldset>
-            
+            <label for="name">Username</label>
+            <input type="text" id="name" name="name" placeholder="Chingu...">    
         </fieldset>
-        <label for="name">Username</label>
-        <input type="text" id="name" name="name" placeholder="Chingu...">
-
-        <label for="location">Location</label>
-        <input type="text" id="location" name="locaton" placeholder="Seoul...">
-        <!-- API location -->
-
-        <label for="genre">Favorite genre?</label>
-        <select id="genre" name="genre">
-            <option value="australia">Australia</option>
-            <option value="canada">Canada</option>
-            <option value="usa">USA</option>
-            
-            <%# genres.forEach(genre => { %>
-                <!-- <option value="canada"> <$= genre %> </option> -->
-            <%#});  %>
-        </select>
-
-        <!-- Top 3 kdramas -->
-        <label for="name">Favorite kdramas</label>
-
-        <!-- Favorite people -->
-        <label for="name">Favorite people</label>
-
+        
+        <fieldset>
+            <label for="location">Location</label>
+            <input type="text" id="location" name="locaton" placeholder="Seoul...">
+            <!-- API location -->    
+        </fieldset>
+       
+        <fieldset>
+            <label for="genre">Favorite genre?</label>
+            <select id="genre" name="genre">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+                
+                <%# genres.forEach(genre => { %>
+                    <!-- <option value="canada"> <$= genre %> </option> -->
+                <%#});  %>
+            </select>
+        </fieldset>
+        
+        <fieldset>
+            <!-- Top 3 kdramas -->
+            <label for="name">Favorite kdramas</label>
+        </fieldset>
+        
+        <fieldset>
+            <!-- Favorite people -->
+            <label for="name">Favorite people</label>
+        </fieldset>
+    
         <input type="submit" value="Make a match">
     </form>
     <script src="https://kit.fontawesome.com/c24c386355.js" crossorigin="anonymous"></script>
