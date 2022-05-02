@@ -239,17 +239,48 @@ input[type="submit"] {
 }
 
     /* 404.html */
+.body-404 {
+    display: flex;
+    flex-direction: column;
+}
+
+.body-404 img {
+    display: flex;
+    order: -1;
+    height: 3.125em;
+    margin: 1.25em auto auto auto;
+}
 .main-404 h1 {
+    position: relative;
     font-size: 2.125em;
     text-align: center;
 }
+
+.main-404 h1:after {
+    position: absolute;
+    content: "";
+    width: 320px;
+    height: 180px;
+    border-radius: 0.625em;
+    background-image: url(img/404-gif.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: calc(1.25em + 1.25em);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.main-404 p {
+    margin-top: calc(180px + 1.25em + 50px);
+}
+/* Maten die px zijn blijven zo vanwege correcte afmetingen */
 
 
 /* Responsive */
 /* Bron: https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
 @media (min-width: 576px) {
     /* Index.html */
-    .main-index, form {
+    .main-index, form, .main-404 {
         width: 31.25em; /*500px*/
         margin: 3.125em auto;
     }
@@ -278,20 +309,60 @@ input[type="submit"] {
 
 @media (min-width: 768px) {  }
 
-@media (max-width: 992px) {
+@media (min-width: 992px) {
+    /* Fonts style */
+    .main-index h1, .main-404 h1 {
+        font-size: 2.625em; /*42px*/
+    }
+
+    .main-index p, .main-404 p {
+        font-size: 1.25em;
+        line-height: 2.0625em; /*33px*/
+    }
+
+    label {
+        font-size: 1.25em;
+    }
+
+    .main-match h1 {
+        font-size: 3.125em;
+    }
+
+    .main-match p {
+        font-size: 1.375em; /*22px*/
+    }
+
+}
+
+@media (max-width: 1200px) {
     /* Index.html */
     .body-index img {
         display: none;
     }
+
+    /* 404.html */
+    .body-404 header {
+        display: none;
+    }
 }
-@media (min-width: 992px) {
+
+@media (min-width: 1200px) {
+    body {
+        padding: 3.125em 9.375em; /*50px 150px*/
+    }
+
     /* Index.html */
-    .body-index {
+    .body-index, .body-404 {
         display: grid;
         grid-template-columns: 31.25em 1fr; /*500px*/
         gap: 3.125em;
         padding: 3.125em;
         height: 100vh;
+    }
+
+    .body-index img, .body-404 img {
+        position: absolute;
+        height: 6.25em; /*100px*/
     }
 
     header {
@@ -309,42 +380,8 @@ input[type="submit"] {
         width: 100%;
     }
 
-    .main-index a, input[type="submit"], .main-match a{
+    .main-index a, input[type="submit"], .main-match a, .main-404 a {
         width: fit-content;
-    }
-
-    /* Fonts style */
-    .main-index h1 {
-        font-size: 2.625em; /*42px*/
-    }
-
-    .main-index p {
-        font-size: 1.25em;
-        line-height: 2.0625em; /*33px*/
-    }
-
-    .body-index img {
-        position: absolute;
-        height: 6.25em; /*100px*/
-    }
-
-    label {
-        font-size: 1.25em;
-    }
-
-    .main-match h1 {
-        font-size: 3.125em;
-    }
-
-    .main-match p {
-        font-size: 1.375em; /*22px*/
-    }
-
-}
-
-@media (min-width: 1200px) {
-    body {
-        padding: 3.125em 9.375em; /*50px 150px*/
     }
 
     /* Form.html */ 
@@ -374,6 +411,27 @@ input[type="submit"] {
         grid-column-start: 3;
         grid-row-start: 3;
         grid-row-end: 4;
+    }
+
+    /* 404.html */
+    .main-404 {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin: auto;
+        padding: 0px;
+        width: 100%;
+    }
+
+    .main-404 h1 {
+        text-align: left;
+    }
+
+    .main-404 h1:after {
+        display: none;
+    }
+
+    .main-404 p {
+        margin-top: 1.25em;
     }
 
     /* Partials */
