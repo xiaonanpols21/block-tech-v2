@@ -54,13 +54,16 @@ app.get('/', (req, res) => {
   res.send(doc);
   */
 
-  res.render('pages/index', );
-})
+  res.render('pages/index');
+});
 
 app.get('/form', (req, res) => {
-  //res.render('partials/title');
-  res.render('pages/form')
-})
+  res.render('pages/form', {genreArray: {resultGenre: ["romance", "historical", "music", "action", "adventure", "melodrama", "idoldrama", "comedy", "friendship", "business"]}});
+});
+
+app.get('/match-result', (req, res) => {
+  res.render('pages/match-result', {dataMatch: {matchResult : true}});
+});
 
 app.get('/kdrama/:id/:slug', (req, res) => {
   console.log(req.params.id)
@@ -83,8 +86,8 @@ app.get('/kdrama/:id/:slug', (req, res) => {
 
 app.get('/test', (req, res) => {
   res.send('Dit is test!')
-})
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
-})
+});
