@@ -61,8 +61,18 @@ app.get('/form', (req, res) => {
   res.render('pages/form', {genreArray: {resultGenre: ["romance", "historical", "music", "action", "adventure", "melodrama", "idoldrama", "comedy", "friendship", "business"]}});
 });
 
-app.get('/match-result', (req, res) => {
-  res.render('pages/match-result', {dataMatch: {matchResult : true}});
+app.get('/matchresult', (req, res) => {
+  res.render('pages/matchresult', {dataMatch: {matchResult : true, 
+                                              aantalMatches: 5}});
+});
+
+app.get('/profile', (req, res) => {
+  res.render('pages/profile', {profileMatch: {username : "Xiaoxiao", 
+                                              aantalFriends: 16}});
+});
+
+app.get('/404', (req, res) => {
+  res.render('pages/404');
 });
 
 app.get('/kdrama/:id/:slug', (req, res) => {

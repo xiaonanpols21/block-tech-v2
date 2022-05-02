@@ -13,20 +13,14 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="body-index">
-    <header>
-        <div>
-            <h2>The Hymn Of death</h2>
-
-            <!-- Genre Tags -->
-            <p>Music, Historical, Romance, Melodrama</p>
-        </div>
-    </header>
-    <main class="main-index">
-        <h1>Find your K-drama Seoulmate</h1>
-        <p>To fill in this form, you get a recommendation list and make new friends to watch with!</p>
-        <a href="/form">Give me Chingu!</a>
-    </main>
-    <img src="img/logo.svg" alt="Logo">
+<body>
+    <section class="section-profile">
+        <h1><%= profileMatch.username %></h1>
+        <section>
+            <h2>friends</h2>
+            <p><%= profileMatch.aantalFriends %></p>
+        </section>
+        <img src=".../public/img/add-selca.svg" alt="Profile img">
+    </section>
 </body>
 </html>

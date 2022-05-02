@@ -13,20 +13,20 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="body-index">
-    <header>
-        <div>
-            <h2>The Hymn Of death</h2>
-
-            <!-- Genre Tags -->
-            <p>Music, Historical, Romance, Melodrama</p>
-        </div>
-    </header>
-    <main class="main-index">
-        <h1>Find your K-drama Seoulmate</h1>
-        <p>To fill in this form, you get a recommendation list and make new friends to watch with!</p>
-        <a href="/form">Give me Chingu!</a>
+<body>
+    <%- include('../partials/logo'); %>
+    <main class="main-match">
+        <% if(dataMatch.matchResult){ %>
+            <h1>Congratulations!</h1>
+            <p>You have found <%= dataMatch.aantalMatches %> seoulmates!</p>
+            <!-- Slider results -->
+            <a href="/profile">See profile</a>
+        <% } else { %>
+            <h1>I'm so sorry</h1>
+            <p>You have 0 matches, but maybe you like these kdramas instead!</p>
+            <!-- Slider results -->
+            <a href="/form">Make a new match</a>
+        <% } %>
     </main>
-    <img src="img/logo.svg" alt="Logo">
 </body>
 </html>

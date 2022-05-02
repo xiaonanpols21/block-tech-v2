@@ -86,7 +86,7 @@ header p {
     line-height: 1.875em; /*30px*/
 }
 
-.main-index a, input[type="submit"] {
+.main-index a, input[type="submit"], .main-match a, .main-404 a {
     font-family: var(--font-stack);
     display: block;
     padding: 1.5625em  1.875em; /*25px 30px*/
@@ -186,6 +186,65 @@ input[type="submit"] {
     margin-top: 1.25em;
 }
 
+    /* Match-result.html */
+.main-match, .main-404 {
+    padding: 1.25em;
+    margin-top: calc(3.125em - 1.25em); /*50px 20px*/
+}
+
+.main-match h1 {
+    font-size: 2.125em; /*34px*/
+}
+
+.main-match p, .main-404 p {
+    margin: 1.25em 0px;
+    font-size: 1.125em; /*18px*/
+    line-height: 1.875em; /*30px*/
+}
+
+    /* Profile.html */
+.section-profile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px 1.25em;
+    padding: 1.25em;
+}
+.section-profile h1 {
+    grid-column-start: 1;
+    grid-column-start: 2;
+    font-size: 1.125em; /*18px*/
+    line-height: 1.875em; /*30px*/
+}
+
+.section-profile h2 {
+    font-size: 0.875em; /*14px*/
+    font-weight: normal;
+}
+
+.section-profile img {
+    grid-column-start: 0;
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
+.section-profile section {
+    grid-column-start: 1;
+    grid-column-start: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-profile section p {
+    order: -1;
+}
+
+    /* 404.html */
+.main-404 h1 {
+    font-size: 2.125em;
+    text-align: center;
+}
+
+
 /* Responsive */
 /* Bron: https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
 @media (min-width: 576px) {
@@ -250,7 +309,7 @@ input[type="submit"] {
         width: 100%;
     }
 
-    .main-index a, input[type="submit"]{
+    .main-index a, input[type="submit"], .main-match a{
         width: fit-content;
     }
 
@@ -271,6 +330,14 @@ input[type="submit"] {
 
     label {
         font-size: 1.25em;
+    }
+
+    .main-match h1 {
+        font-size: 3.125em;
+    }
+
+    .main-match p {
+        font-size: 1.375em; /*22px*/
     }
 
 }
