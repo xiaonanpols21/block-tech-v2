@@ -29,6 +29,13 @@ a {
     text-decoration: none;
 }
 
+/* Partials */
+.logo {
+    display: flex;
+    margin: 1.25em auto auto auto;
+    height: 50px;
+}
+
     /* Index.html */
 /* Header */
 header {
@@ -113,17 +120,49 @@ header p {
 }
 
     /* form.html */
-body img {
-    display: flex;
-    margin: 1.25em auto auto auto;
-    height: 50px;
-}
-
 form {
     display: flex;
     flex-direction: column;
     gap: 1.25em;
     padding: 1.25em;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+form label:first-of-type:after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url(img/add-selca.svg);
+    background-size: contain;
+}
+/* Bron: https://stackoverflow.com/questions/572768/styling-an-input-type-file-button */
+
+form input:nth-of-type(2), form input:last-of-type, select {
+    font-family: var(--font-stack);
+    padding: 0.8125em 1.25em; /* 13px 20px */
+    margin-bottom: 1.875em; /* 30px */
+    border: 1px solid var(--white);
+    border-radius: 0.625em; /* 10px */
+    font-size: 1.125em; /* 18px */
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    background: url(img/dorpdown-arrow.svg) no-repeat 90% center;
+    background-size: 0.625em 0.625em;
+    color: var(--white);
+}
+
+label {
+    font-size: 1.125em;
+    font-weight: 600;
 }
 
 /* Responsive */

@@ -14,28 +14,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img src="img/logo.svg" alt="logo">
-    <%- include('../partials/title'); %>
+    <%- include('../partials/logo'); %>
     <form action="results.html">
-        <label for="img">Select image:</label>
-        <input type="file" id="img" name="img" accept="image/*">
+        <label for="img">Add selca:
+            <input type="file" id="img" name="img" accept="image/*">
+        </label>
         <!-- Bron: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_accept -->
 
-        <label for="name">First Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name..">
+        <label for="name">Username</label>
+        <input type="text" id="name" name="name" placeholder="Chingu...">
 
-        <!-- Location API? -->
+        <label for="location">Location</label>
+        <input type="text" id="location" name="locaton" placeholder="Seoul...">
+        <!-- API location -->
 
         <label for="genre">Favorite genre?</label>
         <select id="genre" name="genre">
             <option value="australia">Australia</option>
             <option value="canada">Canada</option>
             <option value="usa">USA</option>
+            
+            <%# genre.forEach(genre => { %>
+                <!-- <option value="canada"> <$= genre %> </option> -->
+            <%#});  %>
         </select>
 
         <!-- Top 3 kdramas -->
-        
+        <label for="name">Favorite kdramas</label>
+
         <!-- Favorite people -->
+        <label for="name">Favorite people</label>
     </form>
+    <script src="https://kit.fontawesome.com/c24c386355.js" crossorigin="anonymous"></script>
 </body>
 </html>
