@@ -275,7 +275,6 @@ input[type="submit"] {
 }
 /* Maten die px zijn blijven zo vanwege correcte afmetingen */
 
-
 /* Responsive */
 /* Bron: https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
 @media (min-width: 576px) {
