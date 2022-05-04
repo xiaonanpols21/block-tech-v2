@@ -11,7 +11,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // All data comes fron: https://mydramalist.com/
-const genres = ["romance", "historical", "music", "action", "adventure", "melodrama", "idoldrama", "comedy", "friendship", "business"];
+const genre = ["romance", "historical", "music", "action", "adventure", "melodrama", "idoldrama", "comedy", "friendship", "business"];
 const kdramas = [
   {
     "id": 1,

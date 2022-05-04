@@ -35,13 +35,13 @@
         <fieldset>
             <label for="genre">Favorite genre?</label>
             <select id="genre" name="genre">
-                <option value="australia">Australia</option>
-                <option value="canada">Canada</option>
-                <option value="usa">USA</option>
-                
                 <% genreArray.resultGenre.forEach(result=>{ %>
-                    <option value="canada"> <$= result %> </option>
-                <%}); %>
+                    <option value="genre"> <%= result %> </option>
+                <% }); %>
+
+                <%# genre.forEach(result=>{ %>
+                    <!-- <option value="genre"> <%#= result %> </option> -->
+                <%# }); %>
             </select>
         </fieldset>
         
