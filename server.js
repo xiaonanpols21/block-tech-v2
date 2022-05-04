@@ -71,10 +71,6 @@ app.get('/profile', (req, res) => {
                                               aantalFriends: 16}});
 });
 
-app.get('/404', (req, res) => {
-  res.render('pages/404');
-});
-
 app.get('/kdrama/:id/:slug', (req, res) => {
   console.log(req.params.id)
   const kdrama = kdramas.find(element => element.id == req.params.id)
@@ -97,6 +93,12 @@ app.get('/kdrama/:id/:slug', (req, res) => {
 app.get('/test', (req, res) => {
   res.send('Dit is test!')
 });
+
+app.use(function (req, res) {
+  console.error("Error 404: page nog found");
+  res.status(404).render('pages/404');
+});
+// Bron: https://github.com/cmda-bt/be-course-21-22/blob/main/examples/express-server/server.js
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
