@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chingu: Find your K-drama Seoulmate</title>
 
     <!-- Google font: https://fonts.google.com/specimen/Poppins?query=popp -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <%- include('../partials/logo'); %>
     <main class="main-match">
-        <% if(dataMatch.matchResult){ %>
-            <h1>Congratulations!</h1>
-            <p>You have found <%= dataMatch.aantalMatches %> seoulmates!</p>
-            <!-- Slider results -->
-            <a href="/profile">See profile</a>
-        <% } else { %>
-            <h1>I'm so sorry</h1>
-            <p>You have 0 matches, but maybe you like these kdramas instead!</p>
-            <!-- Slider results -->
-            <a href="/form">Make a new match</a>
-        <% } %>
+      <% if(dataMatch.matchResult){ %>
+      <h1>Congratulations!</h1>
+      <p>You have found <%= dataMatch.aantalMatches %> seoulmates!</p>
+      <!-- Slider results -->
+      <a href="/profile">See profile</a>
+      <% } else { %>
+      <h1>I'm so sorry</h1>
+      <p>You have 0 matches, but maybe you like these kdramas instead!</p>
+      <!-- Slider results -->
+      <a href="/form">Make a new match</a>
+      <% } %>
     </main>
-</body>
+  </body>
 </html>
