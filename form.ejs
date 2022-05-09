@@ -1,73 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chingu: Find your K-drama Seoulmate</title>
 
     <!-- Google font: https://fonts.google.com/specimen/Poppins?query=popp -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <%- include('../partials/logo'); %>
     <form action="/matchresult">
-        <label for="img">Add selca:
-            <input type="file" id="img" name="img" accept="image/*">
-        </label>
-        <!-- Bron: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_accept -->
+      <label for="img"
+        >Add selca:
+        <input type="file" id="img" name="img" accept="image/*" />
+      </label>
+      <!-- Bron: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_accept -->
 
-        <fieldset>
-            <label for="name">Username</label>
-            <input type="text" id="name" name="name" placeholder="Chingu...">    
-        </fieldset>
-        
-        <fieldset>
-            <label for="location">Location</label>
-            <input type="text" id="location" name="locaton" placeholder="Seoul...">
-            <!-- API location --> 
+      <fieldset>
+        <label for="name">Username</label>
+        <input type="text" id="name" name="name" placeholder="Chingu..." />
+      </fieldset>
 
-            <button id = "find-me">Show my location</button> 
-            <p id = "status"></p>
-            <a id = "map-link" target="_blank"></a>
-            <!-- Bron: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples -->
-        </fieldset>
-       
-        <fieldset>
-            <label for="genre">Favorite genre?</label>
-            <select id="genre" name="genre">
-                <% genreArray.resultGenre.forEach(result=>{ %>
-                    <option value="genre"> <%= result %> </option>
-                <% }); %>
+      <fieldset>
+        <label for="location">Location</label>
+        <input
+          type="text"
+          id="location"
+          name="locaton"
+          placeholder="Seoul..."
+        />
+        <!-- API location -->
 
-                <%# genre.forEach(result=>{ %>
-                    <!-- <option value="genre"> <%#= result %> </option> -->
-                <%# }); %>
-            </select>
-        </fieldset>
-        
-        <fieldset>
-            <!-- Top 3 kdramas -->
-            <label for="name">Favorite kdramas</label>
-        </fieldset>
-        
-        <fieldset>
-            <!-- Favorite people -->
-            <label for="name">Favorite people</label>
-        </fieldset>
-    
-        <input type="submit" value="Make a match">
+        <button id="find-me">Show my location</button>
+        <p id="status"></p>
+        <a id="map-link" target="_blank"></a>
+        <!-- Bron: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples -->
+      </fieldset>
+
+      <fieldset>
+        <label for="genre">Favorite genre?</label>
+        <select id="genre" name="genre">
+          <% genreArray.resultGenre.forEach(result=>{ %>
+          <option value="genre"><%= result %></option>
+          <% }); %> <%# genre.forEach(result=>{ %>
+          <!-- <option value="genre"> <%#= result %> </option> -->
+          <%# }); %>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <!-- Top 3 kdramas -->
+        <label for="name">Favorite kdramas</label>
+      </fieldset>
+
+      <fieldset>
+        <!-- Favorite people -->
+        <label for="name">Favorite people</label>
+      </fieldset>
+
+      <input type="submit" value="Make a match" />
     </form>
     <script src="../form.js"></script>
 
     <!-- Ik heb het nu even in een script tag omdat ik niet weet hoe ik het pad moet schrijven naar een js document -->
     <script>
-        // Bron: https://www.youtube.com/watch?v=916M64DuRnk&ab_channel=dcode
-        /*
+      // Bron: https://www.youtube.com/watch?v=916M64DuRnk&ab_channel=dcode
+      /*
         const SuccessCallback = (position) => {
             console.log(position);
         }
@@ -79,35 +86,35 @@
         navigator.geolocation.getCurrentPosition(SuccessCallback, errorCallback);
         */
 
-        // Bron: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples
-        function geoFindMe() {
-        const status = document.querySelector('#status');
-        const mapLink = document.querySelector('#map-link');
+      // Bron: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples
+      function geoFindMe() {
+        const status = document.querySelector("#status");
+        const mapLink = document.querySelector("#map-link");
 
-            mapLink.href = '';
-            mapLink.textContent = '';
+        mapLink.href = "";
+        mapLink.textContent = "";
 
-            function success(position) {
-            const latitude  = position.coords.latitude;
-            const longitude = position.coords.longitude;
+        function success(position) {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
 
-            status.textContent = '';
-            mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
-            mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
-            }
-
-            function error() {
-            status.textContent = 'Unable to retrieve your location';
-            }
-
-            if(!navigator.geolocation) {
-            status.textContent = 'Geolocation is not supported by your browser';
-            } else {
-            status.textContent = 'Locating…';
-            navigator.geolocation.getCurrentPosition(success, error);
-            }
+          status.textContent = "";
+          mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+          mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
         }
-        document.querySelector('#find-me').addEventListener('click', geoFindMe);
+
+        function error() {
+          status.textContent = "Unable to retrieve your location";
+        }
+
+        if (!navigator.geolocation) {
+          status.textContent = "Geolocation is not supported by your browser";
+        } else {
+          status.textContent = "Locating…";
+          navigator.geolocation.getCurrentPosition(success, error);
+        }
+      }
+      document.querySelector("#find-me").addEventListener("click", geoFindMe);
     </script>
-</body>
+  </body>
 </html>
