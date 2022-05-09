@@ -3,6 +3,7 @@ console.log("Hallo world");
 const express = require("express");
 const slug = require("slug");
 const arrayify = require("array-back");
+// const ejsLint = require('ejs-lint');
 
 const app = express();
 const port = 3000;
