@@ -1,25 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chingu: Find your K-drama Seoulmate</title>
 
     <!-- Google font: https://fonts.google.com/specimen/Poppins?query=popp -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="body-index">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="body-index">
     <%- include('../partials/header'); %>
     <main class="main-index">
-        <h1>Find your K-drama Seoulmate</h1>
-        <p>To fill in this form, you get a recommendation list and make new friends to watch with!</p>
-        <a href="/form">Give me Chingu!</a>
+      <h1>Find your K-drama Seoulmate</h1>
+      <p>
+        To fill in this form, you get a recommendation list and make new friends
+        to watch with!
+      </p>
+      <a href="/form">Give me Chingu!</a>
     </main>
-    <img src="img/logo.svg" alt="Logo">
-</body>
+    <img src="img/logo.svg" alt="Logo" />
+  </body>
+
+  <!-- Ik heb het nu even in een script tag omdat ik niet weet hoe ik het pad moet schrijven naar een js document -->
+  <script>
+    let boolean = document.hidden;
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "hidden") {
+        document.title = "We miss you!";
+      } else {
+        document.title = "Chingu: Find your K-drama Seoulmate";
+      }
+      // Set time out pass nog toevoegen
+    });
+    // Bron: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
+  </script>
 </html>
