@@ -1,3 +1,4 @@
+// Bron: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples   
 /*
 function geoFindMe() {
   const status = document.querySelector("#status");
@@ -27,5 +28,22 @@ function geoFindMe() {
   }
 }
 document.querySelector("#find-me").addEventListener("click", geoFindMe);
-
 */
+
+// Bron: https://www.youtube.com/watch?v=916M64DuRnk&ab_channel=dcode
+/*  
+const SuccessCallback = (position) => {
+  console.log(position);
+}
+
+const errorCallback = (error) => {
+  console.error(error);
+}
+
+navigator.geolocation.getCurrentPosition(SuccessCallback, errorCallback);
+*/
+
+
+
+
+console.log("gber")

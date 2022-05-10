@@ -136,8 +136,14 @@ fieldset {
     border: none;
 }
 
-input[type="file"] {
+.file2 {
     display: none;
+}
+
+
+label[for="file-upload"] {
+    position: relative;
+    margin-bottom: 6.25em;
 }
 
 label[for="img"] {
@@ -157,6 +163,15 @@ label[for="img"]:after {
     cursor: pointer;
 }
 /* Bron: https://stackoverflow.com/questions/572768/styling-an-input-type-file-button */
+
+#uploadPreview {
+    border-radius: 50%;
+    width: 6.25em; 
+    height: 6.25em; 
+    border: 1px solid var(--purple);
+    background-color: var(--purple);
+}
+
 
 input[type="text"], select {
     font-family: var(--font-stack);

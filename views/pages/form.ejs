@@ -19,9 +19,29 @@
   <body>
     <%- include('../partials/logo'); %>
     <form action="/matchresult">
-      <label for="img"
+      <!-- <label for="img"
         >Add selca:
         <input type="file" id="img" name="img" accept="image/*" />
+      </label> -->
+      <!-- Bron: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_accept -->
+
+      <label for="file-upload" class="custom-file-upload">
+        Add selca
+        <input
+        class="file1"
+          id="uploadImage"
+          type="file"
+          name="myPhoto"
+          accept="image/*"
+          onchange="PreviewImage()"
+        />
+      </label>
+      <img id="uploadPreview" />
+      <!-- Bron: https://stackoverflow.com/questions/18457340/how-to-preview-selected-image-in-input-type-file-in-popup-using-jquery -->
+
+      <label for="img"
+        >Add selca:
+        <input class="file2" type="file" id="img" name="img" accept="image/*" />
       </label>
       <!-- Bron: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_accept -->
 
@@ -51,6 +71,7 @@
         <select id="genre" name="genre">
           <% genreArray.resultGenre.forEach(result=>{ %>
           <option value="genre"><%= result %></option>
+
           <% }); %> <%# genre.forEach(result=>{ %>
           <!-- <option value="genre"> <%#= result %> </option> -->
           <%# }); %>
@@ -70,52 +91,16 @@
       <input type="submit" value="Make a match" />
     </form>
 
-    <!-- Ik heb het nu even in een script tag omdat ik niet weet hoe ik het pad moet schrijven naar een js document -->
+    <script src="js/form.js"></script>
     <script>
-      // Bron: https://www.youtube.com/watch?v=916M64DuRnk&ab_channel=dcode
-      /*
-        const SuccessCallback = (position) => {
-            console.log(position);
-        }
+      function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
 
-        const errorCallback = (error) => {
-            console.error(error);
-        }
-
-        navigator.geolocation.getCurrentPosition(SuccessCallback, errorCallback);
-        */
-
-      // Bron: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples
-      
-      function geoFindMe() {
-        const status = document.querySelector("#status");
-        const mapLink = document.querySelector("#map-link");
-
-        mapLink.href = "";
-        mapLink.textContent = "";
-
-        function success(position) {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
-
-          status.textContent = "";
-          mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
-          mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
-        }
-
-        function error() {
-          status.textContent = "Unable to retrieve your location";
-        }
-
-        if (!navigator.geolocation) {
-          status.textContent = "Geolocation is not supported by your browser";
-        } else {
-          status.textContent = "Locating…";
-          navigator.geolocation.getCurrentPosition(success, error);
-        }
+        oFReader.onload = function (oFREvent) {
+          document.getElementById("uploadPreview").src = oFREvent.target.result;
+        };
       }
-      document.querySelector("#find-me").addEventListener("click", geoFindMe);
-      
     </script>
   </body>
 </html>
