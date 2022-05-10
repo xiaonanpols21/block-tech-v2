@@ -27,20 +27,7 @@
       <a href="/form">Give me Chingu!</a>
     </main>
     <img src="img/logo.svg" alt="Logo" />
+
+    <script src="js/visibility.js"></script>
   </body>
-
-  <!-- Ik heb het nu even in een script tag omdat ik niet weet hoe ik het pad moet schrijven naar een js document -->
-  <script>
-    let boolean = document.hidden;
-
-    document.addEventListener("visibilitychange", function () {
-      if (document.visibilityState === "hidden") {
-        document.title = "We miss you!";
-      } else {
-        document.title = "Chingu: Find your K-drama Seoulmate";
-      }
-      // Set time out pass nog toevoegen
-    });
-    // Bron: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
-  </script>
 </html>

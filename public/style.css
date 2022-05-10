@@ -14,7 +14,7 @@
     --white: #ffffff;
     --bg-color: #1a1a1a;
 
-    --purple-active: #3b4161
+    --purple-active: #3b4161;
 
     --gradient-black-transparent: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(255,255,255,0) 50%);
 }
