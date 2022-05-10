@@ -16,7 +16,7 @@
 
     --purple-active: #3b4161;
 
-    --gradient-black-transparent: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(255,255,255,0) 50%);
+    --gradient-black-transparent: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0) 50%);
 }
 
 body {
@@ -29,20 +29,35 @@ a {
     text-decoration: none;
 }
 
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+/* Bron: https://www.a11yproject.com/posts/how-to-hide-content/#:~:text=visually%2Dhidden%20class%20is%20applied,focus%20indicator%20had%20gone%20to. */
+
 /* Partials */
 .logo {
     display: flex;
     margin: 1.25em auto auto auto;
-    height: 3.125em; /* 50px */
+    height: 3.125em;
+    /* 50px */
 }
 
-    /* Index.html */
+/* Index.ejs */
 /* Header */
 header {
     position: relative;
-    height: 25em; /*400px*/
-    padding: 1.25em 1.875em; /*20px 30px*/
-    border-radius: 0em 0em 3.125em 3.125em; /*50px*/
+    height: 25em;
+    /*400px*/
+    padding: 1.25em 1.875em;
+    /*20px 30px*/
+    border-radius: 0em 0em 3.125em 3.125em;
+    /*50px*/
     background-image: var(--gradient-black-transparent), url('img/101.gif');
     /* Bron: https://aminoapps.com/c/k-drama/page/blog/the-hymn-of-death-17-review/j0Wh_KuVGPaM4W31Z1MDK8mLWW48dw2 */
     background-size: cover;
@@ -57,14 +72,19 @@ header div {
     right: 1.875em;
 }
 
-header h2, .main-index h1 {
-    font-size: 1.625em; /*26px*/
-    line-height: 1.9375em; /*31px*/
+header h2,
+.main-index h1 {
+    font-size: 1.625em;
+    /*26px*/
+    line-height: 1.9375em;
+    /*31px*/
 }
 
 header p {
-    font-size: 0.875em; /*14px*/
-    line-height: 1.4375em; /*23px*/
+    font-size: 0.875em;
+    /*14px*/
+    line-height: 1.4375em;
+    /*23px*/
 }
 
 /* Main */
@@ -73,60 +93,78 @@ header p {
     flex-direction: column;
     gap: 1.25em;
     padding: 1.25em;
-    margin: 3.125em 0em; /*50px*/
+    margin: 3.125em 0em;
+    /*50px*/
 }
 
 .main-index h1 {
-    font-size: 1.625em; /*26px*/
-    line-height: 1.5625em; /*25px*/
+    font-size: 1.625em;
+    /*26px*/
+    line-height: 1.5625em;
+    /*25px*/
 }
 
 .main-index p {
-    font-size: 1.125em; /*18x*/
-    line-height: 1.875em; /*30px*/
+    font-size: 1.125em;
+    /*18x*/
+    line-height: 1.875em;
+    /*30px*/
 }
 
-.main-index a, input[type="submit"], .main-match a, .main-404 a {
+.main-index a,
+input[type="submit"],
+.main-match a,
+.main-404 a {
     font-family: var(--font-stack);
     display: block;
-    padding: 1.5625em  1.875em; /*25px 30px*/
+    padding: 1.5625em 1.875em;
+    /*25px 30px*/
     width: 100%;
     border-radius: 1.25em;
     background-color: var(--purple);
     border: 1px solid transparent;
     text-align: center;
-    font-size: 1.125em; /*18x*/
-    line-height: 1.875em; /*30px*/
+    font-size: 1.125em;
+    /*18x*/
+    line-height: 1.875em;
+    /*30px*/
     color: var(--white);
     font-weight: bold;
     transition: .4s;
     cursor: pointer;
 }
 
-.main-index a:hover, input[type="submit"]:hover {
+.main-index a:hover,
+input[type="submit"]:hover,
+fieldset:first-of-type label:hover {
     border: 1px solid var(--purple);
     background: transparent;
 }
 
 /* Als ik active boven focus doe, doet hij focus voor active state */
-.main-index a:focus {
+.main-index a:focus,
+input[type="submit"]:focus { 
     background-color: var(--pink);
 }
 
-.main-index a:active {
+.main-index a:active,
+input[type="submit"]:active,
+fieldset:first-of-type label:active {
     background-color: var(--purple-active);
     border: 1px solid var(--purple-active);
 }
 
 .main-index img {
-    height: 6.25em; /*100px*/
+    height: 6.25em;
+    /*100px*/
 }
 
-    /* form.html */
+/* form.ejs */
 form {
     display: flex;
     flex-direction: column;
-    gap: 1.875em; /*30px*/
+    gap: 1.875em;
+    /*30px*/
     padding: 1.25em;
 }
 
@@ -136,65 +174,49 @@ fieldset {
     border: none;
 }
 
-.file2 {
-    display: none;
+fieldset:first-of-type {
+    flex-direction: row;
+    align-items: center;
 }
 
-label[for="img"] {
-    position: relative;
-    margin-bottom: 6.25em;
+fieldset:first-of-type img {
+    order: -1;
 }
 
-label[for="img"]:after {
-    content: "";
-    position: absolute;
-    width: 6.25em; /*100px*/
-    height: 6.25em; /*100px*/
-    background-image: url(img/add-selca.svg);
-    background-size: contain;
-    left: 0;
-    top: calc(27.5px + 10px); /* Hier is het geen em omdat de maten dan niet uitkomen */
-    cursor: pointer;
-}
-/* Bron: https://stackoverflow.com/questions/572768/styling-an-input-type-file-button */
-
-.file3 {
-    display: none;
-}
-
-.file1 {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
+fieldset:first-of-type label {
+    padding: 0.625em 1.25em; /*10px 20px*/
+    border: 1px solid var(--purple);
+    background-color: var(--purple);
+    border-radius: 0.625em;
+    font-size: 1.125em; /*18px*/
+    font-weight: normal;
+    transition: .4s;
     cursor: pointer;
 }
 
-.file1 {
+input[type="file"] {
     display: none;
-}
-
-.custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
 }
 
 #uploadPreview {
+    margin-right: 1.25em;
+    width: 6.25em;
+    height: 6.25em;
+    border: 1px solid var(--pink);
+    background-color: var(--pink);
     border-radius: 50%;
-    width: 6.25em; 
-    height: 6.25em; 
-    border: 1px solid var(--purple);
-    background-color: var(--purple);
 }
 
-
-input[type="text"], select {
+input[type="text"],
+select {
     font-family: var(--font-stack);
-    padding: 0.8125em 1.25em; /*13px 20px*/
+    padding: 0.8125em 1.25em;
+    /*13px 20px*/
     border: 1px solid var(--white);
-    border-radius: 0.625em; /*10px*/
-    font-size: 1.125em; /*18px*/
+    border-radius: 0.625em;
+    /*10px*/
+    font-size: 1.125em;
+    /*18px*/
 }
 
 select {
@@ -208,7 +230,8 @@ select {
 }
 
 label {
-    margin-bottom: 0.625em; /*10px*/
+    margin-bottom: 0.625em;
+    /*10px*/
     font-size: 1.125em;
     font-weight: 600;
 }
@@ -217,59 +240,73 @@ input[type="submit"] {
     margin-top: 1.25em;
 }
 
-    /* Match-result.html */
-.main-match, .main-404 {
+/* Match-result.ejs */
+.main-match,
+.main-404 {
     padding: 1.25em;
-    margin-top: calc(3.125em - 1.25em); /*50px 20px*/
+    margin-top: calc(3.125em - 1.25em);
+    /*50px 20px*/
 }
 
 .main-match h1 {
-    font-size: 2.125em; /*34px*/
+    font-size: 2.125em;
+    /*34px*/
 }
 
-.main-match p, .main-404 p {
+.main-match p,
+.main-404 p {
     margin: 1.25em 0px;
-    font-size: 1.125em; /*18px*/
-    line-height: 1.875em; /*30px*/
+    font-size: 1.125em;
+    /*18px*/
+    line-height: 1.875em;
+    /*30px*/
 }
 
-    /* Profile.html */
+/* Profile.ejs */
 .section-profile {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 8.125em 1fr;
+    /* 130px */
     gap: 0px 1.25em;
     padding: 1.25em;
 }
-.section-profile h1 {
-    grid-column-start: 1;
-    grid-column-start: 2;
-    font-size: 1.125em; /*18px*/
-    line-height: 1.875em; /*30px*/
-}
 
 .section-profile h2 {
-    font-size: 0.875em; /*14px*/
+    margin-bottom: 1.25em;
+    font-size: 1.125em;
+    /*18px*/
+    line-height: 1.875em;
+    /*30px*/
+}
+
+.section-profile h3 {
+    font-size: 1em;
+    /*16px*/
     font-weight: normal;
 }
 
+.section-profile p {
+    font-size: 1em;
+    font-weight: bold;
+}
+
 .section-profile img {
-    grid-column-start: 0;
-    grid-column-start: 1;
-    grid-row-start: 1;
+    order: -1;
+    width: 8.125em;
+    height: 8.125em;
 }
 
 .section-profile section {
-    grid-column-start: 1;
-    grid-column-start: 2;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
-.section-profile section p {
-    order: -1;
+.section-profile section h3 {
+    order: 3;
 }
 
-    /* 404.html */
+/* 404.ejs */
 .body-404 {
     display: flex;
     flex-direction: column;
@@ -281,6 +318,7 @@ input[type="submit"] {
     height: 3.125em;
     margin: 1.25em auto auto auto;
 }
+
 .main-404 h1 {
     position: relative;
     font-size: 2.125em;
@@ -304,14 +342,20 @@ input[type="submit"] {
 .main-404 p {
     margin-top: calc(180px + 1.25em + 50px);
 }
+
 /* Maten die px zijn blijven zo vanwege correcte afmetingen */
 
 /* Responsive */
 /* Bron: https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
 @media (min-width: 576px) {
-    /* Index.html */
-    .main-index, form, .main-404 {
-        width: 31.25em; /*500px*/
+
+    /* Index.ejs */
+    .main-index,
+    form,
+    .main-404,
+    .section-profile {
+        width: 31.25em;
+        /*500px*/
         margin: 3.125em auto;
     }
 
@@ -327,27 +371,35 @@ input[type="submit"] {
 
     /* Fonts style */
     header h2 {
-        font-size: 3.125em; /*50px*/
+        font-size: 3.125em;
+        /*50px*/
         line-height: 1.25em;
     }
 
     header p {
-        font-size: 1.125em; /*18x*/
-        line-height: 1.875em; /*30px*/
+        font-size: 1.125em;
+        /*18x*/
+        line-height: 1.875em;
+        /*30px*/
     }
 }
 
-@media (min-width: 768px) {  }
+@media (min-width: 768px) {}
 
 @media (min-width: 992px) {
+
     /* Fonts style */
-    .main-index h1, .main-404 h1 {
-        font-size: 2.625em; /*42px*/
+    .main-index h1,
+    .main-404 h1 {
+        font-size: 2.625em;
+        /*42px*/
     }
 
-    .main-index p, .main-404 p {
+    .main-index p,
+    .main-404 p {
         font-size: 1.25em;
-        line-height: 2.0625em; /*33px*/
+        line-height: 2.0625em;
+        /*33px*/
     }
 
     label {
@@ -359,46 +411,68 @@ input[type="submit"] {
     }
 
     .main-match p {
-        font-size: 1.375em; /*22px*/
+        font-size: 1.375em;
+        /*22px*/
     }
 
+    .section-profile h2 {
+        font-size: 1.625em;
+        /* 26px */
+    }
+
+    .section-profile h3, .section-profile p {
+        font-size: 1.125em;
+    }
 }
 
 @media (max-width: 1200px) {
-    /* Index.html */
+
+    /* Index.ejs */
     .body-index img {
         display: none;
     }
 
-    /* 404.html */
+    /* 404.ejs */
     .body-404 header {
+        display: none;
+    }
+
+    /* Portfolio.ejs */
+
+    .body-profile .logo {
         display: none;
     }
 }
 
 @media (min-width: 1200px) {
     body {
-        padding: 3.125em 9.375em; /*50px 150px*/
+        padding: 3.125em 9.375em;
+        /*50px 150px*/
     }
 
-    /* Index.html */
-    .body-index, .body-404 {
+    /* Index.ejs */
+    .body-index,
+    .body-404 {
         display: grid;
-        grid-template-columns: 31.25em 1fr; /*500px*/
+        grid-template-columns: 31.25em 1fr;
+        /*500px*/
         gap: 3.125em;
         padding: 3.125em;
         height: 100vh;
     }
 
-    .body-index img, .body-404 img {
+    .body-index img,
+    .body-404 img {
         position: absolute;
-        height: 6.25em; /*100px*/
+        height: 6.25em;
+        /*100px*/
     }
 
     header {
         grid-column-start: 2;
         grid-column-end: 3;
-        border-radius: 2.5em; /*40px*/
+        border-radius: 2.5em;
+        /*40px*/
         height: 100%;
     }
 
@@ -410,14 +484,18 @@ input[type="submit"] {
         width: 100%;
     }
 
-    .main-index a, input[type="submit"], .main-match a, .main-404 a {
+    .main-index a,
+    input[type="submit"],
+    .main-match a,
+    .main-404 a {
         width: fit-content;
     }
 
-    /* Form.html */ 
+    /* Form.ejs */
     form {
         display: grid;
-        grid-template-columns: 21.875em 1fr; /*350px*/
+        grid-template-columns: 21.875em 1fr;
+        /*350px*/
         gap: 1.875em 6.25em;
         width: 100%;
         margin: 0px;
@@ -429,7 +507,7 @@ input[type="submit"] {
         grid-column-end: 2;
     }
 
-    fieldset:nth-of-type(4) {
+    fieldset:nth-of-type(5) {
         grid-column-start: 2;
         grid-column-start: 3;
         grid-row-start: 2;
@@ -443,7 +521,7 @@ input[type="submit"] {
         grid-row-end: 4;
     }
 
-    /* 404.html */
+    /* 404.ejs */
     .main-404 {
         grid-row-start: 1;
         grid-row-end: 2;
@@ -464,11 +542,25 @@ input[type="submit"] {
         margin-top: 1.25em;
     }
 
+    /* Profile.ejs */
+    .section-profile {
+        grid-template-columns: 11.25em 1fr;
+        margin: 0px;
+        width: 100%;
+    }
+
+    .section-profile img {
+        width: 11.25em;
+        height: 11.25em;
+        /* 180px */
+    }
+
     /* Partials */
     .logo {
-        height: 4.375em; /*70px*/
+        height: 4.375em;
+        /*70px*/
         margin: 0px 0px 0px auto;
     }
 }
 
-@media (min-width: 1400px) {  }
+@media (min-width: 1400px) {}

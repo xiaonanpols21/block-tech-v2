@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="img/logo.svg">
+    <link rel="icon" type="image/x-icon" href="img/logo.svg" />
     <title>Chingu: Find your K-drama Seoulmate</title>
 
     <!-- Google font: https://fonts.google.com/specimen/Poppins?query=popp -->
@@ -17,14 +17,16 @@
 
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="body-profile">
+    <%- include('../partials/logo'); %>
     <section class="section-profile">
-      <h1><%= profileMatch.username %></h1>
+      <h1 class="visually-hidden">User profile</h1>
       <section>
-        <h2>friends</h2>
+        <h2>@<%= profileMatch.username %></h2>
+        <h3>friends</h3>
         <p><%= profileMatch.aantalFriends %></p>
       </section>
-      <img src=".../public/img/add-selca.svg" alt="Profile img" />
+      <img src="/img/add-selca.svg" alt="Profile img" />
     </section>
 
     <script src="js/visibility.js"></script>
