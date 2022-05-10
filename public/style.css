@@ -140,12 +140,6 @@ fieldset {
     display: none;
 }
 
-
-label[for="file-upload"] {
-    position: relative;
-    margin-bottom: 6.25em;
-}
-
 label[for="img"] {
     position: relative;
     margin-bottom: 6.25em;
@@ -163,6 +157,24 @@ label[for="img"]:after {
     cursor: pointer;
 }
 /* Bron: https://stackoverflow.com/questions/572768/styling-an-input-type-file-button */
+
+.file3 {
+    display: none;
+}
+
+.file1 {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
 
 #uploadPreview {
     border-radius: 50%;

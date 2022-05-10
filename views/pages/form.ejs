@@ -25,25 +25,18 @@
       </label> -->
       <!-- Bron: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_accept -->
 
-      <label for="file-upload" class="custom-file-upload">
+      <label for="file-upload">
+        <input class="file1" type="file" id="uploadImage" accept="image/*" onchange="PreviewImage()"/>
         Add selca
-        <input
-        class="file1"
-          id="uploadImage"
-          type="file"
-          name="myPhoto"
-          accept="image/*"
-          onchange="PreviewImage()"
-        />
       </label>
       <img id="uploadPreview" />
       <!-- Bron: https://stackoverflow.com/questions/18457340/how-to-preview-selected-image-in-input-type-file-in-popup-using-jquery -->
 
-      <label for="img"
-        >Add selca:
-        <input class="file2" type="file" id="img" name="img" accept="image/*" />
+      <label class="custom-file-upload">
+        <input class="file3" type="file" />
+        <i class="fa fa-cloud-upload"></i> Custom Upload
       </label>
-      <!-- Bron: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_accept -->
+      <!-- Bron: http://jsfiddle.net/1pc9pcev/ -->
 
       <fieldset>
         <label for="name">Username</label>
