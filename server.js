@@ -24,6 +24,7 @@ const genre = [
   "friendship",
   "business",
 ];
+
 const kdramas = [
   {
     id: 1,
