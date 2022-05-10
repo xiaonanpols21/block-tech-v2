@@ -65,8 +65,4 @@ function error(err) {
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-
-
-
-
 console.log("form.js doet het")
