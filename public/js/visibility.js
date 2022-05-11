@@ -14,7 +14,7 @@ document.addEventListener("visibilitychange", function () {
     document.title = "Chingu: Find your K-drama Seoulmate";
     link.href = "img/logo.svg";
   }
-  // Set time out pass nog toevoegen
+  // TODO: Set time out pass nog toevoegen
 });
 
 /*
