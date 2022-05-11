@@ -1,3 +1,5 @@
+console.log("form.js doet het")
+
 // Bron: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples   
 /*
 function geoFindMe() {
@@ -43,11 +45,7 @@ const errorCallback = (error) => {
 navigator.geolocation.getCurrentPosition(SuccessCallback, errorCallback);
 */
 
-
 // Bron: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
-
-// TODO: location in input plaatsen
-// Bron: https://stackoverflow.com/questions/30056002/how-to-get-geolocation-and-return-value-in-html-form
 let options = {
   enableHighAccuracy: true,
   timeout: 5000,
@@ -69,4 +67,6 @@ function error(err) {
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-console.log("form.js doet het")
+
+// TODO: location in input plaatsen
+// Bron: https://stackoverflow.com/questions/30056002/how-to-get-geolocation-and-return-value-in-html-form
