@@ -1,6 +1,16 @@
-console.log("form.js doet het")
+console.log("form.js doet het");
 
-// Bron: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples   
+// Upload img
+function PreviewImage() {
+  var oFReader = new FileReader();
+  oFReader.readAsDataURL(document.getElementById("#uploadImage").files[0]);
+
+  oFReader.onload = function (oFREvent) {
+    document.getElementById("#uploadPreview").src = oFREvent.target.result;
+  };
+}
+
+// Bron: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples
 /*
 function geoFindMe() {
   const status = document.querySelector("#status");
@@ -49,13 +59,13 @@ navigator.geolocation.getCurrentPosition(SuccessCallback, errorCallback);
 let options = {
   enableHighAccuracy: true,
   timeout: 5000,
-  maximumAge: 0
+  maximumAge: 0,
 };
 
 function success(pos) {
   let crd = pos.coords;
 
-  console.log('Your current position is:');
+  console.log("Your current position is:");
   console.log(`Latitude : ${crd.latitude}`);
   console.log(`Longitude: ${crd.longitude}`);
   console.log(`More or less ${crd.accuracy} meters.`);
@@ -66,7 +76,6 @@ function error(err) {
 }
 
 navigator.geolocation.getCurrentPosition(success, error, options);
-
 
 // TODO: location in input plaatsen
 // Bron: https://stackoverflow.com/questions/30056002/how-to-get-geolocation-and-return-value-in-html-form
