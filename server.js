@@ -63,7 +63,7 @@ const kdramas = [
 const user = [
   {
     userId: 1,
-    userName: "Xiao xiao" 
+    username: "Xiao xiao" 
   }
 ];
 
@@ -81,7 +81,6 @@ app.get("/", (req, res) => {
 });
 
 app.get("/form", (req, res) => {
-  console.log(user)
   res.render("pages/form", {
       genre,
       user,
