@@ -48,46 +48,12 @@ const kdramas = [
 ];
 
 app.get("/", (req, res) => {
-  /*
-  let doc = '<!doctype html>';
-  doc += '<title>Kdramas</title>';
-  doc += '<h1>Kdrmas</h1>';
-
-  kdramas.forEach(kdrama => {
-    doc += "<section>";
-    doc += `<h2>${kdrama.name}<h2>`;
-    doc += `<h3>${kdrama.year}<h3>`;
-    doc += "<h3>Genre:</h3>";
-    doc += "<ul>";
-    kdrama.genre.forEach(genre => {
-      doc += `<li>${genre}</li>`;
-    });
-    doc += "</ul>";
-    doc += `<a href="/kdrama/${kdrama.id}/${kdrama.slug}">More info</a>`;
-    doc += "</section>";
-  });
-  res.send(doc);
-  */
-
   res.render("pages/index");
 });
 
 app.get("/form", (req, res) => {
   res.render("pages/form", {
-    genreArray: {
-      resultGenre: [
-        "romance",
-        "historical",
-        "music",
-        "action",
-        "adventure",
-        "melodrama",
-        "idoldrama",
-        "comedy",
-        "friendship",
-        "business",
-      ],
-    },
+      resultGenre: genre,
   });
 });
 

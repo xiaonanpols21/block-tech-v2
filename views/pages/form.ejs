@@ -53,12 +53,15 @@
       <fieldset>
         <label for="genre">Favorite genre?</label>
         <select id="genre" name="genre">
-          <% genreArray.resultGenre.forEach(result=>{ %>
+          <% resultGenre.forEach(result=>{ %>
           <option value="genre"><%= result %></option>
 
-          <% }); %> <%# genre.forEach(result=>{ %>
+          <% }); %> 
+          
+          <%# genre.forEach(result=>{ %>
           <!-- <option value="genre"> <%#= result %> </option> -->
           <%# }); %>
+          
         </select>
       </fieldset>
 
