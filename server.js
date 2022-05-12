@@ -11,6 +11,9 @@ const port = 3000;
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}))
+
 // All data comes fron: https://mydramalist.com/
 const genre = [
   "romance",
@@ -45,16 +48,57 @@ const kdramas = [
     storyline:
       "The series revolves around the narcissistic Lee Young Joon, the vice president of a company run by his family. He is very self-absorbed and thinks highly of himself, so much that he barely acknowledges the people around him. Lee Young Joon has a capable and patient secretary Kim Mi So who has remained by his side and worked diligently for 9 years without any romantic involvement. However, Mi So now wants to set her life & focus on herself so when she decides to resign from her job, hilarious misunderstandings ensue. After 9 years of their strictly-workplace relationship, can it now develop in something more?",
   },
+
+  {
+    id: 3,
+    slug: "doom-at-your-service",
+    name: "Doom at your service",
+    year: "2021",
+    genre: ["comedy", "romance", "drama", "fantasy"],
+    storyline:
+      "Tak Dong Kyung has been working hard ever since her parents passed away. Her life seemed more stable after working as a web novel editor for 6 years, but then she gets diagnosed with glioblastoma (brain cancer). She blames her unlucky life and wishes to curse everything to disappear, which unintentionally calls Myeol Mang, Doom himself - neither human nor god - to appear. ",
+  } 
+];
+
+const user = [
+  {
+    userId: 1,
+    userName: "Xiao xiao" 
+  }
+];
+
+const data = [
+  {
+    title: 'Doom at your service',
+    story: 'Fantasy about...'
+  }
 ];
 
 app.get("/", (req, res) => {
-  res.render("pages/index");
+  res.render("pages/index", {
+    kdramas
+  });
 });
 
 app.get("/form", (req, res) => {
+  console.log(user)
   res.render("pages/form", {
-      resultGenre: genre,
+      genre,
+      user,
+      kdramas,
+      data
   });
+});
+
+app.post('/form', (req, res) => {
+  console.log(req.body);
+
+  data.push({
+    title: req.body.title,
+    story: req.body.story
+  })
+
+  res.render('pages/form', {data});
 });
 
 app.get("/matchresult", (req, res) => {
@@ -94,7 +138,9 @@ app.get("/test", (req, res) => {
 
 app.use(function (req, res) {
   console.error("Error 404: page nog found");
-  res.status(404).render("pages/404");
+  res.status(404).render("pages/404",
+    kdramas
+  );
 });
 // Bron: https://github.com/cmda-bt/be-course-21-22/blob/main/examples/express-server/server.js
 
