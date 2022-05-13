@@ -36,19 +36,13 @@
 
       <fieldset>
         <label for="name">Username</label>
-        <input type="text" id="username" name="username" placeholder="Chingu..." value="<%= user[0].username %>" />
-      </fieldset>
-
-      <fieldset>
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title" placeholder="Title" />
-      </fieldset>
-
-      <fieldset>
-        <label for="sotry">Plot of kdrama</label>
-        <textarea name="story" id="story" rows="5">
-
-        </textarea>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Chingu..."
+          value="<%= user[0].username %>"
+        />
       </fieldset>
 
       <fieldset>
@@ -67,20 +61,20 @@
         <select id="genre" name="genre">
           <% genre.forEach(result=>{ %>
           <option value="genre"><%= result %></option>
-          <% }); %> 
+          <% }); %>
         </select>
       </fieldset>
 
       <fieldset>
         <!-- Top 3 kdramas -->
         <label for="name">Favorite kdramas</label>
-        <input type="checkbox" id="kdrama1" name="kdrama1" value="thod">
+        <input type="checkbox" id="kdrama1" name="kdrama1" value="thod" />
         <label for="kdrama1"><%= kdramas[0].name %></label>
 
-        <input type="checkbox" id="kdrama2" name="kdrama2" value="wwwsk">
+        <input type="checkbox" id="kdrama2" name="kdrama2" value="wwwsk" />
         <label for="kdrama2"><%= kdramas[1].name %></label>
 
-        <input type="checkbox" id="kdrama3" name="kdrama3" value="days">
+        <input type="checkbox" id="kdrama3" name="kdrama3" value="days" />
         <label for="kdrama3"><%= kdramas[2].name %></label>
       </fieldset>
 
@@ -92,36 +86,13 @@
       <input type="submit" value="Make a match" />
     </form>
 
-    <article>
-      <% for (var form = 0; form < data.length; form++) { %>
-        <h2><%= data[form].title %></h2>
-        <p><%= data[form].story %></p>
-      <% } %>
-    </article>
+    <!-- <article>
+      <%# for (var form = 0; form < data.length; form++) { %>
+      <h2><%#= data[form].title %></h2>
+      <p><%#= data[form].story %></p>
+      <%# } %>
+    </article> -->
 
-    <!-- Testen api location into form -->
-    <form action="geo/ruteplanlag.php" method="get">
-      <div id="divSample" class="hideClass">
-        Latitude:
-        <input type="text" id="Latitude" name="Latitude" value="" />
-        <br />
-        <br />Longitude:
-        <input type="text" id="Longitude" name="Longitude" value="" />
-        <br />
-      </div>
-      <br />Position
-      <input type="text" id="Position1" name="Position1" value="Miami" />
-      <br />
-      <br />
-      <input
-        type="button"
-        value="Get Location"
-        onclick="getLocationConstant()"
-      />
-      <br />
-      <br />
-      <input type="submit" value="Add GPS Location" class="small" />
-    </form>
     <!-- Ends here -->
 
     <script src="js/visibility.js"></script>

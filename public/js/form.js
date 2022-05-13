@@ -74,7 +74,9 @@ function success(pos) {
           +capital.CapitalLongitude >= crd.longitude - 0.2 &&
           +capital.CapitalLongitude <= crd.longitude + 0.2
       );
-      console.log(filteredData);
+      console.log(filteredData[0].CapitalName);
+      let location = document.getElementById("location");
+      location.value = filteredData[0].CapitalName;
       return data;
     });
 
@@ -92,7 +94,4 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 
 // TODO: location in input plaatsen
 // Bron: https://stackoverflow.com/questions/30056002/how-to-get-geolocation-and-return-value-in-html-form
-// Bron: 
-
-async function getData() {}
-getData();
+// Bron: Student assistent
