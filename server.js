@@ -4,15 +4,55 @@ const express = require("express");
 const slug = require("slug");
 const arrayify = require("array-back");
 // const ejsLint = require('ejs-lint');
+require("dotenv").config();
+
+const mongoose = require('mongoose');
 
 const app = express();
 const port = 3000;
+
+async function main() {
+  try {
+    await mongoose.connect(process.env.mongoBeauty);
+    console.log("success");
+  } catch(error) {
+    throw error
+  }
+}
+
+const kdramaSchema = new mongoose.Schema({
+  name: String,
+  slug: String,
+  year: Number,
+  genre: Array,
+  storyline: String
+});
+
+const Kdrama = mongoose.model('Kdrama', kdramaSchema);
+
+// const fluffy = new Kitten({ name: 'fluffy' });
+// fluffy.speak(); // "Meow name is fluffy"
+
+// await fluffy.save();
+async function newKdrama () {
+  const hymn = new Kdrama({
+    slug: "the-hymn-of-death",
+    name: "The Hymn of Death",
+    year: "2018",
+    genre: ["musical", "historical", "romance", "melodrama"],
+    storyline:
+      "Kim Woo Jin is a stage drama writer while Korea is under Japanese occupation. He is married, but he falls in love with Yun Shim Deok. Shim Deok is the first Korean soprano. She records the song “Praise of Death” which becomes the first Korean pop song in 1926. Woo Jin and Shim Deok's fate ends tragically.",
+  })
+  await hymn.save()
+}
+newKdrama()
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}))
+app.use(express.urlencoded({ extended: true }));
+main()
 
 // All data comes fron: https://mydramalist.com/
 const genre = [
@@ -26,6 +66,8 @@ const genre = [
   "comedy",
   "friendship",
   "business",
+  "fantasy",
+  "drama"
 ];
 
 const kdramas = [
@@ -57,47 +99,52 @@ const kdramas = [
     genre: ["comedy", "romance", "drama", "fantasy"],
     storyline:
       "Tak Dong Kyung has been working hard ever since her parents passed away. Her life seemed more stable after working as a web novel editor for 6 years, but then she gets diagnosed with glioblastoma (brain cancer). She blames her unlucky life and wishes to curse everything to disappear, which unintentionally calls Myeol Mang, Doom himself - neither human nor god - to appear. ",
-  } 
+  },
 ];
 
 const user = [
   {
     userId: 1,
-    username: "Xiao xiao" 
-  }
+    username: "Xiao xiao",
+  },
 ];
 
 const data = [
   {
-    title: 'Doom at your service',
-    story: 'Fantasy about...'
-  }
+    title: "Doom at your service",
+    story: "Fantasy about...",
+  },
 ];
 
 app.get("/", (req, res) => {
   res.render("pages/index", {
-    kdramas
+    kdramas,
   });
 });
 
 app.get("/form", (req, res) => {
   res.render("pages/form", {
-      genre,
-      user,
-      kdramas,
-      data
+    genre,
+    user,
+    kdramas,
+    data,
   });
 });
 
-app.post('/form', (req, res) => {
+app.post("/form", (req, res) => {
   console.log(req.body);
 
   data.push({
     title: req.body.title,
-    story: req.body.story
-  })
+    story: req.body.story,
+  });
 
-  res.render('pages/form', {data});
+  res.render("pages/form", {
+    genre,
+    user,
+    kdramas,
+    data,
+  });
 });
 
 app.get("/matchresult", (req, res) => {
@@ -110,6 +157,10 @@ app.get("/profile", (req, res) => {
   res.render("pages/profile", {
     profileMatch: { username: "Xiaoxiao", aantalFriends: 16 },
   });
+});
+
+app.get("/detail", (req, res) => {
+  res.render("pages/detail");
 });
 
 app.get("/kdrama/:id/:slug", (req, res) => {
@@ -137,9 +188,9 @@ app.get("/test", (req, res) => {
 
 app.use(function (req, res) {
   console.error("Error 404: page nog found");
-  res.status(404).render("pages/404",
+  res.status(404).render("pages/404", {
     kdramas
-  );
+  });
 });
 // Bron: https://github.com/cmda-bt/be-course-21-22/blob/main/examples/express-server/server.js
 

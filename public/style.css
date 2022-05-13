@@ -17,6 +17,7 @@
     --purple-active: #3b4161;
 
     --gradient-black-transparent: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0) 50%);
+    --gradient-transparent-black: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(255,255,255,0) 50%);
 }
 
 body {
@@ -73,7 +74,7 @@ header div {
 }
 
 header h2,
-.main-index h1 {
+.main-index h1, .main-detail h2 {
     font-size: 1.625em;
     /*26px*/
     line-height: 1.9375em;
@@ -248,9 +249,11 @@ input[type="submit"] {
     /*50px 20px*/
 }
 
-.main-match h1 {
+.main-match h1, .main-detail h1 {
     font-size: 2.125em;
     /*34px*/
+    line-height: 1.875em;
+    /* 30px */
 }
 
 .main-match p,
@@ -342,8 +345,59 @@ input[type="submit"] {
 .main-404 p {
     margin-top: calc(180px + 1.25em + 50px);
 }
-
 /* Maten die px zijn blijven zo vanwege correcte afmetingen */
+
+/* Detail.ejs */
+.header-detail {
+    position: relative;
+    height: 25em;
+    /*400px*/
+    padding: 1.25em;
+    /*20px*/
+    border-radius: 0px;
+    background-image: var(--gradient-transparent-black), url('img/101.jpeg');
+    /* Bron: https://aminoapps.com/c/k-drama/page/blog/the-hymn-of-death-17-review/j0Wh_KuVGPaM4W31Z1MDK8mLWW48dw2 */
+    background-size: cover;
+    background-position: center;
+    /* Bron: https://webdevetc.com/blog/how-to-add-a-gradient-overlay-to-a-background-image-using-just-css-and-html/ */
+}
+
+.header-detail a:after {
+    position: absolute;
+    left: 1.25em;
+    top: 3.125em;
+    /*50px*/
+    width: 1.0625em;
+    /*17px*/
+    height: 1.875em;
+    /*30px*/
+    content: "";
+    background-image: url(img/arrow-left.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.main-detail {
+    position: relative;
+    padding: 2.5em 1.25em;
+    margin-top: -2.5em;
+    border-radius: 3.125em 3.125em 0px 0px;
+    background-color: var(--bg-color);
+}
+
+.main-detail h1, .main-detail h2 {
+    margin-bottom: 0.3125em;
+    /*5px*/
+}
+
+.main-detail p {
+    font-size: 1em;
+    line-height: 1.75em;
+}
+
+.main-detail p:first-of-type {
+    margin-bottom: 3.125em;
+}
 
 /* Responsive */
 /* Bron: https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
