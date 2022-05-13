@@ -64,6 +64,19 @@ let options = {
 
 function success(pos) {
   let crd = pos.coords;
+  fetch("http://localhost:3000/data/capitals.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const filteredData = data.filter(
+        (capital) =>
+          +capital.CapitalLatitude >= crd.latitude - 0.2 &&
+          +capital.CapitalLatitude <= crd.latitude + 0.2 &&
+          +capital.CapitalLongitude >= crd.longitude - 0.2 &&
+          +capital.CapitalLongitude <= crd.longitude + 0.2
+      );
+      console.log(filteredData);
+      return data;
+    });
 
   console.log("Your current position is:");
   console.log(`Latitude : ${crd.latitude}`);
@@ -79,3 +92,7 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 
 // TODO: location in input plaatsen
 // Bron: https://stackoverflow.com/questions/30056002/how-to-get-geolocation-and-return-value-in-html-form
+// Bron: 
+
+async function getData() {}
+getData();
