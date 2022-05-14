@@ -17,7 +17,7 @@
     --purple-active: #3b4161;
 
     --gradient-black-transparent: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0) 50%);
-    --gradient-transparent-black: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(255,255,255,0) 50%);
+    --gradient-transparent-black: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0) 50%);
 }
 
 body {
@@ -39,6 +39,7 @@ a {
     white-space: nowrap;
     width: 1px;
 }
+
 /* Bron: https://www.a11yproject.com/posts/how-to-hide-content/#:~:text=visually%2Dhidden%20class%20is%20applied,focus%20indicator%20had%20gone%20to. */
 
 /* Partials */
@@ -74,7 +75,8 @@ header div {
 }
 
 header h2,
-.main-index h1, .main-detail h2 {
+.main-index h1,
+.main-detail h2 {
     font-size: 1.625em;
     /*26px*/
     line-height: 1.9375em;
@@ -86,6 +88,49 @@ header p {
     /*14px*/
     line-height: 1.4375em;
     /*23px*/
+}
+
+/* Dropdown */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
 }
 
 /* Main */
@@ -112,7 +157,6 @@ header p {
     /*30px*/
 }
 
-.main-index a,
 input[type="submit"],
 .main-match a,
 .main-404 a {
@@ -135,7 +179,6 @@ input[type="submit"],
     cursor: pointer;
 }
 
-.main-index a:hover,
 input[type="submit"]:hover,
 fieldset:first-of-type label:hover {
     border: 1px solid var(--purple);
@@ -143,12 +186,10 @@ fieldset:first-of-type label:hover {
 }
 
 /* Als ik active boven focus doe, doet hij focus voor active state */
-.main-index a:focus,
-input[type="submit"]:focus { 
+input[type="submit"]:focus {
     background-color: var(--pink);
 }
 
-.main-index a:active,
 input[type="submit"]:active,
 fieldset:first-of-type label:active {
     background-color: var(--purple-active);
@@ -185,11 +226,13 @@ fieldset:first-of-type img {
 }
 
 fieldset:first-of-type label {
-    padding: 0.625em 1.25em; /*10px 20px*/
+    padding: 0.625em 1.25em;
+    /*10px 20px*/
     border: 1px solid var(--purple);
     background-color: var(--purple);
     border-radius: 0.625em;
-    font-size: 1.125em; /*18px*/
+    font-size: 1.125em;
+    /*18px*/
     font-weight: normal;
     transition: .4s;
     cursor: pointer;
@@ -249,7 +292,8 @@ input[type="submit"] {
     /*50px 20px*/
 }
 
-.main-match h1, .main-detail h1 {
+.main-match h1,
+.main-detail h1 {
     font-size: 2.125em;
     /*34px*/
     line-height: 1.875em;
@@ -345,6 +389,7 @@ input[type="submit"] {
 .main-404 p {
     margin-top: calc(180px + 1.25em + 50px);
 }
+
 /* Maten die px zijn blijven zo vanwege correcte afmetingen */
 
 /* Detail.ejs */
@@ -385,7 +430,8 @@ input[type="submit"] {
     background-color: var(--bg-color);
 }
 
-.main-detail h1, .main-detail h2 {
+.main-detail h1,
+.main-detail h2 {
     margin-bottom: 0.3125em;
     /*5px*/
 }
@@ -474,7 +520,8 @@ input[type="submit"] {
         /* 26px */
     }
 
-    .section-profile h3, .section-profile p {
+    .section-profile h3,
+    .section-profile p {
         font-size: 1.125em;
     }
 }
