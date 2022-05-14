@@ -1,16 +1,19 @@
 console.log("Hallo world");
 
+// NPM packages
 const express = require("express");
 const slug = require("slug");
 const arrayify = require("array-back");
-// const ejsLint = require('ejs-lint');
-require("dotenv").config();
-
 const mongoose = require('mongoose');
 
+// Wachtwoord voor MongoDB
+require("dotenv").config();
+
+// Site laten werken
 const app = express();
 const port = 3000;
 
+// Kijken of MongoDB het doet
 async function main() {
   try {
     await mongoose.connect(process.env.mongoBeauty);
@@ -20,40 +23,16 @@ async function main() {
   }
 }
 
-const kdramaSchema = new mongoose.Schema({
-  name: String,
-  slug: String,
-  year: Number,
-  genre: Array,
-  storyline: String
-});
-
-const Kdrama = mongoose.model('Kdrama', kdramaSchema);
-
-// const fluffy = new Kitten({ name: 'fluffy' });
-// fluffy.speak(); // "Meow name is fluffy"
-
-// await fluffy.save();
-async function newKdrama () {
-  const hymn = new Kdrama({
-    slug: "the-hymn-of-death",
-    name: "The Hymn of Death",
-    year: "2018",
-    genre: ["musical", "historical", "romance", "melodrama"],
-    storyline:
-      "Kim Woo Jin is a stage drama writer while Korea is under Japanese occupation. He is married, but he falls in love with Yun Shim Deok. Shim Deok is the first Korean soprano. She records the song “Praise of Death” which becomes the first Korean pop song in 1926. Woo Jin and Shim Deok's fate ends tragically.",
-  })
-  await hymn.save()
-}
-newKdrama()
-
-app.use(express.static("public"));
-app.set("view engine", "ejs");
-
+// MongoDB werkend krijgen
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 main()
 
+// Public, View
+app.use(express.static("public"));
+app.set("view engine", "ejs");
+
+// Data
 // All data comes fron: https://mydramalist.com/
 const genre = [
   "romance",
@@ -116,6 +95,7 @@ const data = [
   },
 ];
 
+// Pages
 app.get("/", (req, res) => {
   res.render("pages/index", {
     kdramas,
@@ -163,6 +143,39 @@ app.get("/detail", (req, res) => {
   res.render("pages/detail");
 });
 
+app.use(function (req, res) {
+  console.error("Error 404: page nog found");
+  res.status(404).render("pages/404", {
+    kdramas
+  });
+});
+// Bron: https://github.com/cmda-bt/be-course-21-22/blob/main/examples/express-server/server.js
+
+// MongoDB Schema
+const kdramaSchema = new mongoose.Schema({
+  name: String,
+  slug: String,
+  year: Number,
+  genre: Array,
+  storyline: String
+});
+
+const Kdrama = mongoose.model('Kdrama', kdramaSchema);
+
+async function newKdrama () {
+  const hymn = new Kdrama({
+    slug: "the-hymn-of-death",
+    name: "The Hymn of Death",
+    year: "2018",
+    genre: ["musical", "historical", "romance", "melodrama"],
+    storyline:
+      "Kim Woo Jin is a stage drama writer while Korea is under Japanese occupation. He is married, but he falls in love with Yun Shim Deok. Shim Deok is the first Korean soprano. She records the song “Praise of Death” which becomes the first Korean pop song in 1926. Woo Jin and Shim Deok's fate ends tragically.",
+  })
+  await hymn.save()
+}
+newKdrama()
+
+/*
 app.get("/kdrama/:id/:slug", (req, res) => {
   console.log(req.params.id);
   const kdrama = kdramas.find((element) => element.id == req.params.id);
@@ -185,15 +198,9 @@ app.get("/kdrama/:id/:slug", (req, res) => {
 app.get("/test", (req, res) => {
   res.send("Dit is test!");
 });
+*/
 
-app.use(function (req, res) {
-  console.error("Error 404: page nog found");
-  res.status(404).render("pages/404", {
-    kdramas
-  });
-});
-// Bron: https://github.com/cmda-bt/be-course-21-22/blob/main/examples/express-server/server.js
-
+// Site laten werken
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
