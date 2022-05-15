@@ -144,14 +144,6 @@ app.get("/detail", (req, res) => {
   res.render("pages/detail");
 });
 
-app.get("/tmdbtest", (req, res) => {
-  res.render("pages/tmdbtest");
-});
-
-app.get("/movieimdbtest", (req, res) => {
-  res.render("pages/movieimdbtest");
-});
-
 app.use(function (req, res) {
   console.error("Error 404: page nog found");
   res.status(404).render("pages/404", {
