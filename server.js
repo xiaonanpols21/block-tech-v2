@@ -33,6 +33,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 // Data
+// TODO: Bron to seperate files: https://stackoverflow.com/questions/5697061/how-to-manage-multiple-js-files-server-side-with-node-js
 // All data comes fron: https://mydramalist.com/
 const genre = [
   "romance",
