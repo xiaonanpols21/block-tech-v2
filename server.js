@@ -4,7 +4,8 @@ console.log("Hallo world");
 const express = require("express");
 const slug = require("slug");
 const arrayify = require("array-back");
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+// const kdramaData = require('./kdrama-data.js');
 
 // Wachtwoord voor MongoDB
 require("dotenv").config();
@@ -34,6 +35,8 @@ app.set("view engine", "ejs");
 
 // Data
 // TODO: Bron to seperate files: https://stackoverflow.com/questions/5697061/how-to-manage-multiple-js-files-server-side-with-node-js
+// Ook bron: https://localcoder.org/how-to-manage-multiple-js-files-server-side-with-node-js
+
 // All data comes fron: https://mydramalist.com/
 const genre = [
   "romance",
