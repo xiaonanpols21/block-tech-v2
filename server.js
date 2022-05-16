@@ -147,6 +147,10 @@ app.get("/detail", (req, res) => {
   res.render("pages/detail");
 });
 
+app.get("/mylist", (req, res) => {
+  res.render("pages/mylist");
+});
+
 app.use(function (req, res) {
   console.error("Error 404: page nog found");
   res.status(404).render("pages/404", {
