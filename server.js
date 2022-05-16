@@ -51,7 +51,6 @@ const data = [
 ];
 
 // Pages
-
 app.get("/", (req, res) => {
   res.render("pages/index", {
     kdramas: kdramaData.kdramas,
@@ -60,7 +59,7 @@ app.get("/", (req, res) => {
 
 app.get("/form", (req, res) => {
   res.render("pages/form", {
-    genre,
+    genre: kdramaData.genre,
     user,
     kdramas: kdramaData.kdramas,
     data,
@@ -76,7 +75,7 @@ app.post("/form", (req, res) => {
   });
 
   res.render("pages/form", {
-    genre,
+    genre: kdramaData.genre,
     user,
     kdramas: kdramaData.kdramas,
     data,

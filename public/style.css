@@ -139,6 +139,7 @@ header p {
 .ch-member select:hover {
     background-color: var(--purple-active);
 }
+
 /* Bron: https://www.w3schools.com/css/css_dropdowns.asp */
 
 .main-index .ch-content img {
@@ -171,7 +172,7 @@ header p {
     /*30px*/
 }
 
-.ch-member select, 
+.ch-member select,
 input[type="submit"],
 .main-match a,
 .main-404 a {
@@ -470,11 +471,11 @@ input[type="submit"] {
     line-height: 2.5em;
     font-weight: bold;
 }
+
 .nav-mylist a:before {
     position: absolute;
     left: 1.25em;
     top: 2.5em;
-    /* 40px 13px */
     width: 0.53125em;
     height: 0.9375em;
     /* 15px */
@@ -487,11 +488,11 @@ input[type="submit"] {
 .user-profile {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     margin-top: 0.625em;
+    margin-left: auto;
+    width: fit-content;
     font-size: 1em;
-    color: var(--white)
-    ;
+    color: var(--white);
 }
 
 .user-profile img {
@@ -509,15 +510,15 @@ input[type="submit"] {
 }
 
 .poster-img {
-   width: 100%;
-   border-radius: 1.25em;
+    width: 100%;
+    border-radius: 1.25em;
 }
 
 .main-mylist h3 {
     margin-top: 0.3125em;
     font-weight: 600;
-    font-size: 0.875em;
-    line-height: 1.25em;
+    font-size: 1em;
+    line-height: 1.75em;
 }
 
 .main-mylist a {
@@ -534,11 +535,26 @@ input[type="submit"] {
 .main-mylist button {
     background: none;
     border: none;
+    cursor: pointer;
+    transition: .4s;
 }
 
 .main-mylist button i {
-    font-size: 30px;
+    font-size: 1.875em;
     color: var(--white);
+    text-shadow: 0px 0px 10px rgba(232, 80, 170, 0.5);
+}
+
+.main-mylist button:hover i {
+    color: var(--purple);
+}
+
+.main-mylist button:focus i {
+    color: var(--pink);
+}
+
+.main-mylist button:active i {
+    color: var(--purple-active);
 }
 
 /* Responsive */
@@ -547,9 +563,10 @@ input[type="submit"] {
 
     /* Index.ejs */
     .main-index,
-    form,
+    /* form, */
     .main-404,
-    .section-profile {
+    .section-profile,
+    .body-mylist {
         width: 31.25em;
         /*500px*/
         margin: 3.125em auto;
@@ -563,6 +580,21 @@ input[type="submit"] {
         bottom: 3.125em;
         left: 3.125em;
         right: 3.125em;
+    }
+
+    /* Mylist.ejs */
+    .body-mylist {
+        position: relative;
+        padding: 0px;
+    }
+
+    .nav-mylist {
+        position: relative;
+    }
+
+    .nav-mylist a:before {
+        top: calc(1.5em / 2);
+        left: 0;
     }
 
     /* Fonts style */
@@ -625,6 +657,19 @@ input[type="submit"] {
         font-size: 1.25em;
         /* 20px */
     }
+
+    .nav-mylist a {
+        font-size: 1.625em;
+    }
+
+    .user-profile {
+        font-size: 1.125em;
+    }
+
+    .main-mylist h3 {
+        font-size: 1.125em;
+        line-height: 1.875em;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -647,7 +692,9 @@ input[type="submit"] {
 }
 
 @media (min-width: 1200px) {
-    body {
+
+    body,
+    .body-mylist {
         padding: 3.125em 9.375em;
         /*50px 150px*/
     }
@@ -699,10 +746,10 @@ input[type="submit"] {
     }
 
     /* Form.ejs */
+    /*
     form {
         display: grid;
         grid-template-columns: 21.875em 1fr;
-        /*350px*/
         gap: 1.875em 6.25em;
         width: 100%;
         margin: 0px;
@@ -727,6 +774,7 @@ input[type="submit"] {
         grid-row-start: 3;
         grid-row-end: 4;
     }
+    */
 
     /* 404.ejs */
     .main-404 {
@@ -761,6 +809,30 @@ input[type="submit"] {
         height: 11.25em;
         /* 180px */
     }
+
+    /* Mylist.ejs */
+    .main-mylist {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .body-mylist {
+        width: 100%;
+        margin: 0px;
+    }
+
+    .user-profile img {
+        height: 4.375em;
+    }
+
+    .main-mylist form {
+        top: 1.875em;
+        right: 1.875em;
+    }
+
+    .main-mylist button i {
+        font-size: 3.125em;
+    }
+
 
     /* Partials */
     .logo {
