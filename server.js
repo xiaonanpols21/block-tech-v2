@@ -5,6 +5,8 @@ const express = require("express");
 const slug = require("slug");
 const arrayify = require("array-back");
 const mongoose = require("mongoose");
+
+// JS files
 const kdramaData = require('./data/kdrama-data.js');
 
 // Wachtwoord voor MongoDB
@@ -23,17 +25,17 @@ async function main() {
     throw error
   }
 }
+main()
 
 // MongoDB werkend krijgen
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-main()
 
 // Public, View
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-
+// Data Danny tutorial
 const user = [
   {
     userId: 1,
@@ -49,6 +51,7 @@ const data = [
 ];
 
 // Pages
+
 app.get("/", (req, res) => {
   res.render("pages/index", {
     kdramas: kdramaData.kdramas,
@@ -106,6 +109,7 @@ app.use(function (req, res) {
     kdramas: kdramaData.kdramas
   });
 });
+
 // Bron: https://github.com/cmda-bt/be-course-21-22/blob/main/examples/express-server/server.js
 
 // MongoDB Schema

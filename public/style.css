@@ -96,10 +96,20 @@ header p {
     position: relative;
 }
 
+.ch-member select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    background: url(img/dorpdown-arrow.svg) no-repeat 90% center;
+    background-size: 0.625em 0.625em;
+    color: var(--white);
+}
+
+/*
 .ch-content {
     position: absolute;
     display: none;
-    /* 40px */
     width: 100%;
     background-color: var(--white);
     border-radius: 1.25em;
@@ -112,9 +122,7 @@ header p {
     padding: 0.625em 1.25em;
     width: 100%;
     font-size: 1.125em;
-    /* 18px */
     color: var(--black);
-    /* 10px 20px */
 }
 
 .ch-content a:hover {
@@ -122,12 +130,13 @@ header p {
     border-radius: 1.25em;
     width: 100%;
 }
+*/
 
 .ch-member:hover .ch-content {
     display: block;
 }
 
-.ch-member:hover button {
+.ch-member select:hover {
     background-color: var(--purple-active);
 }
 /* Bron: https://www.w3schools.com/css/css_dropdowns.asp */
@@ -162,7 +171,7 @@ header p {
     /*30px*/
 }
 
-.ch-member button, 
+.ch-member select, 
 input[type="submit"],
 .main-match a,
 .main-404 a {
@@ -479,14 +488,15 @@ input[type="submit"] {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-top: 0.625em;
     font-size: 1em;
     color: var(--white)
     ;
 }
 
 .user-profile img {
-    height: 50px;
-    margin-right: 20px;
+    height: 3.125em;
+    margin-right: 1.25em;
     border-radius: 50%;
 }
 
@@ -494,20 +504,42 @@ input[type="submit"] {
 .main-mylist {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 2.5em 1.25em;
+    margin-top: 2.5em;
 }
 
 .poster-img {
    width: 100%;
-   border-radius: 20px;
+   border-radius: 1.25em;
 }
 
 .main-mylist h3 {
+    margin-top: 0.3125em;
     font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.875em;
+    line-height: 1.25em;
 }
 
+.main-mylist a {
+    position: relative;
+    display: block;
+}
+
+.main-mylist form {
+    position: absolute;
+    top: 1.25em;
+    right: 1.25em;
+}
+
+.main-mylist button {
+    background: none;
+    border: none;
+}
+
+.main-mylist button i {
+    font-size: 30px;
+    color: var(--white);
+}
 
 /* Responsive */
 /* Bron: https://getbootstrap.com/docs/5.0/layout/breakpoints/ */

@@ -1,3 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5.717" viewBox="0 0 10 5.717">
-  <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M12.974,11.192l3.784-3.781A.715.715,0,0,0,15.746,6.4l-4.287,4.284a.713.713,0,0,0-.021.985l4.3,4.314a.715.715,0,1,0,1.012-1.009Z" transform="translate(-6.194 16.968) rotate(-90)"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 10 5.7" style="enable-background:new 0 0 10 5.7;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<path id="Icon_ionic-ios-arrow-back" class="st0" d="M5,4L1.2,0.2c-0.3-0.3-0.7-0.3-1,0c-0.3,0.3-0.3,0.7,0,1l4.3,4.3
+	c0.3,0.3,0.7,0.3,1,0l4.3-4.3c0.3-0.3,0.3-0.7,0-1s-0.7-0.3-1,0c0,0,0,0,0,0L5,4z"/>
 </svg>
