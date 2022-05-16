@@ -92,18 +92,25 @@ header p {
 }
 
 /* Choose member */
+.ch-member {
+    position: relative;
+}
+
 .ch-content {
     position: absolute;
     display: none;
-    width: calc(100% - 2.5em);
     /* 40px */
+    width: 100%;
     background-color: var(--white);
+    border-radius: 1.25em;
     z-index: 1;
 }
 
 .ch-content a {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 0.625em 1.25em;
+    width: 100%;
     font-size: 1.125em;
     /* 18px */
     color: var(--black);
@@ -111,7 +118,9 @@ header p {
 }
 
 .ch-content a:hover {
-    background-color: #f1f1f1
+    background-color: #f1f1f1;
+    border-radius: 1.25em;
+    width: 100%;
 }
 
 .ch-member:hover .ch-content {
@@ -119,9 +128,15 @@ header p {
 }
 
 .ch-member:hover button {
-    background-color: #3e8e41;
+    background-color: var(--purple-active);
 }
 /* Bron: https://www.w3schools.com/css/css_dropdowns.asp */
+
+.main-index .ch-content img {
+    height: 3.125em;
+    margin-right: 1.25em;
+    border-radius: 50%;
+}
 
 /* Main */
 .main-index {
@@ -194,11 +209,11 @@ fieldset:first-of-type label:active {
 }
 
 /* form.ejs */
+/*
 form {
     display: flex;
     flex-direction: column;
     gap: 1.875em;
-    /*30px*/
     padding: 1.25em;
 }
 
@@ -219,12 +234,10 @@ fieldset:first-of-type img {
 
 fieldset:first-of-type label {
     padding: 0.625em 1.25em;
-    /*10px 20px*/
     border: 1px solid var(--purple);
     background-color: var(--purple);
     border-radius: 0.625em;
     font-size: 1.125em;
-    /*18px*/
     font-weight: normal;
     transition: .4s;
     cursor: pointer;
@@ -247,12 +260,9 @@ input[type="text"],
 select {
     font-family: var(--font-stack);
     padding: 0.8125em 1.25em;
-    /*13px 20px*/
     border: 1px solid var(--white);
     border-radius: 0.625em;
-    /*10px*/
     font-size: 1.125em;
-    /*18px*/
 }
 
 select {
@@ -267,7 +277,6 @@ select {
 
 label {
     margin-bottom: 0.625em;
-    /*10px*/
     font-size: 1.125em;
     font-weight: 600;
 }
@@ -275,7 +284,7 @@ label {
 input[type="submit"] {
     margin-top: 1.25em;
 }
-
+/*
 /* Match-result.ejs */
 .main-match,
 .main-404 {
@@ -437,32 +446,68 @@ input[type="submit"] {
     margin-bottom: 3.125em;
 }
 
-/* TODO: px to em */
-
 /* Mylist.ejs */
 .body-mylist {
-    padding: 40px 20px;
+    padding: 2.5em 1.25em;
+    /* 40px 20px */
 }
 
 .nav-mylist a {
-    margin-left: calc(8.5px + 25px);
+    margin-left: calc(0.53125em + 1.5625em);
+    /* 8.5px 25px */
     color: var(--white);
-    font-size: 24px;
-    line-height: 40px;
+    font-size: 1.5em;
+    /* 24px */
+    line-height: 2.5em;
     font-weight: bold;
 }
 .nav-mylist a:before {
     position: absolute;
     left: 1.25em;
-    top: calc(40px + 13px);
-    width: 8.5px;
-    /*17px*/
-    height: 15px;
+    top: 2.5em;
+    /* 40px 13px */
+    width: 0.53125em;
+    height: 0.9375em;
+    /* 15px */
     content: "";
     background-image: url(img/arrow-left.svg);
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 1em;
+    color: var(--white)
+    ;
+}
+
+.user-profile img {
+    height: 50px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+/* Main */
+.main-mylist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.poster-img {
+   width: 100%;
+   border-radius: 20px;
+}
+
+.main-mylist h3 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+}
+
 
 /* Responsive */
 /* Bron: https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
@@ -543,12 +588,17 @@ input[type="submit"] {
     .section-profile p {
         font-size: 1.125em;
     }
+
+    .ch-content a {
+        font-size: 1.25em;
+        /* 20px */
+    }
 }
 
 @media (max-width: 1200px) {
 
     /* Index.ejs */
-    .body-index img {
+    .index-logo {
         display: none;
     }
 
@@ -586,6 +636,11 @@ input[type="submit"] {
         position: absolute;
         height: 6.25em;
         /*100px*/
+    }
+
+    .main-index .ch-content img {
+        position: relative;
+        height: 3.125em;
     }
 
     header {

@@ -1,8 +1,6 @@
-
-// Data
-// TODO: Bron to seperate files: https://stackoverflow.com/questions/5697061/how-to-manage-multiple-js-files-server-side-with-node-js
 // All data comes fron: https://mydramalist.com/
-const genre = [
+module.exports = {
+  genre: [
     "romance",
     "historical",
     "music",
@@ -15,9 +13,9 @@ const genre = [
     "business",
     "fantasy",
     "drama"
-  ];
+  ],
   
-  const kdramas = [
+  kdramas: [
     {
       id: 1,
       slug: "the-hymn-of-death",
@@ -47,4 +45,5 @@ const genre = [
       storyline:
         "Tak Dong Kyung has been working hard ever since her parents passed away. Her life seemed more stable after working as a web novel editor for 6 years, but then she gets diagnosed with glioblastoma (brain cancer). She blames her unlucky life and wishes to curse everything to disappear, which unintentionally calls Myeol Mang, Doom himself - neither human nor god - to appear. ",
     },
-  ];
+  ]
+}
