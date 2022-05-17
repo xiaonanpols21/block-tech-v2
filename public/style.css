@@ -321,37 +321,31 @@ input[type="submit"] {
 }
 
 /* Profile.ejs */
+.body-profile {
+    padding: 1.25em;
+}
+
 .section-profile {
     display: grid;
     grid-template-columns: 8.125em 1fr;
     /* 130px */
     gap: 0px 1.25em;
-    padding: 1.25em;
 }
 
 .section-profile h2 {
-    margin-bottom: 1.25em;
+    display: flex;
+    align-items: center;
     font-size: 1.125em;
     /*18px*/
     line-height: 1.875em;
     /*30px*/
 }
 
-.section-profile h3 {
-    font-size: 1em;
-    /*16px*/
-    font-weight: normal;
-}
-
-.section-profile p {
-    font-size: 1em;
-    font-weight: bold;
-}
-
 .section-profile img {
     order: -1;
     width: 8.125em;
     height: 8.125em;
+    border-radius: 50%;
 }
 
 .section-profile section {
@@ -360,8 +354,30 @@ input[type="submit"] {
     justify-content: center;
 }
 
-.section-profile section h3 {
-    order: 3;
+.main-profile {
+    margin-top: 3.125em;
+}
+
+.main-profile section {
+    display: flex;
+    flex-direction: row;
+    gap: 1.25em;
+    overflow: auto;
+    margin: 1.25em -1.25em 0px 0px;
+    padding-right: 1.25em;
+    scroll-snap-type: x mandatory;
+}
+
+.main-profile section article {
+    scroll-snap-align: center;
+}
+
+.main-profile .poster-img {
+    width: 8.75em;
+}
+
+.main-profile h2 {
+    font-size: 1.125em;
 }
 
 /* 404.ejs */
@@ -514,46 +530,46 @@ input[type="submit"] {
     border-radius: 1.25em;
 }
 
-.main-mylist h3 {
+.main-mylist h3, .main-profile article h3 {
     margin-top: 0.3125em;
     font-weight: 600;
     font-size: 1em;
     line-height: 1.75em;
 }
 
-.main-mylist a {
+.main-mylist a, .main-profile article a {
     position: relative;
     display: block;
 }
 
-.main-mylist form {
+.main-mylist form, .main-profile article form {
     position: absolute;
     top: 1.25em;
     right: 1.25em;
 }
 
-.main-mylist button {
+.main-mylist button, .main-profile article button {
     background: none;
     border: none;
     cursor: pointer;
     transition: .4s;
 }
 
-.main-mylist button i {
+.main-mylist button i, .main-profile article button i {
     font-size: 1.875em;
     color: var(--white);
     text-shadow: 0px 0px 10px rgba(232, 80, 170, 0.5);
 }
 
-.main-mylist button:hover i {
+.main-mylist button:hover i, .main-profile article button:hover i {
     color: var(--purple);
 }
 
-.main-mylist button:focus i {
+.main-mylist button:focus i, .main-profile article button:focus i {
     color: var(--pink);
 }
 
-.main-mylist button:active i {
+.main-mylist button:active i, .main-profile article button:active i {
     color: var(--purple-active);
 }
 
@@ -565,8 +581,8 @@ input[type="submit"] {
     .main-index,
     /* form, */
     .main-404,
-    .section-profile,
-    .body-mylist {
+    .body-mylist,
+    .main-detail section {
         width: 31.25em;
         /*500px*/
         margin: 3.125em auto;
@@ -598,13 +614,13 @@ input[type="submit"] {
     }
 
     /* Fonts style */
-    header h2 {
+    header h2, .main-detail h1 {
         font-size: 3.125em;
         /*50px*/
         line-height: 1.25em;
     }
 
-    header p {
+    header p, .main-detail p:first-of-type {
         font-size: 1.125em;
         /*18x*/
         line-height: 1.875em;
@@ -624,13 +640,14 @@ input[type="submit"] {
     }
 
     .main-index p,
-    .main-404 p {
+    .main-404 p,
+    .main-detail p {
         font-size: 1.25em;
-        line-height: 2.0625em;
-        /*33px*/
+        line-height: 1.875em;
     }
 
-    label {
+    label,
+    .ch-content a {
         font-size: 1.25em;
     }
 
@@ -643,33 +660,22 @@ input[type="submit"] {
         /*22px*/
     }
 
-    .section-profile h2 {
+    .section-profile h2,
+    .nav-mylist a {
         font-size: 1.625em;
         /* 26px */
     }
 
-    .section-profile h3,
-    .section-profile p {
-        font-size: 1.125em;
-    }
-
-    .ch-content a {
-        font-size: 1.25em;
-        /* 20px */
-    }
-
-    .nav-mylist a {
-        font-size: 1.625em;
-    }
-
-    .user-profile {
-        font-size: 1.125em;
-    }
-
+    .user-profile,
     .main-mylist h3 {
         font-size: 1.125em;
         line-height: 1.875em;
     }
+
+    .main-detail h2 {
+        font-size: 1.875em;
+    }
+
 }
 
 @media (max-width: 1200px) {
@@ -685,7 +691,6 @@ input[type="submit"] {
     }
 
     /* Portfolio.ejs */
-
     .body-profile .logo {
         display: none;
     }
@@ -798,7 +803,7 @@ input[type="submit"] {
     }
 
     /* Profile.ejs */
-    .section-profile {
+    /* .section-profile {
         grid-template-columns: 11.25em 1fr;
         margin: 0px;
         width: 100%;
@@ -807,8 +812,7 @@ input[type="submit"] {
     .section-profile img {
         width: 11.25em;
         height: 11.25em;
-        /* 180px */
-    }
+    } */
 
     /* Mylist.ejs */
     .main-mylist {

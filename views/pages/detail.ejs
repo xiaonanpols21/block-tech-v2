@@ -4,16 +4,19 @@
   <body class="body-kdrama-single">
     <header class="header-detail">
       <nav>
-        <a href=""></a>
+        <a href="/mylist"></a>
       </nav>
       
     </header>
     <main class="main-detail">
-        <h1>The hymn of Death</h1>
-        <p>Music, Historical, Romance, Melodrama</p>
+      <section>
+        <h1><%#= kdramas[0].name %></h1>
+        <p><%#= kdramas[0].genre %></p>
 
         <h2>About</h2>
-        <p>Based on the true story of Kim Woo-Jin and Yun Sim-Deok. Kim Woo-Jin is a stage drama writer while Korea is under Japanese occupation. He is already married, but he falls in love with Yun Sim-Deok. Yun Sim-Deok is the first Korean soprano. She records the song “Praise of Death” which becomes the first Korean pop song in 1926. Kim Woo-Jin and Yun Sim-Deok’s fate ends tragically.</p>
+        <p><%#= kdramas[0].storyline %></p>
+    
+      </section>
     </main>
 
     <script src="js/visibility.js"></script>

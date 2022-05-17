@@ -45,5 +45,35 @@ module.exports = {
       storyline:
         "Tak Dong Kyung has been working hard ever since her parents passed away. Her life seemed more stable after working as a web novel editor for 6 years, but then she gets diagnosed with glioblastoma (brain cancer). She blames her unlucky life and wishes to curse everything to disappear, which unintentionally calls Myeol Mang, Doom himself - neither human nor god - to appear. ",
     },
+  ],
+
+  users: [
+    {
+      name: "Xiao xiao",
+      img: (function() {
+        let img = new Image();
+        img.src = "./public/img/user-1.jpg";
+        return img;
+        // Bron: https://stackoverflow.com/questions/37103988/is-it-possible-to-set-an-image-source-on-a-javascript-object-property
+      })
+    },
+    {
+      name: "Lei CHu Xia",
+      img: (function() {
+        let img = new Image();
+        img.src = "./public/img/user-2.jpg";
+        return img;
+        // Bron: https://stackoverflow.com/questions/37103988/is-it-possible-to-set-an-image-source-on-a-javascript-object-property
+      })
+    },
+    {
+      name: "Veronica Park",
+      img: (function() {
+        let img = new Image();
+        img.src = "./public/img/user-3.jpg";
+        return img;
+        // Bron: https://stackoverflow.com/questions/37103988/is-it-possible-to-set-an-image-source-on-a-javascript-object-property
+      })
+    }
   ]
 }

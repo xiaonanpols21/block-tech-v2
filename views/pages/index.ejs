@@ -26,7 +26,16 @@
           <option value="user1">Xiao xiao</option>
           <option value="user2">Lei Chu Xia</option>
           <option value="user3">Veronica Park</option>
-        </select>
+
+          <!-- In een for each loop -->
+          <% users.forEach(result=>{ %>
+            <option value="user"><%= result %></option>
+            <% }); %>
+
+            <!-- Het blijft altijd 3  -->
+            <option data-img_src="<%= users[0].img %>" value="user1"><%= users[0].name %></option>
+            <!-- Bron: https://learnbatta.com/blog/how-to-add-image-in-select-options-html-93/ -->
+          </select>
       </form>
       <!-- Bron: https://www.freecodecamp.org/news/html-select-tag-how-to-make-a-dropdown-menu-or-combo-list/ -->
     </main>

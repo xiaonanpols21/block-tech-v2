@@ -5,14 +5,47 @@
     <%- include('../partials/logo'); %>
     <section class="section-profile">
       <h1 class="visually-hidden">User profile</h1>
-      <section>
-        <h2>@<%= profileMatch.username %></h2>
-        <h3>friends</h3>
-        <p><%= profileMatch.aantalFriends %></p>
-      </section>
-      <img src="/img/add-selca.svg" alt="Profile img" />
+      <h2>@<%= profileMatch.username %></h2>
+      <img src="/img/user-1.jpg" alt="Profile img" />
     </section>
-
+    <main class="main-profile">
+      <h2>My list</h2>
+      <section>
+        <h3 class="visually-hidden">Kdramas</h3>
+        <article>
+          <a href="">
+            <h2 class="visually-hidden">Drama poster</h2>
+            <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
+            <form action="">
+              <button><i class="fa-solid fa-heart"></i></button>
+            </form>
+          </a>
+          <h3>Hymn of death</h3>
+        </article>
+        <article>
+          <a href="">
+            <h2 class="visually-hidden">Drama poster</h2>
+            <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
+            <form action="">
+              <button><i class="fa-solid fa-heart"></i></button>
+            </form>
+          </a>
+          <h3>Hymn of death</h3>
+        </article>
+        <article>
+          <a href="">
+            <h2 class="visually-hidden">Drama poster</h2>
+            <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
+            <form action="">
+              <button><i class="fa-solid fa-heart"></i></button>
+            </form>
+          </a>
+          <h3>Hymn of death</h3>
+        </article>
+      </section>
+    </main>
+    <script src="https://kit.fontawesome.com/c24c386355.js" crossorigin="anonymous"></script>
+   
     <script src="js/visibility.js"></script>
   </body>
 </html>

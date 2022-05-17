@@ -54,6 +54,9 @@ const data = [
 app.get("/", (req, res) => {
   res.render("pages/index", {
     kdramas: kdramaData.kdramas,
+    genre: kdramaData.genre,
+    users: kdramaData.users,
+
   });
 });
 
@@ -95,7 +98,11 @@ app.get("/profile", (req, res) => {
 });
 
 app.get("/detail", (req, res) => {
-  res.render("pages/detail");
+  res.render("pages/detail"), {
+    genre: kdramaData.genre,
+    kdramas: kdramaData.kdramas,
+    storyLine: kdramaData.storyLine,
+  };
 });
 
 app.get("/mylist", (req, res) => {
