@@ -33,32 +33,28 @@ function apiCall() {
 */
 
 function apiCall() {
-
   const BASE_URL = "https://api.themoviedb.org/3";
-  
-  const API_KEY = process.env.API_KEY
-  
-  
-  
-  const url = BASE_URL + "/discover/tv?" + "api_key=" + API_KEY + "&language=en-US&sort_by=popularity.desc&page=1&primary_release_year=2020&with_original_language=hi|ko|";
-  
-  
-  
+
+  const API_KEY = process.env.API_KEY;
+
+  const url =
+    BASE_URL +
+    "/discover/tv?" +
+    "api_key=" +
+    API_KEY +
+    "&language=en-US&sort_by=popularity.desc&page=1&primary_release_year=2020&with_original_language=hi|ko|";
+
   // API fetchen met Promise
-  
+
   return fetch(url)
-  
-  .then((response) => response.json())
-  
-  .then((data) => {
-  
-  // console.log(data);
-  
-  return data.results
-  
-  });
-  
-  }
+    .then((response) => response.json())
+
+    .then((data) => {
+      // console.log(data);
+
+      return data.results;
+    });
+}
 
 // Wachtwoord voor MongoDB
 require("dotenv").config();
@@ -182,45 +178,36 @@ app.post("/mylist", (req, res) => {
 });
 */
 app.get("/mylist", async function (req, res) {
+  // deze doet het niet
 
-// deze doet het niet
+  // res.render("pages/mylist"), {
 
-// res.render("pages/mylist"), {
+  // users: kdramaData.users,
 
-// users: kdramaData.users,
+  // mylist,
 
-// mylist,
+  // API_KEY
 
-// API_KEY
+  // }
 
-// }
+  console.log("mylist");
 
+  // console.log(mylist)
 
+  const apiData = await apiCall();
 
-console.log('mylist');
+  console.log(apiData[0].name);
 
-// console.log(mylist)
+  // deze wel
 
-const apiData = await apiCall();
+  res.render("pages/mylist", {
+    users: kdramaData.users,
 
-console.log(apiData[0].name);
+    apiData: apiData,
 
-
-
-
-// deze wel
-
-res.render("pages/mylist", {
-
-users: kdramaData.users,
-
-apiData: apiData,
-
-mylist
-
+    mylist,
+  });
 });
-
-})
 
 app.get("/mylist/:id", (req, res) => {
   console.log(req.params.id);
