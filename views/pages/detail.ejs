@@ -11,7 +11,12 @@
     <main class="main-detail">
       <section>
         <h1><%= kdramas[0].name %></h1>
-        <p><%= kdramas[0].genre %></p>
+        <ul>
+          <% kdramas[0].genre.forEach(kdrama => { %>
+            <li><%= kdrama.charAt(0).toUpperCase() + kdrama.slice(1)%></li>
+            <!-- Bron: https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript -->
+          <%}); %>
+        </ul>
 
         <h2>About</h2>
         <p><%= kdramas[0].storyline %></p>

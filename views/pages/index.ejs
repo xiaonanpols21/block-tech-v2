@@ -10,40 +10,17 @@
         to watch with!
       </p>
 
-      <!-- TODO: onderste dropdown kiezen -->
       <section class="ch-member">
         <h2 class="visually-hidden">Choose profile</h2>
         <button>Choose profile</button>
         <div class="ch-content">
-          <a href=""><img src="img/user-1.jpg" alt="User 1">Xiao Xiao</a>
-          <a href="#"><img src="img/user-1.jpg" alt="User 2">Xiao Xiao</a>
-          <a href="#"><img src="img/user-1.jpg" alt="User 3">Xiao Xiao</a>
+          <a href="/mylist"><img src="<%= users[0].URL %>" alt="User 1"><%= users[0].name %></a>
+          <a href="#"><img src="<%= users[1].URL %>" alt="User 2"><%= users[1].name %></a>
+          <a href="#"><img src="<%= users[2].URL %>" alt="User 3"><%= users[2].name %></a>
         </div>
       </section>
       <!-- Bron: https://www.w3schools.com/css/css_dropdowns.asp -->
-
-      <form class="ch-member" action="/mylist">
-        <select id="profile" name="profile">
-          <option value="user1">Choose profile</option>
-          <option value="user1">Xiao xiao</option>
-          <option value="user2">Lei Chu Xia</option>
-          <option value="user3">Veronica Park</option>
-
-          <!-- In een for each loop -->
-          <% users.forEach(result=>{ %>
-            <option value="user"><%= result %></option>
-            <% }); %>
-
-            <!-- Het blijft altijd 3  -->
-            <option data-img_src="<%#= users[0].img %>../public/img/user-1.jpg" value="user1"><%= users[0].name %></option>
-            <!-- Bron: https://learnbatta.com/blog/how-to-add-image-in-select-options-html-93/ -->
-            
-            <option value="user1"><img src="<%= users[0].img %>" alt=""><%= users[0].name %></option>
-          
-          </select>
-      </form>
-      <!-- Bron: https://www.freecodecamp.org/news/html-select-tag-how-to-make-a-dropdown-menu-or-combo-list/ -->
-    </main>
+</main>
     <img class="index-logo" src="img/logo.svg" alt="Logo" />
   
     <script src="js/visibility.js"></script>

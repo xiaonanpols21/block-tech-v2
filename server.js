@@ -92,16 +92,16 @@ app.get("/matchresult", (req, res) => {
 
 app.get("/profile", (req, res) => {
   res.render("pages/profile", {
-    profileMatch: { username: "Xiaoxiao", aantalFriends: 16 },
+    users: kdramaData.users,
   });
 });
 
 app.get("/detail", (req, res) => {
-  res.render("pages/detail"), {
+  res.render("pages/detail", {
     genre: kdramaData.genre,
     kdramas: kdramaData.kdramas,
     storyLine: kdramaData.storyLine,
-  };
+  });
 });
 
 const mylist = [
@@ -111,11 +111,11 @@ const mylist = [
 ]
 
 app.get("/mylist", (req, res) => {
-  res.render("pages/mylist"), {
+  res.render("pages/mylist", {
     users: kdramaData.users,
     mylist,
-    API_KEY
-  };
+  })
+  
 });
 
 app.post("/mylist", (req, res) => {

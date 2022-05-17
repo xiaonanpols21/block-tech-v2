@@ -3,10 +3,13 @@
   <%- include('../partials/head'); %>
   <body class="body-profile">
     <%- include('../partials/logo'); %>
+    <nav class="nav-mylist">
+      <a href="/mylist">Profile</a>
+    </nav>
     <section class="section-profile">
       <h1 class="visually-hidden">User profile</h1>
-      <h2>@<%= profileMatch.username %></h2>
-      <img src="/img/user-1.jpg" alt="Profile img" />
+      <h2>@<%= users[0].name %></h2>
+      <img src="<%= users[0].URL %>" alt="Profile img" />
     </section>
     <main class="main-profile">
       <h2>My list</h2>
