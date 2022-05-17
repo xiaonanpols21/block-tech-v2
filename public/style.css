@@ -92,7 +92,7 @@ header ul, .main-detail ul {
 }
 
 header ul li, .main-detail ul li {
-    margin-right: 1.25em;
+    margin-right: 0.625em;
     list-style: none;
 }
 
