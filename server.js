@@ -27,7 +27,7 @@ async function main() {
 }
 main()
 
-// MongoDB werkend krijgen
+// Data posten
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -68,21 +68,21 @@ app.get("/form", (req, res) => {
   });
 });
 
-app.post("/form", (req, res) => {
-  console.log(req.body);
+// app.post("/form", (req, res) => {
+//   console.log(req.body);
 
-  data.push({
-    title: req.body.title,
-    story: req.body.story,
-  });
+//   data.push({
+//     title: req.body.title,
+//     story: req.body.story,
+//   });
 
-  res.render("pages/form", {
-    genre: kdramaData.genre,
-    user,
-    kdramas: kdramaData.kdramas,
-    data,
-  });
-});
+//   res.render("pages/form", {
+//     genre: kdramaData.genre,
+//     user,
+//     kdramas: kdramaData.kdramas,
+//     data,
+//   });
+// });
 
 app.get("/matchresult", (req, res) => {
   res.render("pages/matchresult", {
@@ -104,10 +104,26 @@ app.get("/detail", (req, res) => {
   };
 });
 
+const mylist = [
+  {
+    name: "All of us are dead"
+  }
+]
+
 app.get("/mylist", (req, res) => {
   res.render("pages/mylist"), {
     users: kdramaData.users,
+    mylist,
+    API_KEY
   };
+});
+
+app.post("/mylist", (req, res) => {
+  console.log(req.body);
+
+  data.push({
+
+  });
 });
 
 app.get("/mylist/:id", (req, res)=> {

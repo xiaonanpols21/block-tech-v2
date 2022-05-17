@@ -1,7 +1,7 @@
 console.log("Mylist");
 
 // Data aanvragen
- const API_KEY = "c9c582007e770d9564a6499f6e364a2a";
+const API_KEY = "c9c582007e770d9564a6499f6e364a2a";
 // const API_KEY = process.env.API_Key;
 // Bron: https://stackoverflow.com/questions/4870328/read-environment-variables-in-node-js#:~:text=To%20retrieve%20environment%20variables%20in,assigning%20a%20property%20on%20process.
 
@@ -15,6 +15,7 @@ const API_URL =
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 const main = document.querySelector(".main-mylist");
 // Bron: https://www.youtube.com/watch?v=9Bvt6BFf6_U&list=PLXyo-7ps7RUG9an-ko_ktfMDWSaTwlYQD&index=6&t=357s&ab_channel=AsishGeorgeTech
+
 
 // API fetchen met Promise
 function getKdrama(url) {

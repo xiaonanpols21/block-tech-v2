@@ -54,7 +54,6 @@ module.exports = {
         let img = new Image();
         img.src = "./public/img/user-1.jpg";
         return img;
-        // Bron: https://stackoverflow.com/questions/37103988/is-it-possible-to-set-an-image-source-on-a-javascript-object-property
       })
     },
     {
