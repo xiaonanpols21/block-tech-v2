@@ -41,3 +41,6 @@ function showKdrama(data) {
     main.appendChild(kdramaEl);
   });
 };
+
+// TODO: Add wishlis js progressive enhancement
+// https://stackoverflow.com/questions/70447055/how-do-you-add-toggle-functionality-to-a-wishlist-button-to-add-and-remove-items
