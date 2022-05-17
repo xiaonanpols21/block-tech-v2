@@ -30,11 +30,11 @@ getKdrama(API_URL);
 function showKdrama(data) {
   main.innerHTML = "";
   data.forEach((kdrama) => {
-    const { name, poster_path } = kdrama;
+    const { name, poster_path, id } = kdrama;
     const kdramaEl = document.createElement("article");
     kdramaEl.classList.add("kdrama");
     kdramaEl.innerHTML = `
-        <a href="">
+        <a href="/mylist/${kdrama.id}">
           <h2 class="visually-hidden">Drama poster</h2>
           <img class="poster-img" src="${
             IMG_URL + poster_path
@@ -47,4 +47,4 @@ function showKdrama(data) {
         `;
     main.appendChild(kdramaEl);
   });
-}
+};

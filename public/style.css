@@ -106,7 +106,7 @@ header p {
     color: var(--white);
 }
 
-/*
+
 .ch-content {
     position: absolute;
     display: none;
@@ -130,7 +130,7 @@ header p {
     border-radius: 1.25em;
     width: 100%;
 }
-*/
+
 
 .ch-member:hover .ch-content {
     display: block;
@@ -171,7 +171,7 @@ header p {
     line-height: 1.875em;
     /*30px*/
 }
-
+.ch-member button,
 .ch-member select,
 input[type="submit"],
 .main-match a,
@@ -573,6 +573,26 @@ input[type="submit"] {
     color: var(--purple-active);
 }
 
+/* Progressive enhancement */
+/* Mylist.ejs */
+.heart-add {
+    background: url(img/heart-default.svg) center center no-repeat;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 1.5625em;
+    width: 1.8125em;
+    /* 25px 29px */
+    transition: .4s;
+}
+
+.heart-add:hover {
+    background: url(img/heart-hover.svg) center center no-repeat;
+}
+
+.heart-add:active {
+    background: url(img/heart-active.svg) center center no-repeat;
+}
+
 /* Responsive */
 /* Bron: https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
 @media (min-width: 576px) {
@@ -611,6 +631,16 @@ input[type="submit"] {
     .nav-mylist a:before {
         top: calc(1.5em / 2);
         left: 0;
+    }
+
+    .main-mylist button i {
+        font-size: 2.5em;
+    }
+
+    .heart-add {
+        height: 2.1875em;
+        width: 2.5em;
+        /* 35px 40px */
     }
 
     /* Fonts style */
@@ -837,6 +867,11 @@ input[type="submit"] {
         font-size: 3.125em;
     }
 
+    .heart-add {
+        height: 2.5625em;
+        width: 2.9375em;
+        /* 41px 47px */
+    }
 
     /* Partials */
     .logo {

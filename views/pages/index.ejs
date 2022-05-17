@@ -11,13 +11,15 @@
       </p>
 
       <!-- TODO: onderste dropdown kiezen -->
-      <!-- <section class="ch-member">
+      <section class="ch-member">
         <h2 class="visually-hidden">Choose profile</h2>
         <button>Choose profile</button>
         <div class="ch-content">
-          <%#- include('../partials/profile-user'); %>
+          <a href="#"><img src="img/user-1.jpg" alt="User 1">Xiao Xiao</a>
+          <a href="#"><img src="img/user-1.jpg" alt="User 2">Xiao Xiao</a>
+          <a href="#"><img src="img/user-1.jpg" alt="User 3">Xiao Xiao</a>
         </div>
-      </section> -->
+      </section>
       <!-- Bron: https://www.w3schools.com/css/css_dropdowns.asp -->
 
       <form class="ch-member" action="/mylist">
@@ -33,14 +35,17 @@
             <% }); %>
 
             <!-- Het blijft altijd 3  -->
-            <option data-img_src="<%= users[0].img %>" value="user1"><%= users[0].name %></option>
+            <option data-img_src="<%#= users[0].img %>img/user-1.jpg" value="user1"><%= users[0].name %></option>
             <!-- Bron: https://learnbatta.com/blog/how-to-add-image-in-select-options-html-93/ -->
+            
+            <option value="user1"><img src="<%= users[0].img %>" alt=""><%= users[0].name %></option>
+          
           </select>
       </form>
       <!-- Bron: https://www.freecodecamp.org/news/html-select-tag-how-to-make-a-dropdown-menu-or-combo-list/ -->
     </main>
     <img class="index-logo" src="img/logo.svg" alt="Logo" />
-
+  
     <script src="js/visibility.js"></script>
   </body>
 </html>

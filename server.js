@@ -109,6 +109,14 @@ app.get("/mylist", (req, res) => {
   res.render("pages/mylist");
 });
 
+app.get("/mylist/:id", (req, res)=> {
+  console.log(req.params.id);
+  const kdrama = kdrama.find( element => element.id == req.params.id)
+  console.log(kdrama)
+  // res.send("hij doet het");
+  res.render("pages/detail.ejs")
+});
+
 app.use(function (req, res) {
   console.error("Error 404: page nog found");
   res.status(404).render("pages/404", {
