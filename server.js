@@ -183,44 +183,44 @@ app.post("/mylist", (req, res) => {
 */
 app.get("/mylist", async function (req, res) {
 
-  // deze doet het niet
-  
-  // res.render("pages/mylist"), {
-  
-  // users: kdramaData.users,
-  
-  // mylist,
-  
-  // API_KEY
-  
-  // }
-  
-  
-  
-  console.log('mylist');
-  
-  // console.log(mylist)
-  
-  const apiData = await apiCall();
-  
-  console.log(apiData[0].name);
-  
-  
-  
-  
-  // deze wel
-  
-  res.render("pages/mylist", {
-  
-  users: kdramaData.users,
-  
-  apiData: apiData,
-  
-  mylist
-  
-  });
-  
-  })
+// deze doet het niet
+
+// res.render("pages/mylist"), {
+
+// users: kdramaData.users,
+
+// mylist,
+
+// API_KEY
+
+// }
+
+
+
+console.log('mylist');
+
+// console.log(mylist)
+
+const apiData = await apiCall();
+
+console.log(apiData[0].name);
+
+
+
+
+// deze wel
+
+res.render("pages/mylist", {
+
+users: kdramaData.users,
+
+apiData: apiData,
+
+mylist
+
+});
+
+})
 
 app.get("/mylist/:id", (req, res) => {
   console.log(req.params.id);
