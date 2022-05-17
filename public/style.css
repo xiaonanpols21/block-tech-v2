@@ -602,7 +602,8 @@ input[type="submit"] {
     /* form, */
     .main-404,
     .body-mylist,
-    .main-detail section {
+    .main-detail section,
+    .body-profile {
         width: 31.25em;
         /*500px*/
         margin: 3.125em auto;
@@ -643,6 +644,10 @@ input[type="submit"] {
         /* 35px 40px */
     }
 
+    .body-profile {
+        padding: 0px;
+    }
+
     /* Fonts style */
     header h2, .main-detail h1 {
         font-size: 3.125em;
@@ -671,13 +676,15 @@ input[type="submit"] {
 
     .main-index p,
     .main-404 p,
-    .main-detail p {
+    .main-detail p, 
+    .body-404, 
+    .main-profile article h3 {
         font-size: 1.25em;
         line-height: 1.875em;
     }
 
     label,
-    .ch-content a {
+    .ch-content a, .main-profile h2 {
         font-size: 1.25em;
     }
 
@@ -729,7 +736,8 @@ input[type="submit"] {
 @media (min-width: 1200px) {
 
     body,
-    .body-mylist {
+    .body-mylist,
+    .body-profile {
         padding: 3.125em 9.375em;
         /*50px 150px*/
     }
@@ -849,7 +857,7 @@ input[type="submit"] {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
-    .body-mylist {
+    .body-mylist, .body-profile {
         width: 100%;
         margin: 0px;
     }
@@ -863,7 +871,7 @@ input[type="submit"] {
         right: 1.875em;
     }
 
-    .main-mylist button i {
+    .main-mylist button i, .main-profile article button i {
         font-size: 3.125em;
     }
 
@@ -871,6 +879,11 @@ input[type="submit"] {
         height: 2.5625em;
         width: 2.9375em;
         /* 41px 47px */
+    }
+
+    /* Profile */
+    .main-profile .poster-img {
+        width: 12.5em;
     }
 
     /* Partials */

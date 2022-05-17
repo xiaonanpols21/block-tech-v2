@@ -56,7 +56,6 @@ app.get("/", (req, res) => {
     kdramas: kdramaData.kdramas,
     genre: kdramaData.genre,
     users: kdramaData.users,
-
   });
 });
 
@@ -106,7 +105,9 @@ app.get("/detail", (req, res) => {
 });
 
 app.get("/mylist", (req, res) => {
-  res.render("pages/mylist");
+  res.render("pages/mylist"), {
+    users: kdramaData.users,
+  };
 });
 
 app.get("/mylist/:id", (req, res)=> {
@@ -114,7 +115,11 @@ app.get("/mylist/:id", (req, res)=> {
   const kdrama = kdrama.find( element => element.id == req.params.id)
   console.log(kdrama)
   // res.send("hij doet het");
-  res.render("pages/detail.ejs")
+  res.render("pages/detail.ejs", {
+    genre: kdramaData.genre,
+    kdramas: kdramaData.kdramas,
+    storyLine: kdramaData.storyLine,
+  })
 });
 
 app.use(function (req, res) {
