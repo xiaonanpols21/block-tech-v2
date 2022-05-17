@@ -10,6 +10,7 @@ const mongoose = require("mongoose");
 const kdramaData = require("./data/kdrama-data.js");
 
 // API key
+/*
 function apiCall() {
   const BASE_URL = "https://api.themoviedb.org/3";
   const API_KEY = process.env.API_KEY;
@@ -28,7 +29,36 @@ function apiCall() {
       // console.log(data);
       return data.results;
     });
-}
+};
+*/
+
+function apiCall() {
+
+  const BASE_URL = "https://api.themoviedb.org/3";
+  
+  const API_KEY = process.env.API_KEY
+  
+  
+  
+  const url = BASE_URL + "/discover/tv?" + "api_key=" + API_KEY + "&language=en-US&sort_by=popularity.desc&page=1&primary_release_year=2020&with_original_language=hi|ko|";
+  
+  
+  
+  // API fetchen met Promise
+  
+  return fetch(url)
+  
+  .then((response) => response.json())
+  
+  .then((data) => {
+  
+  // console.log(data);
+  
+  return data.results
+  
+  });
+  
+  }
 
 // Wachtwoord voor MongoDB
 require("dotenv").config();
@@ -131,6 +161,7 @@ const mylist = [
   },
 ];
 
+/*
 app.get("/mylist", async function (req, res) {
   console.log("mylist");
   // console.log(mylist)
@@ -149,6 +180,47 @@ app.post("/mylist", (req, res) => {
 
   data.push({});
 });
+*/
+app.get("/mylist", async function (req, res) {
+
+  // deze doet het niet
+  
+  // res.render("pages/mylist"), {
+  
+  // users: kdramaData.users,
+  
+  // mylist,
+  
+  // API_KEY
+  
+  // }
+  
+  
+  
+  console.log('mylist');
+  
+  // console.log(mylist)
+  
+  const apiData = await apiCall();
+  
+  console.log(apiData[0].name);
+  
+  
+  
+  
+  // deze wel
+  
+  res.render("pages/mylist", {
+  
+  users: kdramaData.users,
+  
+  apiData: apiData,
+  
+  mylist
+  
+  });
+  
+  })
 
 app.get("/mylist/:id", (req, res) => {
   console.log(req.params.id);
