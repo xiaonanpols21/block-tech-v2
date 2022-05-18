@@ -34,9 +34,7 @@ function apiCall() {
 
 function apiCall() {
   const BASE_URL = "https://api.themoviedb.org/3";
-
   const API_KEY = process.env.API_KEY;
-
   const url =
     BASE_URL +
     "/discover/tv?" +
@@ -45,7 +43,6 @@ function apiCall() {
     "&language=en-US&sort_by=popularity.desc&page=1&primary_release_year=2020&with_original_language=hi|ko|";
 
   // API fetchen met Promise
-
   return fetch(url)
     .then((response) => response.json())
 
@@ -179,32 +176,22 @@ app.post("/mylist", (req, res) => {
 */
 app.get("/mylist", async function (req, res) {
   // deze doet het niet
-
-  // res.render("pages/mylist"), {
-
-  // users: kdramaData.users,
-
-  // mylist,
-
-  // API_KEY
-
-  // }
+  /*
+  res.render("pages/mylist"), {
+  users: kdramaData.users,
+  mylist,
+  API_KEY
+  }
+  */
 
   console.log("mylist");
-
-  // console.log(mylist)
-
   const apiData = await apiCall();
-
   console.log(apiData[0].name);
 
   // deze wel
-
   res.render("pages/mylist", {
     users: kdramaData.users,
-
     apiData: apiData,
-
     mylist,
   });
 });
