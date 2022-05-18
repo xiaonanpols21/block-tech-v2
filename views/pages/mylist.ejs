@@ -11,12 +11,31 @@
     <!-- 
     Kan je doen: if user clicked user 1, laat data van user zien, 
     else if user 2 data else user 3? -->
+
     <main class="main-mylist">
       <h1 class="visually-hidden">List of kdramas</h1>
-      <%
+      <% apiData.forEach(kdrama => { %>
       <article>
         <a href="">
-          <h2 class="visually-hidden">Drama poster</h2>
+          <img
+            class="poster-img"
+            src="<%= apiData[0].poster_path %>"
+            alt="Kdrama poster"
+          />
+          <form action="/mylist" method="post">
+            <button>
+              <i class="fa-solid fa-heart"></i>
+              <noscript>
+                <div class="heart-add"></div>
+              </noscript>
+            </button>
+          </form>
+        </a>
+        <h3><%= apiData[0].name %> </h3>
+      </article>
+      <% }); %>
+      <article>
+        <a href="">
           <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
           <form action="/mylist" method="post">
             <button>
@@ -31,7 +50,6 @@
       </article>
       <article>
         <a href="">
-          <h2 class="visually-hidden">Drama poster</h2>
           <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
           <form action="">
             <button>
@@ -46,7 +64,6 @@
       </article>
       <article>
         <a href="">
-          <h2 class="visually-hidden">Drama poster</h2>
           <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
           <form action="">
             <button>
@@ -61,7 +78,6 @@
       </article>
       <article>
         <a href="">
-          <h2 class="visually-hidden">Drama poster</h2>
           <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
           <form action="">
             <button>

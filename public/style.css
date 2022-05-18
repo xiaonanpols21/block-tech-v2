@@ -3,6 +3,7 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -208,7 +209,8 @@ input[type="submit"],
 }
 
 input[type="submit"]:hover,
-fieldset:first-of-type label:hover {
+fieldset:first-of-type label:hover,
+.slider-btns button:hover {
     border: 1px solid var(--purple);
     background: transparent;
 }
@@ -220,7 +222,8 @@ input[type="submit"]:focus,
 }
 
 input[type="submit"]:active,
-fieldset:first-of-type label:active {
+fieldset:first-of-type label:active,
+.slider-btns button:active {
     background-color: var(--purple-active);
     border: 1px solid var(--purple-active);
 }
@@ -364,6 +367,7 @@ input[type="submit"] {
 }
 
 .section-profile section {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -393,6 +397,33 @@ input[type="submit"] {
 
 .main-profile h2 {
     font-size: 1.125em;
+}
+
+.slider-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.25em;
+    margin-top: 30px;
+}
+
+.slider-btns button {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    border: 1px solid var(--pink);
+    background-color: var(--pink);
+    transition: .4s;
+    cursor: pointer;
+}
+
+
+.slider-btns button:focus {
+    background-color: var(--purple);
+}
+
+.slider-btns button i {
+    font-size: 25px;
+    color: var(--white);
 }
 
 /* 404.ejs */
@@ -573,6 +604,7 @@ input[type="submit"] {
     font-size: 1.875em;
     color: var(--white);
     text-shadow: 0px 0px 10px rgba(232, 80, 170, 0.5);
+    transition: .4s;
 }
 
 .main-mylist button:hover i, .main-profile article button:hover i {

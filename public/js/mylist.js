@@ -1,8 +1,7 @@
 console.log("Mylist");
 
 // Data aanvragen
-const IMG_URL = "https://image.tmdb.org/t/p/w500";
-const main = document.querySelector(".main-mylist");
+//const main = document.querySelector(".main-mylist");
 // Bron: https://www.youtube.com/watch?v=9Bvt6BFf6_U&list=PLXyo-7ps7RUG9an-ko_ktfMDWSaTwlYQD&index=6&t=357s&ab_channel=AsishGeorgeTech
 
 
@@ -20,6 +19,7 @@ getKdrama(API_URL);
 */
 
 // Data in de HTML tonen
+/*
 function showKdrama(data) {
   main.innerHTML = "";
   data.forEach((kdrama) => {
@@ -41,6 +41,9 @@ function showKdrama(data) {
     main.appendChild(kdramaEl);
   });
 };
+*/
 
 // TODO: Add wishlis js progressive enhancement
 // https://stackoverflow.com/questions/70447055/how-do-you-add-toggle-functionality-to-a-wishlist-button-to-add-and-remove-items
+
+const heart = document.querySelector(".main-mylist button i")
