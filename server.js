@@ -5,6 +5,7 @@ const express = require("express");
 const slug = require("slug");
 const arrayify = require("array-back");
 const mongoose = require("mongoose");
+const fetch = require('cross-fetch');
 
 // JS files
 const kdramaData = require("./data/kdrama-data.js");
@@ -42,6 +43,7 @@ function apiCall() {
     API_KEY +
     "&language=en-US&sort_by=popularity.desc&page=1&primary_release_year=2020&with_original_language=hi|ko|";
 
+    console.log(url)
   // API fetchen met Promise
   return fetch(url)
     .then((response) => response.json())
