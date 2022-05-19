@@ -21,6 +21,8 @@ function getKdrama(url) {
 getKdrama(API_URL);
 
 // Data in de HTML tonen
+// Rate limit hebben ze disabled waardoor er maar 20 kdramas te zien zijn
+// Bron: https://developers.themoviedb.org/3/getting-started/request-rate-limiting
 function showKdrama(data) {
   main.innerHTML = "";
   data.forEach((kdrama) => {
@@ -42,3 +44,5 @@ function showKdrama(data) {
     main.appendChild(kdramaEl);
   });
 };
+
+
