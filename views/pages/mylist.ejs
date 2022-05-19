@@ -19,8 +19,8 @@
         <a href="">
           <img
             class="poster-img"
-            src="<%= apiData[0].poster_path %>"
-            alt="Kdrama poster"
+            src="<%= kdrama.poster_path %>"
+            alt="<%= kdrama.name %>"
           />
           <form action="/mylist" method="post">
             <button>
@@ -31,7 +31,7 @@
             </button>
           </form>
         </a>
-        <h3><%= apiData[0].name %> </h3>
+        <h3><%= kdrama.name %> </h3>
       </article>
       <% }); %>
       <article>
