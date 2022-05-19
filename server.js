@@ -9,26 +9,7 @@ const fetch = require("cross-fetch");
 
 // JS files
 const kdramaData = require("./data/kdrama-data.js");
-
-function apiCall() {
-  const BASE_URL = "https://api.themoviedb.org/3";
-  const API_KEY = process.env.API_KEY;
-  const url =
-    BASE_URL +
-    "/discover/tv?" +
-    "api_key=" +
-    API_KEY +
-    "&language=en-US&sort_by=popularity.desc&page=1&primary_release_year=2020&with_original_language=hi|ko|";
-  const IMG_URL = "https://image.tmdb.org/t/p/w500";
-  console.log(url);
-  // API fetchen met Promise
-  return fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      // console.log(data);
-      return data.results;
-    });
-}
+let tmdbData = [];
 
 // Wachtwoord voor MongoDB
 require("dotenv").config();
@@ -37,7 +18,7 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Kijken of MongoDB het doet
+// Kijken of MongoDB het doet met mongoose
 async function main() {
   try {
     await mongoose.connect(process.env.mongoBeauty);
@@ -98,6 +79,7 @@ app.get("/matchresult", (req, res) => {
 app.get("/profile", (req, res) => {
   res.render("pages/profile", {
     users: kdramaData.users,
+    name: kdramaData.users[1].name
   });
 });
 
@@ -109,30 +91,43 @@ app.get("/detail", (req, res) => {
   });
 });
 
-const mylist = [
-  {
-    name: "All of us are dead",
-  },
-];
-app.get("/mylist", async function (req, res) {
-  
-  console.log("mylist");
-  const apiData = await apiCall();
-  console.log(apiData[0].name);
+2pt
 
-  // deze wel
+app.get("/mylist", (req, res) => {
   res.render("pages/mylist", {
     users: kdramaData.users,
-    apiData: apiData,
-    mylist,
+  });
+});
+
+app.get("/user-1", (req, res) => {
+  res.render("pages/mylist", {
+    users: kdramaData.users,
+    name: kdramaData.users[0].name,
+    img: kdramaData.users[0].img
+  });
+});
+
+app.get("/user-2", (req, res) => {
+  res.render("pages/mylist", {
+    users: kdramaData.users,
+    name: kdramaData.users[1].name,
+    img: kdramaData.users[1].img
+  });
+});
+
+app.get("/user-3", (req, res) => {
+  res.render("pages/mylist", {
+    users: kdramaData.users,
+    name: kdramaData.users[2].name,
+    img: kdramaData.users[2].img
   });
 });
 
 app.get("/mylist/:id", (req, res) => {
   console.log(req.params.id);
-  const kdrama = kdrama.find((element) => element.id == req.params.id);
-  console.log(kdrama);
-  // res.send("hij doet het");
+  const allKdramas = kdramaData.kdramas;
+  const findKdrama = allKdramas.find((element) => element.id == req.params.id);
+
   res.render("pages/detail.ejs", {
     genre: kdramaData.genre,
     kdramas: kdramaData.kdramas,
@@ -146,7 +141,6 @@ app.use(function (req, res) {
     kdramas: kdramaData.kdramas,
   });
 });
-
 // Bron: https://github.com/cmda-bt/be-course-21-22/blob/main/examples/express-server/server.js
 
 // MongoDB Schema
@@ -172,31 +166,6 @@ async function newKdrama() {
   await hymn.save();
 }
 newKdrama();
-
-/*
-app.get("/kdrama/:id/:slug", (req, res) => {
-  console.log(req.params.id);
-  const kdrama = kdramas.find((element) => element.id == req.params.id);
-  console.log(kdrama);
-
-  let doc = "<!doctype html>";
-  doc += `<title>Kdrama detail for ${kdrama.name}</title>`;
-  doc += `<h1>${kdrama.name}<h1>`;
-  doc += `<h2>${kdrama.year}<h2>`;
-  doc += "<h2>Genre:</h2>";
-  doc += "<ul>";
-  kdrama.genre.forEach((genre) => {
-    doc += `<li>${genre}</li>`;
-  });
-  doc += "</ul>";
-  doc += `<p>${kdrama.storyline}</p>`;
-  res.send(doc);
-});
-
-app.get("/test", (req, res) => {
-  res.send("Dit is test!");
-});
-*/
 
 // Site laten werken
 app.listen(port, () => {

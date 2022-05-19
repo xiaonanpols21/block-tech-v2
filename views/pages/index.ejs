@@ -14,9 +14,14 @@
         <h2 class="visually-hidden">Choose profile</h2>
         <button>Choose profile</button>
         <div class="ch-content">
-          <a href="/mylist"><img src="<%= users[0].URL %>" alt="User 1"><%= users[0].name %></a>
-          <a href="#"><img src="<%= users[1].URL %>" alt="User 2"><%= users[1].name %></a>
-          <a href="#"><img src="<%= users[2].URL %>" alt="User 3"><%= users[2].name %></a>
+
+          <!-- foreach
+
+          <a href="/<%# userid %> "></a> -->
+
+          <a href="/user-1"><img src="<%= users[0].img %>" alt="User 1"><%= users[0].name %></a>
+          <a href="/user-2"><img src="<%= users[1].img %>" alt="User 2"><%= users[1].name %></a>
+          <a href="/user-3"><img src="<%= users[2].img %>" alt="User 3"><%= users[2].name %></a>
         </div>
       </section>
       <!-- Bron: https://www.w3schools.com/css/css_dropdowns.asp -->
