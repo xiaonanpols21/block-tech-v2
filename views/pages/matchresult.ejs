@@ -4,6 +4,7 @@
   <body>
     <%- include('../partials/logo'); %>
     <main class="main-match">
+      
       <% if(dataMatch.matchResult){ %>
       <h1>Congratulations!</h1>
       <p>You have found <%= dataMatch.aantalMatches %> seoulmates!</p>
@@ -15,6 +16,7 @@
       <!-- Slider results -->
       <a href="/form">Make a new match</a>
       <% } %>
+      
     </main>
 
     <script src="js/visibility.js"></script>

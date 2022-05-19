@@ -91,8 +91,6 @@ app.get("/detail", (req, res) => {
   });
 });
 
-2pt
-
 app.get("/mylist", (req, res) => {
   res.render("pages/mylist", {
     users: kdramaData.users,
