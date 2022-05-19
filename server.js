@@ -4,7 +4,6 @@ console.log("Hallo world");
 const express = require("express");
 const slug = require("slug");
 const arrayify = require("array-back");
-const mongoose = require("mongoose");
 const fetch = require("cross-fetch");
 const dotenv = require("dotenv").config();
 const { MongoClient } = require("mongodb");
@@ -36,10 +35,6 @@ app.get("/", async (req, res) => {
     kdramas: kdramaData.kdramas,
     genre: kdramaData.genre,
     users: kdramaData.users,
-
-    name: kdramaData.users.name,
-    userid: kdramaData.users.userid,
-    img: kdramaData.users.img
   });
 });
 
@@ -77,6 +72,12 @@ app.get("/mylist", (req, res) => {
   res.render("pages/mylist", {
     users: kdramaData.users,
   });
+});
+
+app.get("mylist/:userId/slug", async (req, res) => {
+  const query = {_id: ObjectId.params.userId};
+  const user = await db.collection("users").findOne({query});
+  res.render("pages/mylist");
 });
 
 app.get("/user-1", (req, res) => {
