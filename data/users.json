@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Xiao xiao",
+        "slug": "xiao-xiao",
+        "img": "https://github.com/xiaonanpols21/block-tech-v2/blob/main/public/img-users/user-1.jpg"
+    },
+    {
+        "name": "Lei Chu Xia",
+        "slug": "lei-chu-xia",
+        "img": "https://github.com/xiaonanpols21/block-tech-v2/blob/main/public/img-users/user-2.jpg"
+    },
+    {
+        "name": "Veronica Park",
+        "slug": "veronica-park",
+        "img": "https://github.com/xiaonanpols21/block-tech-v2/blob/main/public/img-users/user-3.jpg"
+    }
+
+]

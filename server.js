@@ -6,53 +6,18 @@ const slug = require("slug");
 const arrayify = require("array-back");
 const mongoose = require("mongoose");
 const fetch = require("cross-fetch");
+const dotenv = require("dotenv").config();
+const { MongoClient } = require("mongodb");
+const { ObjectId } = require("mongodb");
 
 // JS files
 const kdramaData = require("./data/kdrama-data.js");
 let tmdbData = [];
 
-// Wachtwoord voor MongoDB
-require("dotenv").config();
-
-// Kijken of MongoDB het doet met mongoose
-async function main() {
-  try {
-    await mongoose.connect(process.env.mongoBeauty);
-    console.log("success");
-  } catch (error) {
-    throw error;
-  }
-}
-main();
-
-// MongoDB Schema
-const kdramaSchema = new mongoose.Schema({
-  name: String,
-  slug: String,
-  year: Number,
-  genre: Array,
-  storyline: String,
-});
-
-const Kdrama = mongoose.model("Kdrama", kdramaSchema);
-
-async function newKdrama() {
-  const hymn = new Kdrama({
-    slug: "the-hymn-of-death",
-    name: "The Hymn of Death",
-    year: "2018",
-    genre: ["musical", "historical", "romance", "melodrama"],
-    storyline:
-      "Kim Woo Jin is a stage drama writer while Korea is under Japanese occupation. He is married, but he falls in love with Yun Shim Deok. Shim Deok is the first Korean soprano. She records the song “Praise of Death” which becomes the first Korean pop song in 1926. Woo Jin and Shim Deok's fate ends tragically.",
-  });
-  await hymn.save();
-}
-newKdrama();
-
-
 // Site laten werken
 const app = express();
 const port = process.env.PORT || 3000;
+let db = null;
 
 // Data posten
 app.use(express.json());
@@ -63,7 +28,10 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 // Pages
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+  const users = await db.collection("users").find({},{}).toArray();
+  console.log(users);
+
   res.render("pages/index", {
     kdramas: kdramaData.kdramas,
     genre: kdramaData.genre,
@@ -155,7 +123,24 @@ app.use(function (req, res) {
 });
 // Bron: https://github.com/cmda-bt/be-course-21-22/blob/main/examples/express-server/server.js
 
+// Connectie maken met database
+async function connectDB() {
+  const uri = process.env.DB_URI;
+  const client = new MongoClient(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+  });
+  try {
+      await client.connect();
+      db = client.db(process.env.DB_NAME);
+  } catch (error) {
+      throw error;
+  }
+}
+
 // Site laten werken
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
+  connectDB()
+  .then(console.log("We have a connection to mongo"));
 });

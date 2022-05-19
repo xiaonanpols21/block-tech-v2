@@ -52,19 +52,19 @@ module.exports = {
       userid: 1,
       name: "Xiao xiao",
       slug: "xiao-xiao",
-      img: "img/user-1.jpg"
+      img: "img-users/user-1.jpg"
     },
     {
       userid: 2,
       name: "Lei Chu Xia",
       slug: "lei-chu-xia",
-      img: "img/user-2.jpg"
+      img: "img-users/user-2.jpg"
     },
     {
       userid: 3,
       name: "Veronica Park",
       slug: "veronica-park",
-      img: "img/user-3.jpg"
+      img: "img-users/user-3.jpg"
     }
   ]
 }
