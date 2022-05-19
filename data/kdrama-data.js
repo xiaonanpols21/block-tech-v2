@@ -49,19 +49,19 @@ module.exports = {
 
   users: [
     {
-      id: 1,
+      userid: 1,
       name: "Xiao xiao",
       slug: "xiao-xiao",
       img: "img/user-1.jpg"
     },
     {
-      id: 2,
+      userid: 2,
       name: "Lei Chu Xia",
       slug: "lei-chu-xia",
       img: "img/user-2.jpg"
     },
     {
-      id: 3,
+      userid: 3,
       name: "Veronica Park",
       slug: "veronica-park",
       img: "img/user-3.jpg"

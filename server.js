@@ -68,6 +68,10 @@ app.get("/", (req, res) => {
     kdramas: kdramaData.kdramas,
     genre: kdramaData.genre,
     users: kdramaData.users,
+
+    name: kdramaData.users.name,
+    userid: kdramaData.users.userid,
+    img: kdramaData.users.img
   });
 });
 
