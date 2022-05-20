@@ -69,16 +69,24 @@ app.get("/detail", (req, res) => {
 });
 
 app.get("/mylist", (req, res) => {
+  console.log(user);
   res.render("pages/mylist", {
     users: kdramaData.users,
+    user: user
   });
 });
 
-app.get("mylist/:userId/slug", async (req, res) => {
-  const query = {_id: ObjectId.params.userId};
-  const user = await db.collection("users").findOne({query});
-  res.render("pages/mylist");
-});
+app.get("mylist/:userId", async (req, res) => {
+  const userId = new ObjectId(req.params.userId)
+  const query = {_id: userId}
+  //const user = await db.collection("users").findOne({query});
+   //const users = await db.collection("users").find({},{}).toArray();
+   const user = await db.collection('users').findOne(query, {})
+  console.log(user);
+  res.render('pages/mylist', {
+    user: user
+  })
+}); 
 
 app.get("/user-1", (req, res) => {
   res.render("pages/mylist", {
