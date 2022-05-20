@@ -67,25 +67,42 @@ app.get("/detail", (req, res) => {
   });
 });
 
-app.get("/mylist", (req, res) => {
+app.get("/mylist", async (req, res) => {
+  const query = {_id: ObjectId(req.params.userId)};
+  const users = await db.collection("users").findOne(query);
+  //const users = await db.collection("users").find({},{}).toArray();
+  console.log(users);
   res.render("pages/mylist", {
     users: kdramaData.users,
-    
   });
 });
 
 app.get("mylist/:userId", async (req, res) => {
-  const userId = new ObjectId(req.params.userId)
-  const query = {_id: userId}
+  //const userId = new ObjectId(req.params.userId)
+  //const query = {_id: userId}
   //const user = await db.collection("users").findOne({query});
   //const users = await db.collection("users").find({},{}).toArray();
-  const users = await db.collection('users').findOne(query, {})
+  //const users = await db.collection('users').findOne(query, {})
+  const query = {_id: ObjectId(req.params.userId)};
+  const users = await db.collection("users").findOne(query);
   console.log(users);
   
   res.render('pages/mylist', {
     users: users,
   })
 }); 
+
+app.get("/kdrama/:id", (req, res) => {
+  console.log(req.params.id);
+  const allKdramas = kdramaData.kdramas;
+  const findKdrama = allKdramas.find((element) => element.id == req.params.id);
+
+  res.render("pages/detail", {
+    genre: kdramaData.genre,
+    kdramas: kdramaData.kdramas,
+    storyLine: kdramaData.storyLine,
+  });
+});
 
 app.get("/user-1", (req, res) => {
   res.render("pages/mylist", {
@@ -108,18 +125,6 @@ app.get("/user-3", (req, res) => {
     users: kdramaData.users,
     name: kdramaData.users[2].name,
     img: kdramaData.users[2].img
-  });
-});
-
-app.get("/mylist/:id", (req, res) => {
-  console.log(req.params.id);
-  const allKdramas = kdramaData.kdramas;
-  const findKdrama = allKdramas.find((element) => element.id == req.params.id);
-
-  res.render("pages/detail.ejs", {
-    genre: kdramaData.genre,
-    kdramas: kdramaData.kdramas,
-    storyLine: kdramaData.storyLine,
   });
 });
 

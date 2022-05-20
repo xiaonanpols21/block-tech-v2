@@ -30,7 +30,7 @@ function showKdrama(data) {
     const kdramaEl = document.createElement("article");
     kdramaEl.classList.add("kdrama");
     kdramaEl.innerHTML = `
-        <a href="/mylist/${kdrama.id}">
+        <a href="/kdrama/${kdrama.id}">
           <h2 class="visually-hidden">Drama poster</h2>
           <img class="poster-img" src="${
             img_url + poster_path

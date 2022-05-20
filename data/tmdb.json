@@ -1,0 +1,122 @@
+[
+    {
+        "name": "The Sound of Magic",
+        "slug": "the-sound-of-magic",
+        "genres": ["drama", "scifi-fantasy"],
+        "overview": "An enigmatic magician living in an abandoned amusement park introduces magic into the life of a high schooler struggling with harsh realities."
+    },
+    {
+        "name": "All of Us Are Dead",
+        "slug": "all-of-us-are-dead",
+        "genres": ["action-adventure", "drama", "war-politics"],
+        "overview": "A high school becomes ground zero for a zombie virus outbreak. Trapped students must fight their way out — or turn into one of the rabid infected."
+    },
+    {
+        "name": "Squid Game",
+        "slug": "squid-game",
+        "genres": ["action-adventure", "mystery", "drama"],
+        "overview": "Hundreds of cash-strapped players accept a strange invitation to compete in children's games—with high stakes. But, a tempting prize awaits the victor."
+    },
+    {
+        "name": "My Sweet Dear",
+        "slug": "my-sweet-dear",
+        "genres": ["drama", "bl"],
+        "overview": "A youthful romance set in a restaurant between an extraordinary genius chef, Choi Jung Woo and Laura Dining's head chef, Yoon Do Geon."
+    },
+    {
+        "name": "A Business Proposal",
+        "slug": "a-business-proposal",
+        "genres": ["drama", "comedy"],
+        "overview": "An ordinary office worker disguises herself and goes on a blind date with her attractive boss in the place of her friend to end this unwanted marriage blind date after her request."
+    },
+    {
+        "name": "Hellbound",
+        "slug": "hellbound",
+        "genres": ["drama", "crime", "mystery", "scifi-fantasy"],
+        "overview": "Unearthly beings deliver bloody condemnations, sending individuals to hell and giving rise to a religious group founded on the idea of divine justice."
+    },
+    {
+        "name": "The Silent Sea",
+        "slug": "the-silent-sea",
+        "genres": ["drama", "scifi-fantasy"],
+        "overview": "During a perilous 24-hour mission on the moon, space explorers try to retrieve samples from an abandoned research facility steeped in classified secrets."
+    },
+    {
+        "name": "Bravo, My Life",
+        "slug": "bravo-my-life",
+        "genres": ["drama", "comedy","family"],
+        "overview": "Even though Seo Dong Hee comes from a poor family background, she has a bright and positive personality. She dreams of becoming a designer and slowly works her way to achieve her dream. She decides to become the mother of her nephew and raise him by herself. She also gets involved with Kang Cha Yeol. Kang Cha Yeol’s father runs a big company. His father wants him to work for his company, but Kang Cha Yeol doesn't want to. He wants to go back to the U.S., but he realizes he can't do anything without his father's financial support. His father tells Kang Cha Yeol to work for 1 year at his company."
+    },
+    {
+        "name": "Woori The Virgin",
+        "slug": "woori-the-virgin",
+        "genres": ["drama", "comedy"],
+        "overview": "A romantic comedy about a woman  Oh Woo Ri, who intended to remain chaste until marriage, accidentally winds up pregnant while undergoing a medical examination."
+    },
+    {
+        "name": "Juvenile Justice",
+        "slug": "juvenile-justice",
+        "genres": ["drama", "crime"],
+        "overview": "A tough judge balances her aversion to minor offenders with firm beliefs on justice and punishment as she tackles complex cases inside a juvenile court."
+    },
+    {
+        "name": "True Beauty",
+        "slug": "true-beauty",
+        "genres": ["drama", "comedy"],
+        "overview": "Lim Ju-kyung is a high school student. Since she was little, she has had a complex about her appearance. To hide her bare face, Ju-kyung always wears make-up. Her excellent make-up skills make her pretty and she hides her bare face in front of others. She gets involved with 2 men; Lee Su-ho and Han Seo-jun."
+    },
+    {
+        "name": "Running Man",
+        "slug": "running-man",
+        "genres": ["comedy", "reality"],
+        "overview": "These days, variety entertainment is gradually disappearing. It is one of Korea's representative variety entertainment shows that has been in charge of Sunday evenings for over 10 years. In this program, many stars and members play games and missions together. It is characterized by going around several places. In particular, this program focuses solely on laughter among the many fun elements of entertainment.\n\nOpen your eyes! Big fun enters! Open your mouth!  A big smile enters! Open your mind! Instructive lesson enters!"
+    },
+    {
+        "name": "A Love So Beautiful",
+        "slug": "a-love-so-beautiful",
+        "genres": ["comedy", "drama"],
+        "overview": "Love is as tough as it is sweet for a lovestruck teenager, whose relationship with her next-door neighbor transforms as they grow into adulthood."
+    },
+    {
+        "name": "What's Wrong with Secretary Kim",
+        "slug": "whats-wrong-with-secretary-kim",
+        "genres": ["comedy", "drama"],
+        "overview": "Lee Young-Joon's family runs a large company and he works as the vice-president of the company. He is smart, rich and handsome, but he is arrogant. His secretary is Kim Mi-So. She has worked for him for years and she is perfect for him, but Kim Mi-So decides to quit her job."
+    },
+    {
+        "name": "Love Alarm",
+        "slug": "love-alarm",
+        "genres": ["comedy", "scifi-fantasy"],
+        "overview": "Love Alarm is an app that tells you if someone within a 10-meter radius has a crush on you. It quickly becomes a social phenomenon. While everyone talks about it and uses it to test their love and popularity, Jojo is one of the few people who have yet to download the app. However, she soon faces a love triangle situation between Sun-oh whom she starts to have feelings for, and Hye-young, who has had a huge crush on her."
+    },
+    {
+        "name": "Let's BTS",
+        "slug": "lets-bts",
+        "genres": ["reality", "talk"],
+        "overview": "The upcoming new KBS2 special talk show 'Let's BTS', hosted by Shin Dong Yup, will feature a never-before-seen, up-close and personal side of BTS, shown across a variety of different segments. BTS will have a chance to honestly open up about their careers in interviews with each other, while also showing the public a more personal side to them through games and unique challenges. Finally, the show will top off with some special, never-before-seen live stages by the BTS boys. In addition to MC Shin Dong Yup, comedian Jang Do Yeon is expected to join BTS for some fun, quirky segments."
+    },
+    {
+        "name": "I Am Not a Robot",
+        "slug": "i-am-not-a-robot",
+        "genres": ["comedy", "scifi-fantasy", "drama", "family"],
+        "overview": "Kim Min Gyu has wealth and success, but lives an isolated life due to his allergy of people. He then meets and falls in love with a girl who is pretending to be a robot for her ex-boyfriend, a genius robots professor."
+    },
+    {
+        "name": "Goblin",
+        "slug": "goblin",
+        "genres": ["drama", "scifi-fantasy"],
+        "overview": "In his quest for a bride to break his immortal curse, a 939-year-old guardian of souls meets a grim reaper and a sprightly student with a tragic past."
+    },
+    {
+        "name": "Tomorrow",
+        "slug": "tomorrow",
+        "genres": ["drama", "scifi-fantasy", "action-adventure"],
+        "overview": "Choi Jun-Woong (Ro Woon) looks for a job, but it is hard for him to get hired. One night, he accidentally meets grim reapers Koo Ryeon (Kim Hee-Seon) and Im Ryoog-Gu. The two grim reapers belong to a crisis management team. Koo Ryeon is the leader and Lim Ryung-Gu is a member. Their objective is to save suicidal people. Soon, Choi Jun-Woong becomes a new member of the crisis management team."
+    },
+    {
+        "name": "Happiness",
+        "slug": "happiness",
+        "genres": ["drama", "mystery", "scifi-fantasy"],
+        "overview": "Choi Jun-Woong (Ro Woon) looks for a job, but it is hard for him to get hired. One night, he accidentally meets grim reapers Koo Ryeon (Kim Hee-Seon) and Im Ryoog-Gu. The two grim reapers belong to a crisis management team. Koo Ryeon is the leader and Lim Ryung-Gu is a member. Their objective is to save suicidal people. Soon, Choi Jun-Woong becomes a new member of the crisis management team."
+    }
+]

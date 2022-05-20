@@ -15,7 +15,7 @@
         <button>Choose profile</button>
         <div class="ch-content">
           <% users.forEach(user => { %>
-            <a href="mylist/<%= user._id %>"><img src="<%= user.img %>"><%= user.name %></a>
+            <a href="mylist/<%= user._id %>"><img src="<%= user.img %>" alt="<%= user.name %>"><%= user.name %></a>
           <% }) %>
         </div>
       </section>

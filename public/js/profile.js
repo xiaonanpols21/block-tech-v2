@@ -1,8 +1,8 @@
 console.log("Profile")
 
-const productContainers = [...document.querySelectorAll('.main-profile section')];
-const nxtBtn = [...document.querySelectorAll('.slider-btns button:last-of-type')];
-const preBtn = [...document.querySelectorAll('.slider-btns button:first-of-type')];
+const productContainers = document.querySelectorAll('.main-profile section');
+const nxtBtn = document.querySelectorAll('.slider-btns button:last-of-type');
+const preBtn = document.querySelectorAll('.slider-btns button:first-of-type');
 
 productContainers.forEach((item, i) => {
     let containerDimensions = item.getBoundingClientRect();
