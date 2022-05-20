@@ -11,7 +11,6 @@ const { ObjectId } = require("mongodb");
 
 // JS files
 const kdramaData = require("./data/kdrama-data.js");
-let tmdbData = [];
 
 // Site laten werken
 const app = express();
@@ -69,10 +68,9 @@ app.get("/detail", (req, res) => {
 });
 
 app.get("/mylist", (req, res) => {
-  console.log(user);
   res.render("pages/mylist", {
     users: kdramaData.users,
-    user: user
+    
   });
 });
 
@@ -80,11 +78,12 @@ app.get("mylist/:userId", async (req, res) => {
   const userId = new ObjectId(req.params.userId)
   const query = {_id: userId}
   //const user = await db.collection("users").findOne({query});
-   //const users = await db.collection("users").find({},{}).toArray();
-   const user = await db.collection('users').findOne(query, {})
-  console.log(user);
+  //const users = await db.collection("users").find({},{}).toArray();
+  const users = await db.collection('users').findOne(query, {})
+  console.log(users);
+  
   res.render('pages/mylist', {
-    user: user
+    users: users,
   })
 }); 
 

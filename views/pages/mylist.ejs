@@ -6,7 +6,7 @@
       <a href="/">Choose K-drama</a>
     </nav>
     <a class="user-profile" href="/profile">
-      <img src="<%= user.img %>" alt="User 1" /><%= user.name %>
+      <img src="<%= users.img %>" alt="User 1" /><%= users.name %>
     </a>
     <!-- 
     Kan je doen: if user clicked user 1, laat data van user zien, 
@@ -16,7 +16,7 @@
       <h1 class="visually-hidden">List of kdramas</h1>
       <article>
         <a href="">
-          <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
+          <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
           <form action="/mylist" method="post">
             <button>
               <i class="fa-solid fa-heart"></i>
@@ -30,7 +30,7 @@
       </article>
       <article>
         <a href="">
-          <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
+          <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
           <form action="">
             <button>
               <i class="fa-solid fa-heart"></i>
@@ -44,7 +44,7 @@
       </article>
       <article>
         <a href="">
-          <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
+          <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
           <form action="">
             <button>
               <i class="fa-solid fa-heart"></i>
@@ -58,7 +58,7 @@
       </article>
       <article>
         <a href="">
-          <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
+          <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
           <form action="">
             <button>
               <i class="fa-solid fa-heart"></i>
@@ -71,11 +71,11 @@
         <h3>Hymn of death</h3>
       </article>
     </main>
-    <script src="js/visibility.js"></script>
+    <script src="/js/visibility.js"></script>
     <script
       src="https://kit.fontawesome.com/c24c386355.js"
       crossorigin="anonymous"
     ></script>
-    <script src="js/mylist.js"></script>
+    <script src="/js/mylist.js"></script>
   </body>
 </html>
