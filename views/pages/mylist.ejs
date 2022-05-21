@@ -14,6 +14,24 @@
 
     <main class="main-mylist">
       <h1 class="visually-hidden">List of kdramas</h1>
+
+      <% tmdb.forEach(kdrama => { %>
+        <article>
+          <a href="">
+            <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
+            <form action="/mylist" method="post">
+              <button>
+                <i class="fa-solid fa-heart"></i>
+                <noscript>
+                  <div class="heart-add"></div>
+                </noscript>
+              </button>
+            </form>
+          </a>
+          <h3><%= kdrama.name %></h3>
+        </article>
+      <% }) %>
+
       <article>
         <a href="">
           <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />

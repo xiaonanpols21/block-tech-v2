@@ -71,6 +71,10 @@ app.get("/mylist", async (req, res) => {
   const query = {_id: ObjectId(req.params.userId)};
   const users = await db.collection("users").findOne(query);
   //const users = await db.collection("users").find({},{}).toArray();
+
+  const tmdb = await db.collection("tmdb").find({},{}).toArray();
+  console.log(tmdb);
+
   console.log(users);
   res.render("pages/mylist", {
     users: kdramaData.users,
@@ -86,6 +90,9 @@ app.get("mylist/:userId", async (req, res) => {
   const query = {_id: ObjectId(req.params.userId)};
   const users = await db.collection("users").findOne(query);
   console.log(users);
+
+  const tmdb = await db.collection("tmdb").find({},{}).toArray();
+  console.log(tmdb);
   
   res.render('pages/mylist', {
     users: users,
