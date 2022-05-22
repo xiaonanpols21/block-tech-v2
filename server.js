@@ -36,8 +36,7 @@ app.get("/", async (req, res) => {
 
   res.render("pages/index", {
     kdramas: kdramaData.kdramas,
-    genre: kdramaData.genre,
-    users,
+    users
   });
 });
 
@@ -46,7 +45,8 @@ app.get("/detail", (req, res) => {
     genre: kdramaData.genre,
     kdramas: kdramaData.kdramas,
     storyLine: kdramaData.storyLine,
-    users
+    users,
+    tmdb
   });
 });
 
@@ -72,7 +72,6 @@ app.get("/mylist/:userId/:slug", async (req, res) => {
 
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
   console.log(tmdb);
-  set.setHearder
   res.render('pages/mylist', {
     users,
     tmdb
@@ -96,14 +95,16 @@ app.get("/kdrama/:kdramaId/:slug", async (req, res) => {
   // const findKdrama = allKdramas.find((element) => element.id == req.params.id);
   const query = {_id: ObjectId(req.params.kdramaId)};
   const tmdb = await db.collection("tmdb").findOne(query);
+  
+  // const queryUsers = {_id: ObjectId(req.params.userId)};
+  // const users = await db.collection("users").findOne(queryUsers);
   console.log(tmdb);
 
   res.render("pages/detail", {
     genre: kdramaData.genre,
     kdramas: kdramaData.kdramas,
     storyLine: kdramaData.storyLine,
-    users,
-    tmdb,
+    tmdb
   });
 });
 

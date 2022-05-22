@@ -8,9 +8,6 @@
     <a class="user-profile" href="/profile/<%= users._id %>/<%= users.slug %>">
       <img src="/<%= users.img %>" alt="<%= users.name %>" /><%= users.name %>
     </a>
-    <!-- 
-    Kan je doen: if user clicked user 1, laat data van user zien, 
-    else if user 2 data else user 3? -->
 
     <main class="main-mylist">
       <h1 class="visually-hidden">List of kdramas</h1>
@@ -18,7 +15,7 @@
       <% tmdb.forEach(kdrama => { %>
         <article>
           <a href="/kdrama/<%= kdrama._id %>/<%= kdrama.slug %>">
-            <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
+            <img class="poster-img" src="/img/404-cover.jpg" alt="Kdrama poster" />
             <form action="/mylist" method="post">
               <button>
                   <div class="heart-add"></div>

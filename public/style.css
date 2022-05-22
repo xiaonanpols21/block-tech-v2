@@ -599,7 +599,7 @@ input[type="submit"] {
     right: 1.25em;
 }
 
-.main-mylist button, .main-profile button {
+.main-mylist button, .main-profile article button {
     background: none;
     border: none;
     cursor: pointer;
