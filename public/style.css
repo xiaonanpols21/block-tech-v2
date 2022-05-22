@@ -394,6 +394,14 @@ input[type="submit"] {
 
 .main-profile section article {
     scroll-snap-align: center;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 150ms;
+}
+
+.main-profile section article.show {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .main-profile .poster-img {
@@ -404,7 +412,7 @@ input[type="submit"] {
     font-size: 1.125em;
 }
 
-.slider-btns {
+/* .slider-btns {
     display: flex;
     justify-content: flex-end;
     gap: 1.25em;
@@ -429,7 +437,7 @@ input[type="submit"] {
 .slider-btns button i {
     font-size: 25px;
     color: var(--white);
-}
+} */
 
 /* 404.ejs */
 .body-404 {

@@ -15,8 +15,8 @@
       <% tmdb.forEach(kdrama => { %>
         <article>
           <a href="/kdrama/<%= kdrama._id %>/<%= kdrama.slug %>">
-            <img class="poster-img" src="/img/404-cover.jpg" alt="Kdrama poster" />
-            <form action="/mylist" method="post">
+            <img class="poster-img" src="/img/404-cover.jpg" alt="<%= kdrama.name %>" />
+            <form action="/mylist/<%= users._id %>/<%= users.slug %>" method="post">
               <button>
                   <div class="heart-add"></div>
               </button>
@@ -25,64 +25,6 @@
           <h3><%= kdrama.name %></h3>
         </article>
       <% }) %>
-
-
-      <!-- <article>
-        <a href="">
-          <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
-          <form action="/mylist" method="post">
-            <button>
-              <i class="fa-solid fa-heart"></i>
-              <noscript>
-                <div class="heart-add"></div>
-              </noscript>
-            </button>
-          </form>
-        </a>
-        <h3>Hymn of death</h3>
-      </article>
-      <article>
-        <a href="">
-          <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
-          <form action="">
-            <button>
-              <i class="fa-solid fa-heart"></i>
-              <noscript>
-                <div class="heart-add"></div>
-              </noscript>
-            </button>
-          </form>
-        </a>
-        <h3>Hymn of death</h3>
-      </article>
-      <article>
-        <a href="">
-          <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
-          <form action="">
-            <button>
-              <i class="fa-solid fa-heart"></i>
-              <noscript>
-                <div class="heart-add"></div>
-              </noscript>
-            </button>
-          </form>
-        </a>
-        <h3>Hymn of death</h3>
-      </article>
-      <article>
-        <a href="">
-          <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
-          <form action="">
-            <button>
-              <i class="fa-solid fa-heart"></i>
-              <noscript>
-                <div class="heart-add"></div>
-              </noscript>
-            </button>
-          </form>
-        </a>
-        <h3>Hymn of death</h3>
-      </article> -->
     </main>
     <script src="/js/visibility.js"></script>
     <script

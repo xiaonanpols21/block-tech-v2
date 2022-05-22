@@ -18,7 +18,21 @@
       <h2>My list</h2>
       <section>
         <h3 class="visually-hidden">Kdramas</h3>
-        <article>
+        <!-- <%# for (var mylist=0; mylist < tmdb.length; mylist++) { %>
+          <article>
+            <a href="">
+              <h2 class="visually-hidden">Drama poster</h2>
+              <img class="poster-img" src="/img/404-cover.jpg" alt="Kdrama poster" />
+              <form action="">
+                <button>
+                    <div class="heart-add"></div>
+                </button>
+              </form>
+            </a>
+            <h3><%#= tmdb[mylist].name %></h3>
+          </article>
+        <%# }; %> -->
+        <article class="show">
           <a href="">
             <h2 class="visually-hidden">Drama poster</h2>
             <img class="poster-img" src="/img/404-cover.jpg" alt="Kdrama poster" />
@@ -93,7 +107,7 @@
       </section>
       <!-- Progressive enhancement
         Bron: https://www.youtube.com/watch?v=OQZNAMjC6Vg&ab_channel=Devression -->
-        <div class="slider-btns">
+        <!-- <div class="slider-btns">
           <button><i class="fa-solid fa-angle-left"></i></button>
           <button><i class="fa-solid fa-angle-right"></i></button>
         </div>
@@ -101,7 +115,7 @@
           <style>
             .slider-btns {display: none;}
           </style>
-        </noscript>
+        </noscript> -->
         <!-- Bron: https://stackoverflow.com/questions/1577598/how-to-hide-parts-of-html-when-javascript-is-disabled -->
     </main>
     <script src="https://kit.fontawesome.com/c24c386355.js" crossorigin="anonymous" ></script>

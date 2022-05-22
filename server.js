@@ -71,12 +71,30 @@ app.get("/mylist/:userId/:slug", async (req, res) => {
   console.log(users);
 
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
-  console.log(tmdb);
+  //console.log(tmdb);
   res.render('pages/mylist', {
     users,
     tmdb
   })
 }); 
+
+app.post("/mylist/:userId/:slug", async (req, res) => {
+  const query = {_id: ObjectId(req.params.userId)};
+  const users = await db.collection("users").findOne(query);
+  const tmdb = await db.collection("tmdb").find({},{}).toArray();
+  console.log(req.body);
+  
+  tmdb.push({
+  });
+
+  res.render("pages/mylist", {
+    users: kdramaData.users,
+    name: kdramaData.users[1].name,
+    users,
+    tmdb
+  });
+
+});
 
 app.get("/profile/:userId/:slug", async (req, res) => {
   const query = {_id: ObjectId(req.params.userId)};
@@ -86,7 +104,8 @@ app.get("/profile/:userId/:slug", async (req, res) => {
   res.render("pages/profile", {
     users: kdramaData.users,
     name: kdramaData.users[1].name,
-    users
+    users,
+    
   });
 });
 
