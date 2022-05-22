@@ -4,22 +4,22 @@
   <body class="body-kdrama-single">
     <header class="header-detail">
       <nav>
-        <a href="/mylist"></a>
+        <a href="/mylist/<%= users._id %>/<%= users.slug %>"></a>
       </nav>
       
     </header>
     <main class="main-detail">
       <section>
-        <h1><%= kdramas[0].name %></h1>
+        <h1><%= tmdb.name %></h1>
         <ul>
-          <% kdramas[0].genre.forEach(kdrama => { %>
+          <% tmdb.genres.forEach(kdrama => { %>
             <li><%= kdrama.charAt(0).toUpperCase() + kdrama.slice(1)%></li>
             <!-- Bron: https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript -->
           <%}); %>
         </ul>
 
         <h2>About</h2>
-        <p><%= kdramas[0].storyline %></p>
+        <p><%= tmdb.overview %></p>
     
       </section>
     </main>

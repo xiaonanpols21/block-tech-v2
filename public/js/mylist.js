@@ -35,25 +35,25 @@ getKdrama(api_url);
 //     kdramaEl.classList.add("kdrama");
 //     kdramaEl.innerHTML = `
 //       <a href="/kdrama/${kdrama.id}">
-//         <h2 class="visually-hidden">Drama poster</h2>
-//         <img class="poster-img" src="${img_url + poster_path}" alt="${name}" />
-//         <form action="">
-//           <button><i class="fa-solid fa-heart"></i></button>
+//         <img class="poster-img" src="${poster.img}" alt="Kdrama poster" />
+//         <form action="/mylist" method="post">
+//           <button>
+//               <div class="heart-add"></div>
+//           </button>
 //         </form>
 //       </a>
-//       <h3>${name}</h3>
+//       <h3>${poster.name}</h3>
+
 //       `;
 //     main.appendChild(kdramaEl);
 //   });
 // }
 
-
 {/* <a href="/kdrama/${kdrama.id}">
-  <img class="poster-img" src="${poster.img}" alt="Kdrama poster" />
-  <form action="/mylist" method="post">
-    <button>
-        <div class="heart-add"></div>
-    </button>
-  </form>
+<h2 class="visually-hidden">Drama poster</h2>
+<img class="poster-img" src="${img_url + poster_path}" alt="${name}" />
+<form action="">
+  <button><i class="fa-solid fa-heart"></i></button>
+</form>
 </a>
-<h3>${poster.name}</h3> */}
+<h3>${name}</h3> */}

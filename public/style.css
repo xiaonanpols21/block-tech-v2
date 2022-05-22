@@ -97,6 +97,11 @@ header ul li, .main-detail ul li {
     list-style: none;
 }
 
+header ul li::after, .main-detail ul li::after {
+    content: ",";
+}
+/* Bron: https://markheath.net/post/css-comma-separated-list */
+
 /* Logo.ejs */
 .logo {
     display: flex;
@@ -522,6 +527,7 @@ input[type="submit"] {
     margin-bottom: 3.125em;
 }
 
+
 /* Mylist.ejs */
 .nav-mylist a {
     margin-left: calc(0.53125em + 1.5625em);
@@ -593,30 +599,11 @@ input[type="submit"] {
     right: 1.25em;
 }
 
-.main-mylist button {
+.main-mylist button, .main-profile button {
     background: none;
     border: none;
     cursor: pointer;
     transition: .4s;
-}
-
-.main-mylist button i {
-    font-size: 1.875em;
-    color: var(--white);
-    text-shadow: 0px 0px 10px rgba(232, 80, 170, 0.5);
-    transition: .4s;
-}
-
-.main-mylist button:hover i {
-    color: var(--purple);
-}
-
-.main-mylist button:focus i {
-    color: var(--pink);
-}
-
-.main-mylist button:active i {
-    color: var(--purple-active);
 }
 
 /* Progressive enhancement */
@@ -642,7 +629,6 @@ input[type="submit"] {
 /* Responsive */
 /* Bron: https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
 @media (min-width: 576px) {
-
     /* Index.ejs */
     .main-index,
     /* form, */
@@ -678,10 +664,6 @@ input[type="submit"] {
     .nav-mylist a:before {
         top: calc(1.5em / 2);
         left: 0;
-    }
-
-    .main-mylist button i {
-        font-size: 2.5em;
     }
 
     .heart-add {
@@ -915,10 +897,6 @@ input[type="submit"] {
     .main-mylist form {
         top: 1.875em;
         right: 1.875em;
-    }
-
-    .main-mylist button i {
-        font-size: 3.125em;
     }
 
     .heart-add {

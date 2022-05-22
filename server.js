@@ -14,6 +14,7 @@ const { ObjectId } = require("mongodb");
 
 // JS files
 const kdramaData = require("./data/kdrama-data.js");
+const { set } = require("lodash");
 
 // Site laten werken
 const app = express();
@@ -40,26 +41,12 @@ app.get("/", async (req, res) => {
   });
 });
 
-app.get("/form", (req, res) => {
-  res.render("pages/form", {
-    genre: kdramaData.genre,
-    user,
-    kdramas: kdramaData.kdramas,
-    data,
-  });
-});
-
-app.get("/matchresult", (req, res) => {
-  res.render("pages/matchresult", {
-    dataMatch: { matchResult: true, aantalMatches: 5 },
-  });
-});
-
 app.get("/detail", (req, res) => {
   res.render("pages/detail", {
     genre: kdramaData.genre,
     kdramas: kdramaData.kdramas,
     storyLine: kdramaData.storyLine,
+    users
   });
 });
 
@@ -73,7 +60,7 @@ app.get("/mylist", async (req, res) => {
 
   console.log(users);
   res.render("pages/mylist", {
-    users: kdramaData.users,
+    users,
     tmdb
   });
 });
@@ -85,13 +72,12 @@ app.get("/mylist/:userId/:slug", async (req, res) => {
 
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
   console.log(tmdb);
-  
+  set.setHearder
   res.render('pages/mylist', {
-    users: users,
+    users,
     tmdb
   })
 }); 
-
 
 app.get("/profile/:userId/:slug", async (req, res) => {
   const query = {_id: ObjectId(req.params.userId)};
@@ -105,15 +91,34 @@ app.get("/profile/:userId/:slug", async (req, res) => {
   });
 });
 
-app.get("/kdrama/:id", (req, res) => {
-  console.log(req.params.id);
-  const allKdramas = kdramaData.kdramas;
-  const findKdrama = allKdramas.find((element) => element.id == req.params.id);
+app.get("/kdrama/:kdramaId/:slug", async (req, res) => {
+  // const allKdramas = kdramaData.kdramas;
+  // const findKdrama = allKdramas.find((element) => element.id == req.params.id);
+  const query = {_id: ObjectId(req.params.kdramaId)};
+  const tmdb = await db.collection("tmdb").findOne(query);
+  console.log(tmdb);
 
   res.render("pages/detail", {
     genre: kdramaData.genre,
     kdramas: kdramaData.kdramas,
     storyLine: kdramaData.storyLine,
+    users,
+    tmdb,
+  });
+});
+
+app.get("/form", (req, res) => {
+  res.render("pages/form", {
+    genre: kdramaData.genre,
+    user,
+    kdramas: kdramaData.kdramas,
+    data,
+  });
+});
+
+app.get("/matchresult", (req, res) => {
+  res.render("pages/matchresult", {
+    dataMatch: { matchResult: true, aantalMatches: 5 },
   });
 });
 
