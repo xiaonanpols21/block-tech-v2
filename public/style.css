@@ -593,29 +593,29 @@ input[type="submit"] {
     right: 1.25em;
 }
 
-.main-mylist button, .main-profile article button {
+.main-mylist button {
     background: none;
     border: none;
     cursor: pointer;
     transition: .4s;
 }
 
-.main-mylist button i, .main-profile article button i {
+.main-mylist button i {
     font-size: 1.875em;
     color: var(--white);
     text-shadow: 0px 0px 10px rgba(232, 80, 170, 0.5);
     transition: .4s;
 }
 
-.main-mylist button:hover i, .main-profile article button:hover i {
+.main-mylist button:hover i {
     color: var(--purple);
 }
 
-.main-mylist button:focus i, .main-profile article button:focus i {
+.main-mylist button:focus i {
     color: var(--pink);
 }
 
-.main-mylist button:active i, .main-profile article button:active i {
+.main-mylist button:active i {
     color: var(--purple-active);
 }
 
@@ -917,7 +917,7 @@ input[type="submit"] {
         right: 1.875em;
     }
 
-    .main-mylist button i, .main-profile article button i {
+    .main-mylist button i {
         font-size: 3.125em;
     }
 

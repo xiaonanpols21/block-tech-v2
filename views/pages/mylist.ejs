@@ -5,8 +5,8 @@
     <nav class="nav-mylist">
       <a href="/">Choose K-drama</a>
     </nav>
-    <a class="user-profile" href="/profile">
-      <img src="<%= users.img %>" alt="<%= users.name %>" /><%= users.name %>
+    <a class="user-profile" href="/profile/<%= users._id %>/<%= users.slug %>">
+      <img src="/<%= users.img %>" alt="<%= users.name %>" /><%= users.name %>
     </a>
     <!-- 
     Kan je doen: if user clicked user 1, laat data van user zien, 
@@ -21,10 +21,7 @@
             <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
             <form action="/mylist" method="post">
               <button>
-                <i class="fa-solid fa-heart"></i>
-                <noscript>
                   <div class="heart-add"></div>
-                </noscript>
               </button>
             </form>
           </a>
@@ -32,7 +29,8 @@
         </article>
       <% }) %>
 
-      <article>
+
+      <!-- <article>
         <a href="">
           <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
           <form action="/mylist" method="post">
@@ -87,7 +85,7 @@
           </form>
         </a>
         <h3>Hymn of death</h3>
-      </article>
+      </article> -->
     </main>
     <script src="/js/visibility.js"></script>
     <script

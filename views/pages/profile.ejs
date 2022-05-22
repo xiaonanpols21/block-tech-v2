@@ -4,15 +4,15 @@
   <body class="body-profile">
     <%- include('../partials/logo'); %>
     <nav class="nav-mylist">
-      <a href="/mylist">Profile</a>
+      <a href="/mylist/<%= users._id %>/<%= users.slug %>">Profile</a>
     </nav>
     <section class="section-profile">
       <h1 class="visually-hidden">User profile</h1>
       <!-- <h2>@<%#= users[0].name %></h2>
       <img src="<%#= users[0].img %>" alt="Profile img" /> -->
 
-      <h2>@<%= name %></h2>
-      <img src="<%= users[0].img %>" alt="Profile img" />
+      <h2>@<%= users.name %></h2>
+      <img src="/<%= users.img %>" alt="<%= users.name %>" />
     </section>
     <main class="main-profile">
       <h2>My list</h2>
@@ -21,7 +21,7 @@
         <article>
           <a href="">
             <h2 class="visually-hidden">Drama poster</h2>
-            <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
+            <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
             <form action="">
               <button>
                 <i class="fa-solid fa-heart"></i>
@@ -36,7 +36,7 @@
         <article>
           <a href="">
             <h2 class="visually-hidden">Drama poster</h2>
-            <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
+            <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
             <form action="">
               <button>
                 <i class="fa-solid fa-heart"></i>
@@ -51,7 +51,7 @@
         <article>
           <a href="">
             <h2 class="visually-hidden">Drama poster</h2>
-            <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
+            <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
             <form action="">
               <button>
                 <i class="fa-solid fa-heart"></i>
@@ -66,7 +66,7 @@
         <article>
           <a href="">
             <h2 class="visually-hidden">Drama poster</h2>
-            <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
+            <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
             <form action="">
               <button>
                 <i class="fa-solid fa-heart"></i>
@@ -81,7 +81,7 @@
         <article>
           <a href="">
             <h2 class="visually-hidden">Drama poster</h2>
-            <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
+            <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
             <form action="">
               <button>
                 <i class="fa-solid fa-heart"></i>
@@ -96,7 +96,7 @@
         <article>
           <a href="">
             <h2 class="visually-hidden">Drama poster</h2>
-            <img class="poster-img" src="img/101.jpg" alt="Kdrama poster" />
+            <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
             <form action="">
               <button>
                 <i class="fa-solid fa-heart"></i>
@@ -123,7 +123,7 @@
         <!-- Bron: https://stackoverflow.com/questions/1577598/how-to-hide-parts-of-html-when-javascript-is-disabled -->
     </main>
     <script src="https://kit.fontawesome.com/c24c386355.js" crossorigin="anonymous" ></script>
-    <script src="js/profile.js"></script>
-    <script src="js/visibility.js"></script> 
+    <script src="/js/profile.js"></script>
+    <script src="/js/visibility.js"></script> 
   </body>
 </html>
