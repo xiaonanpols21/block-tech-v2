@@ -3,22 +3,13 @@
   <%- include('../partials/head'); %>
   <body>
     <%- include('../partials/logo'); %>
-    <main class="main-match">
+    <main class="main-match <% if(tmdb.added){ %> tmdb-added <% } %>">
+    <!-- <main class="main-match tmdb-added"> -->
       
-      <% if(dataMatch.matchResult){ %>
-      <h1>Congratulations!</h1>
-      <p>You have found <%= dataMatch.aantalMatches %> seoulmates!</p>
-      <!-- Slider results -->
-      <a href="/profile">See profile</a>
-      <% } else { %>
-      <h1>I'm so sorry</h1>
-      <p>You have 0 matches, but maybe you like these kdramas instead!</p>
-      <!-- Slider results -->
-      <a href="/form">Make a new match</a>
-      <% } %>
+      <% if(tmdb.added){ %> <% } %>
       
     </main>
 
-    <script src="js/visibility.js"></script>
+    <script src="js/visibility.js"></script>d
   </body>
 </html>

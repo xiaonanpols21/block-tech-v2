@@ -5,32 +5,37 @@
     <nav class="nav-mylist">
       <a href="/">Choose K-drama</a>
     </nav>
-    <a class="user-profile" href="/profile/<%= users._id %>/<%= users.slug %>">
-      <img src="/<%= users.img %>" alt="<%= users.name %>" /><%= users.name %>
+    <a class="user-profile" href="/profile/<%= user._id %>/<%= user.slug %>">
+      <img src="/<%= user.img %>" alt="<%= user.name %>" /><%= user.name %>
     </a>
 
     <main class="main-mylist">
       <h1 class="visually-hidden">List of kdramas</h1>
 
       <% tmdb.forEach(kdrama => { %>
-        <article>
-          <a href="/kdrama/<%= kdrama._id %>/<%= kdrama.slug %>">
-            <img class="poster-img" src="/img/404-cover.jpg" alt="<%= kdrama.name %>" />
-            <form action="/mylist/<%= users._id %>/<%= users.slug %>" method="post">
-              <button>
-                  <div class="heart-add"></div>
+      <article>
+        <a href="/kdrama/<%= kdrama._id %>/<%= kdrama.slug %>">
+          <img
+            class="poster-img"
+            src="/img/404-cover.jpg"
+            alt="<%= kdrama.name %>"
+          />
+          <form
+            action="/mylist/<%= user._id %>/<%= user.slug %>"
+            method="post"
+          >
+            <button>
+                  <span class="heart-add  <% if( user.mylist.includes(kdrama._id)){ %> heart-added <% } %>"></span>
               </button>
-            </form>
-          </a>
-          <h3><%= kdrama.name %></h3>
-        </article>
+              <input type="hidden" name="kdramaid" value="<%=kdrama._id%>">
+          </form>
+        </a>
+        <h3><%= kdrama.name %></h3>
+      </article>
       <% }) %>
     </main>
+
     <script src="/js/visibility.js"></script>
-    <script
-      src="https://kit.fontawesome.com/c24c386355.js"
-      crossorigin="anonymous"
-    ></script>
     <script src="/js/mylist.js"></script>
   </body>
 </html>

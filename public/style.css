@@ -395,14 +395,9 @@ input[type="submit"] {
 .main-profile section article {
     scroll-snap-align: center;
     transform: translateY(100px);
-    opacity: 0;
-    transition: 150ms;
+
 }
 
-.main-profile section article.show {
-    transform: translateY(0);
-    opacity: 1;
-}
 
 .main-profile .poster-img {
     width: 8.75em;
@@ -617,6 +612,7 @@ input[type="submit"] {
 /* Progressive enhancement */
 /* Mylist.ejs */
 .heart-add {
+    display: block;
     background: url(img/heart-default.svg) center center no-repeat;
     background-size: contain;
     background-repeat: no-repeat;
@@ -632,6 +628,12 @@ input[type="submit"] {
 
 .heart-add:active {
     background: url(img/heart-active.svg) center center no-repeat;
+}
+
+.heart-added {
+    background: url(img/heart-focus.svg) center center no-repeat;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 /* Responsive */

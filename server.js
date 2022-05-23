@@ -1,5 +1,3 @@
-console.log("Hallo world");
-
 // NPM packages
 const express = require("express");
 
@@ -32,7 +30,6 @@ app.set("view engine", "ejs");
 // Pages
 app.get("/", async (req, res) => {
   const users = await db.collection("users").find({},{}).toArray();
-  console.log(users);
 
   res.render("pages/index", {
     kdramas: kdramaData.kdramas,
@@ -51,65 +48,72 @@ app.get("/detail", (req, res) => {
 });
 
 app.get("/mylist", async (req, res) => {
+  console.log("GET: /mylist");
+
   const query = {_id: ObjectId(req.params.userId)};
-  const users = await db.collection("users").findOne(query);
+  const user = await db.collection("users").findOne(query);
   //const users = await db.collection("users").find({},{}).toArray();
 
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
-  console.log(tmdb);
 
-  console.log(users);
   res.render("pages/mylist", {
-    users,
+    user,
     tmdb
   });
 });
 
 app.get("/mylist/:userId/:slug", async (req, res) => {
+  console.log("GET: /mylist/:userId/:slug");
   const query = {_id: ObjectId(req.params.userId)};
-  const users = await db.collection("users").findOne(query);
-  console.log(users);
-
+  const user = await db.collection("users").findOne(query);
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
+  //console.log(users);
+
   //console.log(tmdb);
   res.render('pages/mylist', {
-    users,
+    user,
     tmdb
   })
 }); 
 
 app.post("/mylist/:userId/:slug", async (req, res) => {
+  console.log("POST: /mylist/:userId/:slug");
   const query = {_id: ObjectId(req.params.userId)};
-  const users = await db.collection("users").findOne(query);
-  const tmdb = await db.collection("tmdb").find({},{}).toArray();
-  console.log(req.body);
+  const kdramaid = {_id: ObjectId(req.body.mylist)};
+  const updatequery = {$push: {mylist: req.body.kdramaid}}
+  await db.collection("users").updateOne(query, updatequery);
+
+    //Sonja tutorial
+    //let kdramaList = req.body.singlekdrama;
   
-  tmdb.push({
-  });
+    //Danny tutorial
+    // tmdb.push({
+    //   slug: req.body.name
+    // });
+    
+   
+    const url = `/mylist/${req.params.userId}/${req.params.slug}`;
+    console.log(url)
+    res.redirect("url");
 
-  res.render("pages/mylist", {
-    users: kdramaData.users,
-    name: kdramaData.users[1].name,
-    users,
-    tmdb
-  });
-
+    
 });
 
 app.get("/profile/:userId/:slug", async (req, res) => {
+  console.log("GET: /profile/:userId/:slug");
+
   const query = {_id: ObjectId(req.params.userId)};
-  const users = await db.collection("users").findOne(query);
-  console.log(users);
+  const user = await db.collection("users").findOne(query);
 
   res.render("pages/profile", {
-    users: kdramaData.users,
-    name: kdramaData.users[1].name,
-    users,
+    user,
     
   });
 });
 
 app.get("/kdrama/:kdramaId/:slug", async (req, res) => {
+  console.log("GET: /kdrama/:kdramaId/:slug");
+
   // const allKdramas = kdramaData.kdramas;
   // const findKdrama = allKdramas.find((element) => element.id == req.params.id);
   const query = {_id: ObjectId(req.params.kdramaId)};
@@ -117,7 +121,6 @@ app.get("/kdrama/:kdramaId/:slug", async (req, res) => {
   
   // const queryUsers = {_id: ObjectId(req.params.userId)};
   // const users = await db.collection("users").findOne(queryUsers);
-  console.log(tmdb);
 
   res.render("pages/detail", {
     genre: kdramaData.genre,

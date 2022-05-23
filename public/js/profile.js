@@ -1,21 +1,21 @@
 console.log("Profile")
 
-// const productContainers = document.querySelectorAll('.main-profile section');
-// const nxtBtn = document.querySelectorAll('.slider-btns button:last-of-type');
-// const preBtn = document.querySelectorAll('.slider-btns button:first-of-type');
+const productContainers = document.querySelectorAll('.main-profile section');
+const nxtBtn = document.querySelectorAll('.slider-btns button:last-of-type');
+const preBtn = document.querySelectorAll('.slider-btns button:first-of-type');
 
-// productContainers.forEach((item, i) => {
-//     let containerDimensions = item.getBoundingClientRect();
-//     let containerWidth = containerDimensions.width;
+productContainers.forEach((item, i) => {
+    let containerDimensions = item.getBoundingClientRect();
+    let containerWidth = containerDimensions.width;
 
-//     nxtBtn[i].addEventListener('click', () => {
-//         item.scrollLeft += containerWidth;
-//     })
+    nxtBtn[i].addEventListener('click', () => {
+        item.scrollLeft += containerWidth;
+    })
 
-//     preBtn[i].addEventListener('click', () => {
-//         item.scrollLeft -= containerWidth;
-//     })
-// })
+    preBtn[i].addEventListener('click', () => {
+        item.scrollLeft -= containerWidth;
+    })
+})
 
 /*
 The item() method returns the node at a specified index in a NodeList.
@@ -31,10 +31,3 @@ The getBoundingClientRect() method returns the size of an element and its
 position relative to the viewport.
 Bron: https://www.w3schools.com/jsref/met_element_getboundingclientrect.asp#:~:text=The%20getBoundingClientRect()%20method%20returns,position%20relative%20to%20the%20viewport.
 */
-const cards = document.querySelectorAll(".main-profile section article");
-
-const observer = new IntersectionObserver(entries => {
-    console.log(entries);
-})
-
-observer.observe(cards[0])
