@@ -26,3 +26,5 @@ Voor kdrama kijkers die meer vrienden willen hebben die ook houden van kdrama’
 ## Hoe gebruik je het project?
 
 Als je op de applicatie komt, vul je een formulier in waarbij jouw data wordt onderzocht zodat jij gematcht kan worden met andere kdrama kijkers om vrienden mee te worden.
+
+## Installeren
