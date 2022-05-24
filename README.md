@@ -29,3 +29,7 @@ git clone https://github.com/xiaonanpols21/block-tech-v2
 npm run dev
 
 ```
+
+## License
+
+[MIT](https://github.com/cmda-bt/be-course-21-22/blob/main/LICENSE)
