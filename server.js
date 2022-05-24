@@ -69,7 +69,7 @@ app.get("/profile/:userId/:slug", async (req, res) => {
   const kdramaid = {_id: ObjectId(req.body.mylist)};
   const user = await db.collection("users").findOne(query);
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
-  const userkdrama = tmdb.filter(kdrama => user.myList.includes(kdrama.kdramaid));
+  //const userkdrama = tmdb.filter(kdrama => user.myList.includes(kdrama.kdramaid));
 
   console.log(user.mylist);
 /*

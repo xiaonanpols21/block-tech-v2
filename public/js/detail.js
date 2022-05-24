@@ -7,16 +7,14 @@ const api_url = base_url + '/discover/tv?'+ api_key + '&language=en-US&sort_by=p
 const api_url2 = base_url + '/discover/tv?'+ api_key + '&language=en-US&sort_by=popularity.desc&page=2&primary_release_year=2020&with_original_language=hi|ko|';
 const img_url = 'https://image.tmdb.org/t/p/w500';
 
-const kdramadata1 = getKdrama(api_url);
-const kdramadata2 = getKdrama(api_url2);
-
 // API fetchen met Promise
 function getKdrama(url) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
       console.log(data.results);
-      showImg(data.results);
+      //showImg(data.results);
+      showImg(data.results, '.detail-img')
     });
 }
 getKdrama(api_url);
@@ -27,12 +25,14 @@ function showImg(data, selector) {
     const { poster_path, name } = poster
     const imgEl = document.querySelectorAll(selector)
     imgEl.forEach(img => {
-      if(img.alt === name) {}
+      if(img.alt === name) {
         img.src = img_url + poster_path
-    })
-  })
-}
-showImg(kdramadata1, '.detail-img')
+      };
+    });
+  });
+};
+
+
 
 // Covers showen in de HTML
 // function showImg(data) {

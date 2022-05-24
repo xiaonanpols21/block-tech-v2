@@ -25,7 +25,10 @@
             method="post"
           >
             <button>
-                  <span class="heart-add  <% if( user.mylist.includes('6287d42cbdc5e82d48fa4cac')){ %> heart-added <% } %>"></span>
+                  <span class="heart-add  <% if( user.mylist.includes(kdrama._id)){ %> heart-added <% } %>"></span>
+                  <!-- 2 span wit hart roze hart
+                  if kdrama render dit, zoniet dat
+                  in if anders dan include -->
               </button>
               <input type="hidden" name="kdramaid" value="<%=kdrama._id%>">
           </form>
