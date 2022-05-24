@@ -18,7 +18,7 @@ I am going to make a kdrama matching application where you can find kdramas and 
 
 When you come on the homepage, you choose a profile and add kdramas to your list. 
 
-## Installeren
+## Installation
 
 Before you install the application, make sure to have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Node](https://nodejs.org/en/download/) and [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed on your computer.
 
