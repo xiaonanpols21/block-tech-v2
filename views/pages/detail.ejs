@@ -3,10 +3,10 @@
   <%- include('../partials/head'); %>
   <body class="body-kdrama-single">
     <header class="header-detail">
+      <img class="detail-img" src="/img/404-cover.jpg" alt="">
       <nav>
         <a href="/mylist"></a>
       </nav>
-      
     </header>
     <main class="main-detail">
       <section>
@@ -14,7 +14,6 @@
         <ul>
           <% tmdb.genres.forEach(kdrama => { %>
             <li><%= kdrama.charAt(0).toUpperCase() + kdrama.slice(1)%></li>
-            <!-- Bron: https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript -->
           <%}); %>
         </ul>
 

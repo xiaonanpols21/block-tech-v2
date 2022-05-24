@@ -37,38 +37,13 @@ app.get("/", async (req, res) => {
   });
 });
 
-app.get("/detail", (req, res) => {
-  res.render("pages/detail", {
-    genre: kdramaData.genre,
-    kdramas: kdramaData.kdramas,
-    storyLine: kdramaData.storyLine,
-    users,
-    tmdb
-  });
-});
-
-app.get("/mylist", async (req, res) => {
-  console.log("GET: /mylist");
-
-  const query = {_id: ObjectId(req.params.userId)};
-  const user = await db.collection("users").findOne(query);
-  //const users = await db.collection("users").find({},{}).toArray();
-
-  const tmdb = await db.collection("tmdb").find({},{}).toArray();
-
-  res.render("pages/mylist", {
-    user,
-    tmdb
-  });
-});
-
 app.get("/mylist/:userId/:slug", async (req, res) => {
   console.log("GET: /mylist/:userId/:slug");
   const query = {_id: ObjectId(req.params.userId)};
   const user = await db.collection("users").findOne(query);
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
   //console.log(users);
-
+  console.log(user.mylist)
   //console.log(tmdb);
   res.render('pages/mylist', {
     user,
@@ -82,32 +57,30 @@ app.post("/mylist/:userId/:slug", async (req, res) => {
   const kdramaid = {_id: ObjectId(req.body.mylist)};
   const updatequery = {$push: {mylist: req.body.kdramaid}}
   await db.collection("users").updateOne(query, updatequery);
-
-    //Sonja tutorial
-    //let kdramaList = req.body.singlekdrama;
-  
-    //Danny tutorial
-    // tmdb.push({
-    //   slug: req.body.name
-    // });
     
-   
-    const url = `/mylist/${req.params.userId}/${req.params.slug}`;
-    console.log(url)
-    res.redirect("url");
-
-    
+  const url = `/mylist/${req.params.userId}/${req.params.slug}`;
+  console.log(url)
+  res.redirect("url");
 });
 
 app.get("/profile/:userId/:slug", async (req, res) => {
   console.log("GET: /profile/:userId/:slug");
-
   const query = {_id: ObjectId(req.params.userId)};
+  const kdramaid = {_id: ObjectId(req.body.mylist)};
   const user = await db.collection("users").findOne(query);
+  const tmdb = await db.collection("tmdb").find({},{}).toArray();
+  const userkdrama = tmdb.filter(kdrama => user.myList.includes(kdrama.kdramaid));
 
+  console.log(user.mylist);
+/*
+  gegevens van kdraam ophale
+loop find one
+ingewikkelde qyery met list
+*/
   res.render("pages/profile", {
     user,
-    
+    tmdb,
+    userkdrama
   });
 });
 
@@ -126,6 +99,29 @@ app.get("/kdrama/:kdramaId/:slug", async (req, res) => {
     genre: kdramaData.genre,
     kdramas: kdramaData.kdramas,
     storyLine: kdramaData.storyLine,
+    tmdb
+  });
+});
+
+app.get("/detail", (req, res) => {
+  res.render("pages/detail", {
+    genre: kdramaData.genre,
+    kdramas: kdramaData.kdramas,
+    storyLine: kdramaData.storyLine,
+    users,
+    tmdb
+  });
+});
+
+// Dit is een rout die eigenlijk niet zou moeten werken maar ik houd deze route als fallback voor de zekerheid.
+app.get("/mylist", async (req, res) => {
+  console.log("GET: /mylist");
+
+  const query = {_id: ObjectId(req.params.userId)};
+  const user = await db.collection("users").findOne(query);
+  const tmdb = await db.collection("tmdb").find({},{}).toArray();
+  res.render("pages/mylist", {
+    user,
     tmdb
   });
 });
@@ -152,7 +148,6 @@ app.use(function (req, res) {
     kdramas: kdramaData.kdramas,
   });
 });
-// Bron: https://github.com/cmda-bt/be-course-21-22/blob/main/examples/express-server/server.js
 
 // Make connection with Mongo
 async function connectDB() {

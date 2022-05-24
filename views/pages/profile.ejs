@@ -18,20 +18,20 @@
       <h2>My list</h2>
       <section>
         <h3 class="visually-hidden">Kdramas</h3>
-        <!-- <%# for (var mylist=0; mylist < tmdb.length; mylist++) { %>
+        <% userkdrama.mylist.forEach(fav => { %>
           <article>
             <a href="">
               <h2 class="visually-hidden">Drama poster</h2>
               <img class="poster-img" src="/img/404-cover.jpg" alt="Kdrama poster" />
               <form action="">
                 <button>
-                    <div class="heart-add"></div>
+                    <slug class="heart-add"></slug>
                 </button>
               </form>
             </a>
-            <h3><%#= tmdb[mylist].name %></h3>
+            <h3><%= user._id %></h3>
           </article>
-        <%# }; %> -->
+        <% }) %>
         <article>
           <a href="">
             <h2 class="visually-hidden">Drama poster</h2>

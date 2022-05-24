@@ -14,12 +14,5 @@ document.addEventListener("visibilitychange", function () {
     document.title = "Chingu: Find your K-drama Seoulmate";
     link.href = "/img/logo.svg";
   }
-  // TODO: Set time out pass nog toevoegen
 });
 
-/*
-Bronnen:
-https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
-https://stackoverflow.com/questions/260857/changing-website-favicon-dynamically
-Cat: https://www.dreamstime.com/isolated-cute-sad-cat-emoji-vector-illustration-image225028210
-*/

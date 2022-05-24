@@ -44,23 +44,16 @@ a {
     width: 1px;
 }
 
-/* Bron: https://www.a11yproject.com/posts/how-to-hide-content/#:~:text=visually%2Dhidden%20class%20is%20applied,focus%20indicator%20had%20gone%20to. */
-
 /* Partials */
 /* Header.ejs */
 header {
     position: relative;
     height: 25em;
-    /*400px*/
     padding: 1.25em 1.875em;
-    /*20px 30px*/
     border-radius: 0em 0em 3.125em 3.125em;
-    /*50px*/
     background-image: var(--gradient-black-transparent), url('img/101.gif');
-    /* Bron: https://aminoapps.com/c/k-drama/page/blog/the-hymn-of-death-17-review/j0Wh_KuVGPaM4W31Z1MDK8mLWW48dw2 */
     background-size: cover;
     background-position: center;
-    /* Bron: https://webdevetc.com/blog/how-to-add-a-gradient-overlay-to-a-background-image-using-just-css-and-html/ */
 }
 
 header div {
@@ -74,16 +67,12 @@ header h2,
 .main-index h1,
 .main-detail h2 {
     font-size: 1.625em;
-    /*26px*/
     line-height: 1.9375em;
-    /*31px*/
 }
 
 header p {
     font-size: 0.875em;
-    /*14px*/
     line-height: 1.4375em;
-    /*23px*/
 }
 
 header ul, .main-detail ul {
@@ -100,14 +89,12 @@ header ul li, .main-detail ul li {
 header ul li::after, .main-detail ul li::after {
     content: ",";
 }
-/* Bron: https://markheath.net/post/css-comma-separated-list */
 
 /* Logo.ejs */
 .logo {
     display: flex;
     margin: 1.25em auto auto auto;
     height: 3.125em;
-    /* 50px */
 }
 
 /* Index.ejs */
@@ -158,8 +145,6 @@ header ul li::after, .main-detail ul li::after {
     background-color: var(--purple-active);
 }
 
-/* Bron: https://www.w3schools.com/css/css_dropdowns.asp */
-
 .main-index .ch-content img {
     height: 3.125em;
     margin-right: 1.25em;
@@ -173,22 +158,18 @@ header ul li::after, .main-detail ul li::after {
     gap: 1.25em;
     padding: 1.25em;
     margin: 3.125em 0em;
-    /*50px*/
 }
 
 .main-index h1 {
     font-size: 1.625em;
-    /*26px*/
     line-height: 1.5625em;
-    /*25px*/
 }
 
 .main-index p {
     font-size: 1.125em;
-    /*18x*/
     line-height: 1.875em;
-    /*30px*/
 }
+
 .ch-member button,
 .ch-member select,
 input[type="submit"],
@@ -197,16 +178,13 @@ input[type="submit"],
     font-family: var(--font-stack);
     display: block;
     padding: 1.5625em 1.875em;
-    /*25px 30px*/
     width: 100%;
     border-radius: 1.25em;
     background-color: var(--purple);
     border: 1px solid transparent;
     text-align: center;
     font-size: 1.125em;
-    /*18x*/
     line-height: 1.875em;
-    /*30px*/
     color: var(--white);
     font-weight: bold;
     transition: .4s;
@@ -235,122 +213,37 @@ fieldset:first-of-type label:active,
 
 .main-index img {
     height: 6.25em;
-    /*100px*/
 }
 
-/* form.ejs */
-/*
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.875em;
-    padding: 1.25em;
-}
-
-fieldset {
-    display: flex;
-    flex-direction: column;
-    border: none;
-}
-
-fieldset:first-of-type {
-    flex-direction: row;
-    align-items: center;
-}
-
-fieldset:first-of-type img {
-    order: -1;
-}
-
-fieldset:first-of-type label {
-    padding: 0.625em 1.25em;
-    border: 1px solid var(--purple);
-    background-color: var(--purple);
-    border-radius: 0.625em;
-    font-size: 1.125em;
-    font-weight: normal;
-    transition: .4s;
-    cursor: pointer;
-}
-
-input[type="file"] {
-    display: none;
-}
-
-#uploadPreview {
-    margin-right: 1.25em;
-    width: 6.25em;
-    height: 6.25em;
-    border: 1px solid var(--pink);
-    background-color: var(--pink);
-    border-radius: 50%;
-}
-
-input[type="text"],
-select {
-    font-family: var(--font-stack);
-    padding: 0.8125em 1.25em;
-    border: 1px solid var(--white);
-    border-radius: 0.625em;
-    font-size: 1.125em;
-}
-
-select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    position: relative;
-    background: url(img/dorpdown-arrow.svg) no-repeat 90% center;
-    background-size: 0.625em 0.625em;
-    color: var(--white);
-}
-
-label {
-    margin-bottom: 0.625em;
-    font-size: 1.125em;
-    font-weight: 600;
-}
-
-input[type="submit"] {
-    margin-top: 1.25em;
-}
-/*
 /* Match-result.ejs */
 .main-match,
 .main-404 {
     padding: 1.25em;
     margin-top: calc(3.125em - 1.25em);
-    /*50px 20px*/
 }
 
 .main-match h1,
 .main-detail h1 {
     font-size: 2.125em;
-    /*34px*/
     line-height: 1.875em;
-    /* 30px */
 }
 
 .main-match p,
 .main-404 p {
     margin: 1.25em 0px;
     font-size: 1.125em;
-    /*18px*/
     line-height: 1.875em;
-    /*30px*/
 }
 
 /* Profile.ejs */
 .body-profile,
 .body-mylist {
     padding: 2.5em 1.25em;
-    /* 40px 20px */
 }
 
 .section-profile {
     display: grid;
     grid-template-columns: 6.25em 1fr;
-    /* 130px */
     gap: 0px 1.25em;
     margin-top: 0.625em;
 }
@@ -359,9 +252,7 @@ input[type="submit"] {
     display: flex;
     align-items: center;
     font-size: 1.125em;
-    /*18px*/
     line-height: 1.875em;
-    /*30px*/
 }
 
 .section-profile img {
@@ -379,7 +270,7 @@ input[type="submit"] {
 }
 
 .main-profile {
-    margin-top: 3.125em;
+    margin: 3.125em 0px;
 }
 
 .main-profile section {
@@ -394,10 +285,8 @@ input[type="submit"] {
 
 .main-profile section article {
     scroll-snap-align: center;
-    transform: translateY(100px);
 
 }
-
 
 .main-profile .poster-img {
     width: 8.75em;
@@ -406,33 +295,6 @@ input[type="submit"] {
 .main-profile h2 {
     font-size: 1.125em;
 }
-
-/* .slider-btns {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1.25em;
-    margin-top: 30px;
-}
-
-.slider-btns button {
-    width: 80px;
-    height: 80px;
-    border-radius: 10px;
-    border: 1px solid var(--pink);
-    background-color: var(--pink);
-    transition: .4s;
-    cursor: pointer;
-}
-
-
-.slider-btns button:focus {
-    background-color: var(--purple);
-}
-
-.slider-btns button i {
-    font-size: 25px;
-    color: var(--white);
-} */
 
 /* 404.ejs */
 .body-404 {
@@ -470,37 +332,32 @@ input[type="submit"] {
 .main-404 p {
     margin-top: calc(180px + 1.25em + 50px);
 }
-
 /* Maten die px zijn blijven zo vanwege correcte afmetingen */
 
 /* Detail.ejs */
 .header-detail {
     position: relative;
     height: 25em;
-    /*400px*/
-    padding: 1.25em;
-    /*20px*/
+    padding: 0px;
     border-radius: 0px;
-    background-image: var(--gradient-transparent-black), url('img/101.jpeg');
-    /* Bron: https://aminoapps.com/c/k-drama/page/blog/the-hymn-of-death-17-review/j0Wh_KuVGPaM4W31Z1MDK8mLWW48dw2 */
-    background-size: cover;
-    background-position: center;
-    /* Bron: https://webdevetc.com/blog/how-to-add-a-gradient-overlay-to-a-background-image-using-just-css-and-html/ */
+    background-image: none;
 }
 
 .header-detail nav a:after {
     position: absolute;
     left: 1.25em;
     top: 3.125em;
-    /*50px*/
     width: 1.0625em;
-    /*17px*/
     height: 1.875em;
-    /*30px*/
     content: "";
     background-image: url(img/arrow-left.svg);
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+.detail-img {
+    width: 100%;
+
 }
 
 .main-detail {
@@ -514,7 +371,6 @@ input[type="submit"] {
 .main-detail h1,
 .main-detail h2 {
     margin-bottom: 0.3125em;
-    /*5px*/
 }
 
 .main-detail h2 {
@@ -530,14 +386,11 @@ input[type="submit"] {
     margin-bottom: 3.125em;
 }
 
-
 /* Mylist.ejs */
 .nav-mylist a {
     margin-left: calc(0.53125em + 1.5625em);
-    /* 8.5px 25px */
     color: var(--white);
     font-size: 1.5em;
-    /* 24px */
     line-height: 2.5em;
     font-weight: bold;
 }
@@ -548,7 +401,6 @@ input[type="submit"] {
     top: 2.5em;
     width: 0.53125em;
     height: 0.9375em;
-    /* 15px */
     content: "";
     background-image: url(img/arrow-left.svg);
     background-size: contain;
@@ -618,7 +470,6 @@ input[type="submit"] {
     background-repeat: no-repeat;
     height: 1.5625em;
     width: 1.8125em;
-    /* 25px 29px */
     transition: .4s;
 }
 
@@ -637,7 +488,6 @@ input[type="submit"] {
 }
 
 /* Responsive */
-/* Bron: https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
 @media (min-width: 576px) {
     /* Index.ejs */
     .main-index,
@@ -679,7 +529,6 @@ input[type="submit"] {
     .heart-add {
         height: 2.1875em;
         width: 2.5em;
-        /* 35px 40px */
     }
 
     .body-profile {
@@ -689,19 +538,14 @@ input[type="submit"] {
     /* Fonts style */
     header h2, .main-detail h1 {
         font-size: 3.125em;
-        /*50px*/
         line-height: 1.25em;
     }
 
     header p, .main-detail p:first-of-type {
         font-size: 1.125em;
-        /*18x*/
         line-height: 1.875em;
-        /*30px*/
     }
 }
-
-@media (min-width: 768px) {}
 
 @media (min-width: 992px) {
 
@@ -709,7 +553,6 @@ input[type="submit"] {
     .main-index h1,
     .main-404 h1 {
         font-size: 2.625em;
-        /*42px*/
     }
 
     .main-index p,
@@ -738,7 +581,6 @@ input[type="submit"] {
     .section-profile h2,
     .nav-mylist a {
         font-size: 1.625em;
-        /* 26px */
     }
 
     .user-profile,
@@ -777,7 +619,6 @@ input[type="submit"] {
     .body-mylist,
     .body-profile {
         padding: 3.125em 9.375em;
-        /*50px 150px*/
     }
 
     /* Index.ejs */
@@ -786,7 +627,6 @@ input[type="submit"] {
     .body-kdrama-single {
         display: grid;
         grid-template-columns: 31.25em 1fr;
-        /*500px*/
         gap: 3.125em;
         padding: 3.125em;
         height: 100vh;
@@ -796,7 +636,6 @@ input[type="submit"] {
     .body-404 img {
         position: absolute;
         height: 6.25em;
-        /*100px*/
     }
 
     .main-index .ch-content img {
@@ -808,7 +647,6 @@ input[type="submit"] {
         grid-column-start: 2;
         grid-column-end: 3;
         border-radius: 2.5em;
-        /*40px*/
         height: 100%;
     }
 
@@ -826,37 +664,6 @@ input[type="submit"] {
     .main-404 a {
         width: fit-content;
     }
-
-    /* Form.ejs */
-    /*
-    form {
-        display: grid;
-        grid-template-columns: 21.875em 1fr;
-        gap: 1.875em 6.25em;
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-    }
-
-    fieldset {
-        grid-column-start: 1;
-        grid-column-end: 2;
-    }
-
-    fieldset:nth-of-type(5) {
-        grid-column-start: 2;
-        grid-column-start: 3;
-        grid-row-start: 2;
-        grid-row-end: 3;
-    }
-
-    fieldset:last-of-type {
-        grid-column-start: 2;
-        grid-column-start: 3;
-        grid-row-start: 3;
-        grid-row-end: 4;
-    }
-    */
 
     /* 404.ejs */
     .main-404 {
@@ -912,7 +719,6 @@ input[type="submit"] {
     .heart-add {
         height: 2.5625em;
         width: 2.9375em;
-        /* 41px 47px */
     }
 
     /* Profile */
@@ -921,6 +727,10 @@ input[type="submit"] {
     }
 
     /* Detail.ejs */
+    .body-kdrama-single {
+        grid-template-columns: 31.25em 31.25em;
+        justify-content: center;
+    }
     .main-detail {
         grid-row-start: 1;
         grid-row-end: 2;
@@ -930,8 +740,7 @@ input[type="submit"] {
         width: 100%;
     }
 
-    .header-detail {
-        height: 100%;
+    .detail-img {
         border-radius: 2.5em;
     }
 
@@ -942,9 +751,6 @@ input[type="submit"] {
     /* Partials */
     .logo {
         height: 4.375em;
-        /*70px*/
         margin: 0px 0px 0px auto;
     }
 }
-
-@media (min-width: 1400px) {}
