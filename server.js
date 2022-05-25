@@ -68,11 +68,12 @@ app.get("/profile/:userId/:slug", async (req, res) => {
   const query = {_id: ObjectId(req.params.userId)};
   const kdramaid = {_id: ObjectId(req.body.mylist)};
   const user = await db.collection("users").findOne(query);
+  console.log(user);
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
-  const userkdrama = tmdb.filter(kdrama => user.myList.includes(kdrama.kdramaid));
-
-  console.log(user.mylist.includes("iets"));
-  //console.log(user);
+  //const userkdrama = tmdb.filter(kdrama => user.mylist.includes(kdrama.kdramaid));
+  const userkdrama = tmdb.filter(kdrama => user.mylist.includes(kdrama._id))
+  //console.log(user.mylist.includes("iets"));
+  console.log(userkdrama);
 /*
   gegevens van kdraam ophale
 loop find one
@@ -81,7 +82,7 @@ ingewikkelde qyery met list
   res.render("pages/profile", {
     user,
     tmdb,
-    //userkdrama
+    userkdrama
   });
 });
 
