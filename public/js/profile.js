@@ -31,3 +31,18 @@ The getBoundingClientRect() method returns the size of an element and its
 position relative to the viewport.
 Bron: https://www.w3schools.com/jsref/met_element_getboundingclientrect.asp#:~:text=The%20getBoundingClientRect()%20method%20returns,position%20relative%20to%20the%20viewport.
 */
+
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        entry.target.classList.toggle("show", entry.isIntersecting)
+    });
+}, {
+    threshold: 1,
+});
+
+cards.forEach(card => {
+
+    observer.observe(card);
+});

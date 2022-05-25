@@ -304,7 +304,6 @@ fieldset:first-of-type label:active,
 
 .main-profile section article {
     scroll-snap-align: center;
-
 }
 
 .main-profile .poster-img {
@@ -451,6 +450,17 @@ fieldset:first-of-type label:active,
     grid-template-columns: 1fr 1fr;
     gap: 2.5em 1.25em;
     margin-top: 2.5em;
+}
+
+.card {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 150ms;
+}
+
+.card.show {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .poster-img {
