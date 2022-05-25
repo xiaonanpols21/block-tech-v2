@@ -25,7 +25,12 @@
             method="post"
           >
             <button>
-                  <span class="heart-add  <% if( user.mylist.includes(kdrama._id)){ %> heart-added <% } %>"></span>
+
+              <% if(user.mylist.includes(kdrama._id)) {%>
+                <span class="heart-add heart-added"></span>
+            <% } else { %>
+                <span class="heart-add"></span>
+            <% } %>
                   <!-- 2 span wit hart roze hart
                   if kdrama render dit, zoniet dat
                   in if anders dan include -->
