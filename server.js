@@ -30,10 +30,11 @@ app.set("view engine", "ejs");
 // Pages
 app.get("/", async (req, res) => {
   const users = await db.collection("users").find({},{}).toArray();
-
+  const tmdb = await db.collection("tmdb").find({},{}).toArray();
   res.render("pages/index", {
     kdramas: kdramaData.kdramas,
-    users
+    users,
+    tmdb
   });
 });
 

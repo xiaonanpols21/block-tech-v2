@@ -1,8 +1,10 @@
 <header>
+  <img class="header-img" src="<%= tmdb[0].img %>" alt="">
+  <div class="overlay"></div>
   <div>
-    <h2><%= kdramas[0].name %></h2>
+    <h2><%= tmdb[0].name %></h2>
     <ul>
-      <% kdramas[0].genre.forEach(kdrama => { %>
+      <% tmdb[0].genres.forEach(kdrama => { %>
         <li><%= kdrama.charAt(0).toUpperCase() + kdrama.slice(1)%></li>
       <%}); %>
     </ul>
