@@ -26,7 +26,7 @@
           >
             <button>
 
-              <% if(user.mylist.includes(kdrama._id)) {%>
+              <% if(user.mylist.includes(String(kdrama._id))) {%>
                 <span class="heart-add heart-added"></span>
             <% } else { %>
                 <span class="heart-add"></span>
@@ -36,6 +36,8 @@
                   in if anders dan include -->
               </button>
               <input type="hidden" name="kdramaid" value="<%=kdrama._id%>">
+             
+              <%= user.mylist.indexOf(String(kdrama._id))%>
           </form>
         </a>
         <h3><%= kdrama.name %></h3>

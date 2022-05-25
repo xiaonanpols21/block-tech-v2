@@ -59,7 +59,7 @@ app.post("/mylist/:userId/:slug", async (req, res) => {
   await db.collection("users").updateOne(query, updatequery);
     
   const url = `/mylist/${req.params.userId}/${req.params.slug}`;
-  console.log(url)
+
   res.redirect("url");
 });
 
