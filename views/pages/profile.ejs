@@ -19,90 +19,19 @@
           <article>
             <a href="">
               <h2 class="visually-hidden">Drama poster</h2>
-              <img class="poster-img" src="/img/404-cover.jpg" alt="Kdrama poster" />
-              <form action="">
+              <img class="poster-img" src="/img/404-cover.jpg" alt="<%= fav.name %>" />
+              <form action="/profile/<%= user._id %>/<%= user.slug %>" method="delete">
                 <button>
-                    <slug class="heart-add"></slug>
+                    <slug class="heart-add heart-added"></slug>
                 </button>
               </form>
             </a>
-            <h3><%= user._id %></h3>
+            <h3><%= fav.name %></h3>
           </article>
         <% }) %>
-        <article>
-          <a href="">
-            <h2 class="visually-hidden">Drama poster</h2>
-            <img class="poster-img" src="/img/404-cover.jpg" alt="Kdrama poster" />
-            <form action="">
-              <button>
-                  <div class="heart-add"></div>
-              </button>
-            </form>
-          </a>
-          <h3>Hymn of death</h3>
-        </article>
-        <article>
-          <a href="">
-            <h2 class="visually-hidden">Drama poster</h2>
-            <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
-            <form action="">
-              <button>
-                <div class="heart-add"></div>
-              </button>
-            </form>
-          </a>
-          <h3>Hymn of death</h3>
-        </article>
-        <article>
-          <a href="">
-            <h2 class="visually-hidden">Drama poster</h2>
-            <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
-            <form action="">
-              <button>
-                <div class="heart-add"></div>
-              </button>
-            </form>
-          </a>
-          <h3>Hymn of death</h3>
-        </article>
-        <article>
-          <a href="">
-            <h2 class="visually-hidden">Drama poster</h2>
-            <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
-            <form action="">
-              <button>
-                <div class="heart-add"></div>
-              </button>
-            </form>
-          </a>
-          <h3>Hymn of death</h3>
-        </article>
-        <article>
-          <a href="">
-            <h2 class="visually-hidden">Drama poster</h2>
-            <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
-            <form action="">
-              <button>
-                <div class="heart-add"></div>
-              </button>
-            </form>
-          </a>
-          <h3>Hymn of death</h3>
-        </article>
-        <article>
-          <a href="">
-            <h2 class="visually-hidden">Drama poster</h2>
-            <img class="poster-img" src="/img/101.jpg" alt="Kdrama poster" />
-            <form action="">
-              <button>
-                <div class="heart-add"></div>
-              </button>
-            </form>
-          </a>
-          <h3>Hymn of death</h3>
-        </article>
       </section>
     </main>
     <script src="/js/visibility.js"></script> 
+    <script src="/js/profile.js"></script> 
   </body>
 </html>

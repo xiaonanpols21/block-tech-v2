@@ -51,6 +51,19 @@ app.post("/mylist/:userId/:slug", async (req, res) => {
 
   const url = `/mylist/${req.params.userId}/${req.params.slug}`;
   res.redirect("url");
+  console.log(url);
+});
+
+app.delete("/profile/:userId/:slug", async (req, res) => {
+  const query = {_id: ObjectId(req.params.userId)};
+  const kdramaId = {_id: ObjectId(req.body.mylist)};
+  const user = await db.collection("users").findOne(query);
+  const deleteQuery = {$delete: {mylist: req.body.kdramaId}}
+  await db.collection("users").deleteOne(query, deleteQuery);
+
+  const url = `/profile/${req.params.userId}/${req.params.slug}`;
+  res.redirect("url");
+  console.log(url);
 });
 
 app.get("/profile/:userId/:slug", async (req, res) => {
@@ -60,7 +73,7 @@ app.get("/profile/:userId/:slug", async (req, res) => {
   const user = await db.collection("users").findOne(query);
   console.log(user);
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
-  const userKdrama = tmdb.filter(kdrama => user.mylist.includes(kdrama._id))
+  const userKdrama = tmdb.filter(kdrama => user.mylist.includes(String(kdrama._id)))
   console.log(userKdrama);
 /*
   gegevens van kdraam ophale
