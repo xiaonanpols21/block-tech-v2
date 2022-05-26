@@ -320,7 +320,7 @@ fieldset:first-of-type label:active,
     flex-direction: column;
 }
 
-.body-404 img {
+.body-404 > img:first-of-type {
     display: flex;
     order: -1;
     height: 3.125em;
@@ -634,6 +634,10 @@ fieldset:first-of-type label:active,
         font-size: 1.875em;
     }
 
+    .main-404 p {
+        margin-top: calc(180px + 93px + 1.25em);
+    }
+
 }
 
 @media (max-width: 1200px) {
@@ -673,8 +677,8 @@ fieldset:first-of-type label:active,
         height: 100vh;
     }
 
-    .body-index>img:first-of-type,
-    .body-404 img {
+    .body-index > img:first-of-type,
+    .body-404 > img:first-of-type {
         position: absolute;
         height: 6.25em;
     }
@@ -729,6 +733,10 @@ fieldset:first-of-type label:active,
 
     .main-404 p {
         margin-top: 1.25em;
+    }
+
+    .body-404 {
+        grid-template-columns: 25em 1fr;
     }
 
     /* Profile.ejs */

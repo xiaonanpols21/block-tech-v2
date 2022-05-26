@@ -20,8 +20,8 @@
             <a href="">
               <h2 class="visually-hidden">Drama poster</h2>
               <img class="poster-img" src="/img/404-cover.jpg" alt="<%= fav.name %>" />
-              <form action="/profile/<%= user._id %>/<%= user.slug %>" method="delete">
-                <button>
+              <form action="/profile/<%= user._id %>/<%= user.slug %>" method="post">
+                <button type="submit" name="kdramaId" value="<%=fav._id%>">
                     <slug class="heart-add heart-added"></slug>
                 </button>
               </form>

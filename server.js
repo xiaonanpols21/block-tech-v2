@@ -27,6 +27,7 @@ app.set("view engine", "ejs");
 app.get("/", async (req, res) => {
   const users = await db.collection("users").find({},{}).toArray();
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
+
   res.render("pages/index", {
     users,
     tmdb
@@ -37,6 +38,7 @@ app.get("/mylist/:userId/:slug", async (req, res) => {
   const query = {_id: ObjectId(req.params.userId)};
   const user = await db.collection("users").findOne(query);
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
+
   res.render('pages/mylist', {
     user,
     tmdb
@@ -50,20 +52,19 @@ app.post("/mylist/:userId/:slug", async (req, res) => {
   await db.collection("users").updateOne(query, updateQuery);
 
   const url = `/mylist/${req.params.userId}/${req.params.slug}`;
-  res.redirect("url");
+  res.redirect(url);
   console.log(url);
 });
 
-app.delete("/profile/:userId/:slug", async (req, res) => {
+app.post("/profile/:userId/:slug", async (req, res) => {
   const query = {_id: ObjectId(req.params.userId)};
-  const kdramaId = {_id: ObjectId(req.body.mylist)};
   const user = await db.collection("users").findOne(query);
-  const deleteQuery = {$delete: {mylist: req.body.kdramaId}}
-  await db.collection("users").deleteOne(query, deleteQuery);
+  const filteredList = user.mylist.filter(kdrama => kdrama !== req.body.kdramaId)
+  const updateQuery = { $set: { mylist: filteredList } }
+  await db.collection('users').updateOne(query, updateQuery)
 
   const url = `/profile/${req.params.userId}/${req.params.slug}`;
-  res.redirect("url");
-  console.log(url);
+  res.redirect(url);
 });
 
 app.get("/profile/:userId/:slug", async (req, res) => {
@@ -71,15 +72,9 @@ app.get("/profile/:userId/:slug", async (req, res) => {
   const query = {_id: ObjectId(req.params.userId)};
   const kdramaId = {_id: ObjectId(req.body.mylist)};
   const user = await db.collection("users").findOne(query);
-  console.log(user);
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
   const userKdrama = tmdb.filter(kdrama => user.mylist.includes(String(kdrama._id)))
-  console.log(userKdrama);
-/*
-  gegevens van kdraam ophale
-loop find one
-ingewikkelde qyery met list
-*/
+
   res.render("pages/profile", {
     user,
     tmdb,
@@ -92,7 +87,6 @@ app.get("/kdrama/:kdramaId/:slug/:userId/:slug", async (req, res) => {
   const query = {_id: ObjectId(req.params.userId)};
   const kdramaId = {_id: ObjectId(req.params.kdramaId)};
   const user = await db.collection("users").findOne(query);
-  console.log(user);
   const tmdb = await db.collection("tmdb").findOne(kdramaId);
 
   res.render("pages/detail", {
@@ -102,10 +96,10 @@ app.get("/kdrama/:kdramaId/:slug/:userId/:slug", async (req, res) => {
 });
 
 // TODO: 404
-app.use(function (req, res) {
+app.use( async (req, res) => {
   console.error("Error 404: page nog found");
   const kdramaId = {_id: ObjectId(req.params.kdramaId)};
-  const tmdb = db.collection("tmdb").findOne(kdramaId);
+  const tmdb = await db.collection("tmdb").find({},{}).toArray();
 
   res.status(404).render("pages/404", {
     tmdb
