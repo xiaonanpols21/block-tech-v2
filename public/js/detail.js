@@ -33,17 +33,3 @@ function showImg(data, selector) {
 };
 
 
-
-// Covers showen in de HTML
-// function showImg(data) {
-//   data.forEach((poster, index) => {
-//     const { poster_path, name } = poster;
-//     const imgEl = document.querySelector(".detail-img");
-
-//     if(imgEl.alt === name) {
-//       //console.log(img.alt);
-//       imgEl.src = img_url + poster_path
-//     };
-//   });
-// };
-

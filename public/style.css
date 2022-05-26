@@ -375,6 +375,8 @@ fieldset:first-of-type label:active,
 
 .detail-img {
     width: 100%;
+    height: 400px;
+    object-fit: cover;
 }
 
 .overlay-detail {
@@ -686,8 +688,6 @@ fieldset:first-of-type label:active,
         border-radius: 3.125em;
     }
 
-
-
     .main-index {
         position: relative;
         grid-row-start: 1;
@@ -778,14 +778,23 @@ fieldset:first-of-type label:active,
         width: 100%;
     }
 
+    .header-detail {
+        height: 100%;
+    }
+
     .detail-img {
-        border-radius: 2.5em;
+        height: 100%;
+        border-radius: 3.125em;
+    }
+
+    .overlay-detail {
+        border-radius: 3.125em;
     }
 
     .header-detail nav a:after {
         display: none;
     }
-
+    
     /* Partials */
     .logo {
         height: 4.375em;

@@ -14,7 +14,7 @@
 
       <% tmdb.forEach(kdrama => { %>
       <article class="card">
-        <a href="/kdrama/<%= kdrama._id %>/<%= kdrama.slug %>">
+        <a href="/kdrama/<%= kdrama._id %>/<%= kdrama.slug%>/<%= user._id %>/<%= user.slug %>">
           <img
             class="poster-img"
             src="/img/404-cover.jpg"
