@@ -454,8 +454,11 @@ fieldset:first-of-type label:active,
 
 .card {
     transform: translateY(100px);
-    opacity: 0;
     transition: 150ms;
+}
+
+.card.card-opacity {
+    opacity: 0;
 }
 
 .card.show {
