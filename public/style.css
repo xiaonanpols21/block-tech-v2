@@ -797,7 +797,7 @@ fieldset:first-of-type label:active,
     }
 
     .overlay-detail {
-        border-radius: 3.125em;
+        display: none;
     }
 
     .header-detail nav a:after {

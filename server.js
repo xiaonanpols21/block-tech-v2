@@ -74,7 +74,7 @@ ingewikkelde qyery met list
   });
 });
 
-app.get("/kdrama/:kdramaid/:slug/:userId/:slug", async (req, res) => {
+app.get("/kdrama/:kdramaId/:slug/:userId/:slug", async (req, res) => {
   console.log("GET: /kdrama/:kdramaId/:slug");
   const query = {_id: ObjectId(req.params.userId)};
   const kdramaId = {_id: ObjectId(req.params.kdramaId)};
