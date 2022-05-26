@@ -1,4 +1,4 @@
-# Blok-Tech
+# Block-Tech
 
 Here is my project for Block-Tech. Read [Wiki](https://github.com/xiaonanpols21/block-tech-v2/wiki) for further information.
 
