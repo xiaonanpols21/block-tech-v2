@@ -3,16 +3,8 @@ console.log("Mylist");
 // Data aanvragen API
 const api_key = "api_key=c9c582007e770d9564a6499f6e364a2a";
 const base_url = "https://api.themoviedb.org/3";
-const api_url =
-  base_url +
-  "/discover/tv?" +
-  api_key +
-  "&language=en-US&sort_by=popularity.desc&page=1&primary_release_year=2020&with_original_language=hi|ko|";
-const api_url2 =
-  base_url +
-  "/discover/tv?" +
-  api_key +
-  "&language=en-US&sort_by=popularity.desc&page=2&primary_release_year=2020&with_original_language=hi|ko|";
+const api_url = base_url + "/discover/tv?" + api_key + "&language=en-US&sort_by=popularity.desc&page=1&primary_release_year=2020&with_original_language=hi|ko|";
+const api_url2 = base_url + "/discover/tv?" + api_key + "&language=en-US&sort_by=popularity.desc&page=2&primary_release_year=2020&with_original_language=hi|ko|";
 const img_url = "https://image.tmdb.org/t/p/w500";
 
 // API fetchen met Promise

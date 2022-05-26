@@ -15,28 +15,16 @@
       <% tmdb.forEach(kdrama => { %>
       <article class="card">
         <a href="/kdrama/<%= kdrama._id %>/<%= kdrama.slug%>/<%= user._id %>/<%= user.slug %>">
-          <img
-            class="poster-img"
-            src="/img/404-cover.jpg"
-            alt="<%= kdrama.name %>"
-          />
-          <form
-            action="/mylist/<%= user._id %>/<%= user.slug %>"
-            method="post"
-          >
+          <img class="poster-img" src="/img/404-cover.jpg" alt="<%= kdrama.name %>"/>
+          <form action="/mylist/<%= user._id %>/<%= user.slug %>" method="post">
             <button>
-
               <% if(user.mylist.includes(String(kdrama._id))) {%>
-                <span class="heart-add heart-added"></span>
-            <% } else { %>
-                <span class="heart-add"></span>
-            <% } %>
-                  <!-- 2 span wit hart roze hart
-                  if kdrama render dit, zoniet dat
-                  in if anders dan include -->
-              </button>
-              <input type="hidden" name="kdramaid" value="<%=kdrama._id%>">
-    
+              <span class="heart-add heart-added"></span>
+              <% } else { %>
+              <span class="heart-add"></span>
+              <% } %>
+            </button>
+            <input type="hidden" name="kdramaId" value="<%=kdrama._id%>" />
           </form>
         </a>
         <h3><%= kdrama.name %></h3>

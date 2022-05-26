@@ -8,9 +8,6 @@
     </nav>
     <section class="section-profile">
       <h1 class="visually-hidden">User profile</h1>
-      <!-- <h2>@<%#= users[0].name %></h2>
-      <img src="<%#= users[0].img %>" alt="Profile img" /> -->
-
       <h2>@<%= user.name %></h2>
       <img src="/<%= user.img %>" alt="<%= user.name %>" />
     </section>
@@ -18,7 +15,7 @@
       <h2>My list</h2>
       <section>
         <h3 class="visually-hidden">Kdramas</h3>
-        <% userkdrama.forEach(fav => { %>
+        <% userKdrama.forEach(fav => { %>
           <article>
             <a href="">
               <h2 class="visually-hidden">Drama poster</h2>
@@ -105,21 +102,7 @@
           <h3>Hymn of death</h3>
         </article>
       </section>
-      <!-- Progressive enhancement
-        Bron: https://www.youtube.com/watch?v=OQZNAMjC6Vg&ab_channel=Devression -->
-        <!-- <div class="slider-btns">
-          <button><i class="fa-solid fa-angle-left"></i></button>
-          <button><i class="fa-solid fa-angle-right"></i></button>
-        </div>
-        <noscript>
-          <style>
-            .slider-btns {display: none;}
-          </style>
-        </noscript> -->
-        <!-- Bron: https://stackoverflow.com/questions/1577598/how-to-hide-parts-of-html-when-javascript-is-disabled -->
     </main>
-    <script src="https://kit.fontawesome.com/c24c386355.js" crossorigin="anonymous" ></script>
-    <script src="/js/profile.js"></script>
     <script src="/js/visibility.js"></script> 
   </body>
 </html>

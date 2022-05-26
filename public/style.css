@@ -72,7 +72,8 @@ header div {
     border-radius: 0em 0em 3.125em 3.125em;
 }
 
-.overlay, .overlay-detail {
+.overlay,
+.overlay-detail {
     position: absolute;
     left: 0;
     right: 0;
@@ -94,18 +95,21 @@ header p {
     line-height: 1.4375em;
 }
 
-header ul, .main-detail ul {
+header ul,
+.main-detail ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-header ul li, .main-detail ul li {
+header ul li,
+.main-detail ul li {
     margin-right: 0.625em;
     list-style: none;
 }
 
-header ul li::after, .main-detail ul li::after {
+header ul li::after,
+.main-detail ul li::after {
     content: ",";
 }
 
@@ -191,7 +195,6 @@ header ul li::after, .main-detail ul li::after {
 
 .ch-member button,
 .ch-member select,
-input[type="submit"],
 .main-match a,
 .main-404 a {
     font-family: var(--font-stack);
@@ -210,7 +213,6 @@ input[type="submit"],
     cursor: pointer;
 }
 
-input[type="submit"]:hover,
 fieldset:first-of-type label:hover,
 .slider-btns button:hover {
     border: 1px solid var(--purple);
@@ -218,12 +220,10 @@ fieldset:first-of-type label:hover,
 }
 
 /* Als ik active boven focus doe, doet hij focus voor active state */
-input[type="submit"]:focus,
 .ch-member button:focus {
     background-color: var(--pink);
 }
 
-input[type="submit"]:active,
 fieldset:first-of-type label:active,
 .slider-btns button:active {
     background-color: var(--purple-active);
@@ -339,7 +339,7 @@ fieldset:first-of-type label:active,
     width: 320px;
     height: 180px;
     border-radius: 0.625em;
-    background-image: url(img/404-gif.gif);
+    background-image: url(/img/404-gif.gif);
     background-size: contain;
     background-repeat: no-repeat;
     top: calc(1.25em + 1.25em);
@@ -380,7 +380,7 @@ fieldset:first-of-type label:active,
 }
 
 .overlay-detail {
-    background-image: var(--gradient-transparent-black);   
+    background-image: var(--gradient-transparent-black);
 }
 
 .main-detail {
@@ -473,25 +473,29 @@ fieldset:first-of-type label:active,
     border-radius: 1.25em;
 }
 
-.main-mylist h3, .main-profile article h3 {
+.main-mylist h3,
+.main-profile article h3 {
     margin-top: 0.3125em;
     font-weight: 600;
     font-size: 1em;
     line-height: 1.75em;
 }
 
-.main-mylist a, .main-profile article a {
+.main-mylist a,
+.main-profile article a {
     position: relative;
     display: block;
 }
 
-.main-mylist form, .main-profile article form {
+.main-mylist form,
+.main-profile article form {
     position: absolute;
     top: 1.25em;
     right: 1.25em;
 }
 
-.main-mylist button, .main-profile article button {
+.main-mylist button,
+.main-profile article button {
     background: none;
     border: none;
     cursor: pointer;
@@ -526,6 +530,7 @@ fieldset:first-of-type label:active,
 
 /* Responsive */
 @media (min-width: 576px) {
+
     /* Index.ejs */
     .main-index,
     /* form, */
@@ -569,12 +574,14 @@ fieldset:first-of-type label:active,
     }
 
     /* Fonts style */
-    header h2, .main-detail h1 {
+    header h2,
+    .main-detail h1 {
         font-size: 3.125em;
         line-height: 1.25em;
     }
 
-    header p, .main-detail p:first-of-type {
+    header p,
+    .main-detail p:first-of-type {
         font-size: 1.125em;
         line-height: 1.875em;
     }
@@ -590,15 +597,16 @@ fieldset:first-of-type label:active,
 
     .main-index p,
     .main-404 p,
-    .main-detail p, 
-    .body-404, 
+    .main-detail p,
+    .body-404,
     .main-profile article h3 {
         font-size: 1.25em;
         line-height: 1.875em;
     }
 
     label,
-    .ch-content a, .main-profile h2 {
+    .ch-content a,
+    .main-profile h2 {
         font-size: 1.25em;
     }
 
@@ -665,7 +673,7 @@ fieldset:first-of-type label:active,
         height: 100vh;
     }
 
-    .body-index > img:first-of-type,
+    .body-index>img:first-of-type,
     .body-404 img {
         position: absolute;
         height: 6.25em;
@@ -697,7 +705,6 @@ fieldset:first-of-type label:active,
     }
 
     .main-index a,
-    input[type="submit"],
     .main-match a,
     .main-404 a {
         width: fit-content;
@@ -726,21 +733,22 @@ fieldset:first-of-type label:active,
 
     /* Profile.ejs */
     .section-profile {
-        grid-template-columns:  8.125em 1fr;
+        grid-template-columns: 8.125em 1fr;
         width: 100%;
     }
 
     .section-profile img {
-        width:  8.125em;
-        height:  8.125em;
-    } 
+        width: 8.125em;
+        height: 8.125em;
+    }
 
     /* Mylist.ejs */
     .main-mylist {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
-    .body-mylist, .body-profile {
+    .body-mylist,
+    .body-profile {
         width: 100%;
         margin: 0px;
     }
@@ -769,6 +777,7 @@ fieldset:first-of-type label:active,
         grid-template-columns: 31.25em 31.25em;
         justify-content: center;
     }
+
     .main-detail {
         grid-row-start: 1;
         grid-row-end: 2;
@@ -794,7 +803,7 @@ fieldset:first-of-type label:active,
     .header-detail nav a:after {
         display: none;
     }
-    
+
     /* Partials */
     .logo {
         height: 4.375em;

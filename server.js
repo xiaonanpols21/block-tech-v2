@@ -3,15 +3,11 @@ const express = require("express");
 
 const slug = require("slug");
 const arrayify = require("array-back");
-
-const fetch = require("cross-fetch");
 const dotenv = require("dotenv").config();
-
 const { MongoClient } = require("mongodb");
 const { ObjectId } = require("mongodb");
 
-const kdramaData = require("./data/kdrama-data.js");
-const { set } = require("lodash");
+const { set, update } = require("lodash");
 
 // Site laten werken
 const app = express();
@@ -19,7 +15,7 @@ const port = process.env.PORT || 3000;
 
 let db = null;
 
-// Data posten
+// Dit heb je nodig om data te posten
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -38,11 +34,9 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/mylist/:userId/:slug", async (req, res) => {
-  console.log("GET: /mylist/:userId/:slug");
   const query = {_id: ObjectId(req.params.userId)};
   const user = await db.collection("users").findOne(query);
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
-  console.log(user.mylist)
   res.render('pages/mylist', {
     user,
     tmdb
@@ -50,12 +44,11 @@ app.get("/mylist/:userId/:slug", async (req, res) => {
 }); 
 
 app.post("/mylist/:userId/:slug", async (req, res) => {
-  console.log("POST: /mylist/:userId/:slug");
   const query = {_id: ObjectId(req.params.userId)};
-  const kdramaid = {_id: ObjectId(req.body.mylist)};
-  const updatequery = {$push: {mylist: req.body.kdramaid}}
-  await db.collection("users").updateOne(query, updatequery);
-    
+  const kdramaId = {_id: ObjectId(req.body.mylist)};
+  const updateQuery = {$push: {mylist: req.body.kdramaId}}
+  await db.collection("users").updateOne(query, updateQuery);
+
   const url = `/mylist/${req.params.userId}/${req.params.slug}`;
   res.redirect("url");
 });
@@ -63,12 +56,12 @@ app.post("/mylist/:userId/:slug", async (req, res) => {
 app.get("/profile/:userId/:slug", async (req, res) => {
   console.log("GET: /profile/:userId/:slug");
   const query = {_id: ObjectId(req.params.userId)};
-  const kdramaid = {_id: ObjectId(req.body.mylist)};
+  const kdramaId = {_id: ObjectId(req.body.mylist)};
   const user = await db.collection("users").findOne(query);
   console.log(user);
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
-  const userkdrama = tmdb.filter(kdrama => user.mylist.includes(kdrama._id))
-  console.log(userkdrama);
+  const userKdrama = tmdb.filter(kdrama => user.mylist.includes(kdrama._id))
+  console.log(userKdrama);
 /*
   gegevens van kdraam ophale
 loop find one
@@ -77,17 +70,17 @@ ingewikkelde qyery met list
   res.render("pages/profile", {
     user,
     tmdb,
-    userkdrama
+    userKdrama
   });
 });
 
 app.get("/kdrama/:kdramaid/:slug/:userId/:slug", async (req, res) => {
   console.log("GET: /kdrama/:kdramaId/:slug");
   const query = {_id: ObjectId(req.params.userId)};
-  const kdramaid = {_id: ObjectId(req.params.kdramaid)};
+  const kdramaId = {_id: ObjectId(req.params.kdramaId)};
   const user = await db.collection("users").findOne(query);
   console.log(user);
-  const tmdb = await db.collection("tmdb").findOne(kdramaid);
+  const tmdb = await db.collection("tmdb").findOne(kdramaId);
 
   res.render("pages/detail", {
     user,
@@ -98,8 +91,8 @@ app.get("/kdrama/:kdramaid/:slug/:userId/:slug", async (req, res) => {
 // TODO: 404
 app.use(function (req, res) {
   console.error("Error 404: page nog found");
-  const kdramaid = {_id: ObjectId(req.params.kdramaid)};
-  const tmdb = db.collection("tmdb").findOne(kdramaid);
+  const kdramaId = {_id: ObjectId(req.params.kdramaId)};
+  const tmdb = db.collection("tmdb").findOne(kdramaId);
 
   res.status(404).render("pages/404", {
     tmdb
@@ -121,7 +114,6 @@ async function connectDB() {
   }
 }
 
-// Console log does site work
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
   connectDB()
