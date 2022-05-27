@@ -1,5 +1,7 @@
 console.log("Profile");
 
+// Code is uitgelegd in de Wiki bij onderdeel: Client-side Component
+
 // Data aanvragen API
 const api_key = "api_key=c9c582007e770d9564a6499f6e364a2a";
 const base_url = "https://api.themoviedb.org/3";

@@ -1,3 +1,7 @@
+console.log("Visibility");
+
+// Code is uitgelegd in de Wiki bij onderdeel: Client-side Component
+
 let boolean = document.hidden;
 let link = document.querySelector("link[rel~='icon']");
 

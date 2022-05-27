@@ -1,3 +1,5 @@
+// Code is uitgelegd in de Wiki bij onderdeel: Databse-structure
+
 // NPM packages
 const express = require("express");
 
@@ -83,7 +85,6 @@ app.get("/profile/:userId/:slug", async (req, res) => {
 });
 
 app.get("/kdrama/:kdramaId/:slug/:userId/:slug", async (req, res) => {
-  console.log("GET: /kdrama/:kdramaId/:slug");
   const query = {_id: ObjectId(req.params.userId)};
   const kdramaId = {_id: ObjectId(req.params.kdramaId)};
   const user = await db.collection("users").findOne(query);
@@ -95,10 +96,9 @@ app.get("/kdrama/:kdramaId/:slug/:userId/:slug", async (req, res) => {
   });
 });
 
-// TODO: 404
+// 404
 app.use( async (req, res) => {
   console.error("Error 404: page nog found");
-  const kdramaId = {_id: ObjectId(req.params.kdramaId)};
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
 
   res.status(404).render("pages/404", {

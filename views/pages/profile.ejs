@@ -21,9 +21,10 @@
               <h2 class="visually-hidden">Drama poster</h2>
               <img class="poster-img" src="/img/404-cover.jpg" alt="<%= fav.name %>" />
               <form action="/profile/<%= user._id %>/<%= user.slug %>" method="post">
-                <button type="submit" name="kdramaId" value="<%=fav._id%>">
+                <button>
                     <slug class="heart-add heart-added"></slug>
                 </button>
+                <input type="hidden" name="kdramaId" value="<%=fav._id%>" />
               </form>
             </a>
             <h3><%= fav.name %></h3>
