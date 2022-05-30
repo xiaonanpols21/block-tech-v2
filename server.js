@@ -42,11 +42,8 @@ app.get("/mylist/:userId/:slug", async (req, res) => {
   const query = {_id: ObjectId(req.params.userId)};
   const user = await db.collection("users").findOne(query);
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
-
   const kdramaId = {_id: ObjectId(req.params.kdramaId)};
-  //const user = await db.collection("users").findOne(query);
-  //const tmdb = await db.collection("tmdb").findOne(kdramaId);
-  
+
   res.render('pages/mylist', {
     user,
     tmdb
