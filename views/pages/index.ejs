@@ -12,10 +12,8 @@
         <button>Choose profile</button>
         <div class="ch-content">
           <% users.forEach(user => { %>
-          <a href="/mylist/<%= user._id %>/<%= user.slug %>"
-            ><img src="/<%= user.img %>" alt="<%= user.name %>" /><%= user.name
-            %></a
-          >
+          <a href="/mylist/<%= user._id %>/<%= user.slug %>">
+          <img src="/<%= user.img %>" alt="<%= user.name %>" /><%= user.name %></a>
           <% }) %>
         </div>
       </section>
@@ -23,5 +21,6 @@
     <img class="index-logo" src="img/logo.svg" alt="Logo" />
 
     <script src="js/visibility.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
