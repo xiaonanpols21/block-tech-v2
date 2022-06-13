@@ -6,6 +6,9 @@
 // NPM packages
 const express = require("express");
 
+// Compression
+const compression = require('compression')
+
 const dotenv = require("dotenv").config();
 
 const { MongoClient } = require("mongodb");
@@ -25,12 +28,24 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
+app.use(compression());
+
+console.log(compression);
+
+// Compression
+// app.use(compression({
+//   level: 6,
+//   treshold: 100 * 1000,
+//   filter: (req, res) => {
+
+//   }
+
+// }))
+
 // Pages
 app.get("/", async (req, res) => {
   const users = await db.collection("users").find({},{}).toArray();
   const tmdb = await db.collection("tmdb").find({},{}).toArray();
-
-  console.log(tmdb)
 
   res.render("pages/index", {
     users,
