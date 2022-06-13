@@ -29,16 +29,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 // Compression
-//app.use(compression());
-
-app.use(compression({
-  level: 6,
-  treshold: 100 * 1000,
-  filter: (req, res) => {
-
-  }
-
-}))
+app.use(compression());
 
 // Pages
 app.get("/", async (req, res) => {
