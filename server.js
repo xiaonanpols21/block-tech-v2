@@ -28,19 +28,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-app.use(compression());
-
-console.log(compression);
-
 // Compression
-// app.use(compression({
-//   level: 6,
-//   treshold: 100 * 1000,
-//   filter: (req, res) => {
+//app.use(compression());
 
-//   }
+app.use(compression({
+  level: 6,
+  treshold: 100 * 1000,
+  filter: (req, res) => {
 
-// }))
+  }
+
+}))
 
 // Pages
 app.get("/", async (req, res) => {
