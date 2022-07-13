@@ -29,6 +29,11 @@ Before you install the application, make sure to have [Git](https://git-scm.com/
 git clone https://github.com/xiaonanpols21/block-tech-v2
 
 ```
+``` bash
+
+npm install
+
+```
 
 ``` bash
 
